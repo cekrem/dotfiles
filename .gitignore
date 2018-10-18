@@ -1,4 +1,8 @@
-*
+/*
 !.gitignore
+
 !.vimrc
-!.vim/autoload/**/*
+!.vim/
+.vim/plugged/
+
+!.config/
