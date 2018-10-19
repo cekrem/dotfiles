@@ -1,6 +1,8 @@
 /*
 !.gitignore
 
+!fonts/
+
 !.vimrc
 !.vim/
 .vim/plugged/
