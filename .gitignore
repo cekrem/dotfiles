@@ -8,3 +8,7 @@
 .vim/plugged/
 
 !.config/
+.config/nvim/plugged/
+.config/fish/
+!.config/fish/functions/
+
