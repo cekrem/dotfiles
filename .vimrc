@@ -1,7 +1,11 @@
 " Plugins
 call plug#begin()
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Sensible defaults
 Plug 'tpope/vim-sensible'
@@ -16,9 +20,6 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " Appearance
 Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
-
-" Autocomplete
-Plug 'Shougo/deoplete.nvim'
 
 " Linting
 Plug 'w0rp/ale'
