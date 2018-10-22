@@ -1,11 +1,19 @@
 " Plugins
 call plug#begin()
+" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Sensible defaults
 Plug 'tpope/vim-sensible'
+
+" File navigation
 Plug 'scrooloose/nerdtree'
+
+" Remote integration
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+
+" Appearance
 Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 
@@ -19,6 +27,10 @@ Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 call plug#end()
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
