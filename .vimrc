@@ -1,7 +1,7 @@
 " Plugins
 call plug#begin()
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
