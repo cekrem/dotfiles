@@ -7,12 +7,19 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'micha/vim-colors-solarized'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
+let g:ale_completion_enabled = 1
+
+" Linting
+let g:ale_fixers = {
+  \ 'javascript': ['eslint']
+  \ }
 
 " Colors
 set background=dark
