@@ -7,8 +7,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
-" Sensible defaults
+" Sensible defaults ++
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
