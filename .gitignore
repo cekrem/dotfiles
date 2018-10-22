@@ -12,3 +12,4 @@
 .config/fish/
 !.config/fish/functions/
 
+!setup.sh
