@@ -1,15 +1,23 @@
 " Plugins
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
-Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'micha/vim-colors-solarized'
-"Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+
+" Linting
+Plug 'w0rp/ale'
+
+" Syntax highlight for javascript and jsx
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " Autocomplete
@@ -22,6 +30,9 @@ let g:ale_fixers = {
   \ }
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0
 
 " Colors
 set background=dark
