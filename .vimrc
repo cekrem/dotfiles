@@ -18,7 +18,7 @@ let g:ale_completion_enabled = 1
 
 " Linting
 let g:ale_fixers = {
-  \ 'javascript': ['eslint']
+  \ 'javascript': ['prettier']
   \ }
 
 " Colors
