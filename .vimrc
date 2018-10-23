@@ -39,6 +39,7 @@ set noswapfile
 set smartcase
 set splitright
 set splitbelow
+set tabstop=4
 
 " Golang
 let g:go_fmt_command = "goimports"
