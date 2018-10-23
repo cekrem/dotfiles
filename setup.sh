@@ -7,7 +7,7 @@ xcode-select --install
 if [ ! -f /usr/local/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew install python3 neovim go fish yarn ctags
+brew install python3 neovim go fish yarn ctags ruby
 
 # Install python packages
 pip3 install neovim requests bpython
@@ -16,7 +16,7 @@ pip3 install neovim requests bpython
 gem install colorls neovim
 
 # Install npm packages
-yarn global add neovim
+yarn global add neovim typescript
 
 # Install go packages
 go get -u github.com/mdempsky/gocode
