@@ -39,7 +39,16 @@ set noswapfile
 set smartcase
 set splitright
 set splitbelow
-set tabstop=4
+
+" Tab settings
+set expandtab     " Expand tabs to the proper type and size
+set tabstop=2     " Tabs width in spaces
+set softtabstop=2 " Soft tab width in spaces
+set shiftwidth=2  " Amount of spaces when shifting
+
+" Fast save and close
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -82,6 +91,8 @@ let g:ale_go_gometalinter_options = '
 let g:ale_fixers = {
   \ 'javascript': ['prettier']
   \ }
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
 
 " Colors
 set background=dark
