@@ -35,6 +35,21 @@ export const configuration = {
     "tabs.mode"                : "native", // Use vim's tabline, need completely quit Oni and restart a few times
 //    "statusbar.enabled"        : false, // use vim's default statusline
     "sidebar.enabled"          : false, // sidebar ui is gone
+    "oni.plugins.prettier": {
+    "settings": {
+      "semi": false,
+      "tabWidth": 2,
+      "useTabs": false,
+      "singleQuote": true,
+      "trailingComma": "es5",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": false,
+      "arrowParens": "avoid",
+      "printWidth": 80
+    },
+    "formatOnSave": true,
+    "enabled": false
+  }
 //    "sidebar.default.open"     : false, // the side bar collapse 
     "learning.enabled"         : false, // Turn off learning pane
     "achievements.enabled"     : false, // Turn off achievements tracking / UX
@@ -55,4 +70,3 @@ export const configuration = {
     "language.go.languageServer.command": "~/go/bin/go-langserver",
     "language.go.languageServer.arguments": ["--gocodecompletion", "--freeosmemory", "false"],
 }
-
