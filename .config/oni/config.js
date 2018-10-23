@@ -21,12 +21,14 @@ exports.configuration = {
     "oni.loadInitVim": true,
     "oni.useDefaultConfig": false,
     "ui.colorscheme": "onedark",
-    "autoClosingPairs.enabled": false,
+    // "autoClosingPairs.enabled" : false, // disable autoclosing pairs
     "commandline.mode": false,
     "wildmenu.mode": false,
     "tabs.mode": "native",
-    //    "statusbar.enabled"        : false, // use vim's default statusline
-    "sidebar.enabled": false,
+    "statusbar.enabled": false,
+    // "sidebar.enabled"          : false, // sidebar ui is gone
+    "editor.fullScreenOnStart": true,
+    "editor.maximizeScreenOnStart": true,
     "oni.plugins.prettier": {
         "settings": {
             "semi": false,
@@ -40,13 +42,15 @@ exports.configuration = {
             "printWidth": 80
         },
         "formatOnSave": true,
-        "enabled": false
+        "enabled": true
     }
     //    "sidebar.default.open"     : false, // the side bar collapse 
+    //"learning.enabled"         : false, // Turn off learning pane
+    //"achievements.enabled"     : false, // Turn off achievements tracking / UX
     ,
     //    "sidebar.default.open"     : false, // the side bar collapse 
-    "learning.enabled": false,
-    "achievements.enabled": false,
+    //"learning.enabled"         : false, // Turn off learning pane
+    //"achievements.enabled"     : false, // Turn off achievements tracking / UX
     "editor.typingPrediction": false,
     "editor.textMateHighlighting.enabled": false,
     //"oni.useDefaultConfig": true,
