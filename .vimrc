@@ -13,6 +13,7 @@ Plug 'tpope/vim-sleuth'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
+Plug 'sjbach/lusty'
 
 " Remote integration
 Plug 'roxma/nvim-yarp'
@@ -29,6 +30,9 @@ Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 call plug#end()
+
+" General settings
+set hidden
 
 " Golang
 let g:go_fmt_command = "goimports"
