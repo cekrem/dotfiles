@@ -75,7 +75,7 @@ let g:ale_completion_enabled = 1
 let g:ale_linters = {
   \ 'go': ['gometalinter'],
   \ 'html': [],
-  \ 'javascript': ['eslint', 'prettier'],
+  \ 'javascript': ['eslint', 'prettier', 'tsserver'],
   \ 'python': ['flake8'],
   \ 'ruby': ['brakeman', 'rails_best_pratices', 'rubocop']
   \ }

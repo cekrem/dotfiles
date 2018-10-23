@@ -26,5 +26,22 @@ go get -u github.com/sourcegraph/go-langserver
 ln -sf ~/go/bin/gocode /usr/local/bin/gocode
 ln -sf ~/go/bin/go-langserver /usr/local/bin/go-langserver
 
+# Add yarn package installs to path
+if grep -q "yarn" /etc/paths
+then
+	echo "yarn already in path!"
+else
+	sudo echo ~/.config/yarn/global/node_modules/.bin/ >> /etc/paths
+fi
+
+if grep -q "fish" /etc/shells
+then
+	echo "Fish shell already in allowed shells"
+else
+	sudo echo /usr/local/bin/fish >> /etc/shells
+fi
+
+chsh -s /usr/local/bin/fish
+
 rsync -a ./ ~/;
 nvim -c PlugInstall -c UpdateRemotePlugins
