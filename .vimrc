@@ -50,11 +50,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_statusline_duration = 10000
-let g:go_metalinter_enabled = [
-  \ 'deadcode', 'errcheck', 'gas', 'goconst', 'golint', 'gosimple',
-  \ 'gotype', 'ineffassign', 'interfacer', 'staticcheck', 'structcheck',
-  \ 'unconvert', 'varcheck', 'vet', 'vetshadow',
-  \ ]
+let g:go_metalinter_autosave = 1
 
 " Airline
 let g:airline_powerline_fonts = 1
