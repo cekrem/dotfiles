@@ -1,4 +1,4 @@
-// Oni Config
+
 import * as React from "react"
 import * as Oni from "oni-api"
 
@@ -25,12 +25,12 @@ export const deactivate = (oni: Oni.Plugin.Api) => {
 export const configuration = {
     //add custom config here, such as
 
-    "ui.colorscheme": "nord",
+    "ui.colorscheme": "onedark",
 
     //"oni.useDefaultConfig": true,
     //"oni.bookmarks": ["~/Documents"],
     //"oni.loadInitVim": false,
-    //"editor.fontSize": "12px",
+    "editor.fontSize": "14px",
     //"editor.fontFamily": "Monaco",
 
     // UI customizations
