@@ -42,6 +42,19 @@ set splitbelow
 
 " Golang
 let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_list_type = "quickfix"
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_statusline_duration = 10000
+let g:go_metalinter_enabled = [
+  \ 'deadcode', 'errcheck', 'gas', 'goconst', 'golint', 'gosimple',
+  \ 'gotype', 'ineffassign', 'interfacer', 'staticcheck', 'structcheck',
+  \ 'unconvert', 'varcheck', 'vet', 'vetshadow',
+  \ ]
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -52,6 +65,23 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
 
 " Linting
+let g:ale_linters = {
+  \ 'go': ['gometalinter'],
+  \ 'html': [],
+  \ 'javascript': ['eslint'],
+  \ 'python': ['flake8'],
+  \ 'ruby': ['brakeman', 'rails_best_pratices', 'rubocop']
+  \ }
+let g:ale_go_gometalinter_options = '
+  \ --aggregate
+  \ --disable=gas
+  \ --disable=goconst
+  \ --disable=vetshadow
+  \ --fast
+  \ --sort=line
+  \ --tests
+  \ --vendor
+  \ '
 let g:ale_fixers = {
   \ 'javascript': ['prettier']
   \ }
