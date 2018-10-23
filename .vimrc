@@ -33,6 +33,12 @@ call plug#end()
 
 " General settings
 set hidden
+set number
+set autoread
+set noswapfile
+set smartcase
+set splitright
+set splitbelow
 
 " Golang
 let g:go_fmt_command = "goimports"
