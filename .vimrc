@@ -7,6 +7,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
+" Python
+Plug 'zchee/deoplete-jedi'
+
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
