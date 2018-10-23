@@ -12,4 +12,5 @@
 .config/fish/
 !.config/fish/functions/
 
+!config.tsx
 !setup.sh
