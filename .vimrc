@@ -49,6 +49,7 @@ set shiftwidth=2  " Amount of spaces when shifting
 " Fast save and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>p :ALEFix<CR>
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -74,7 +75,7 @@ let g:ale_completion_enabled = 1
 let g:ale_linters = {
   \ 'go': ['gometalinter'],
   \ 'html': [],
-  \ 'javascript': ['eslint'],
+  \ 'javascript': ['eslint', 'prettier'],
   \ 'python': ['flake8'],
   \ 'ruby': ['brakeman', 'rails_best_pratices', 'rubocop']
   \ }
