@@ -16,6 +16,7 @@ Plug 'tpope/vim-sleuth'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Remote integration
@@ -25,6 +26,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " Appearance
 Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
 
 " Linting
 Plug 'w0rp/ale'
@@ -42,9 +44,14 @@ set hidden
 set number
 set autoread
 set noswapfile
+set ignorecase
 set smartcase
 set splitright
 set splitbelow
+
+" Clipboard
+set clipboard^=unnamed
+set clipboard^=unnamedplus
 
 " Tab settings
 set expandtab     " Expand tabs to the proper type and size
@@ -68,7 +75,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_statusline_duration = 10000
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'errcheck']
+let g:go_metalinter_autosave_enabled = ['vet']
 let g:go_metalinter_deadline = "10s"
 
 " Airline
@@ -108,6 +115,9 @@ set background=dark
 colorscheme solarized
 
 " File navigation config
-let g:ctrlp_cmd = 'CtrlPBuffers'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 map <C-a> :NERDTreeToggle<CR>
 map <C-o> :CtrlPMixed<CR>
+
+" Tabbar config
+noremap <leader>t :TagbarToggle<CR>
