@@ -108,5 +108,6 @@ set background=dark
 colorscheme solarized
 
 " File navigation config
-let g:ctrlp_cmd = 'CtrlPMixed'
-map <C-1> :NERDTreeToggle<CR>
+let g:ctrlp_cmd = 'CtrlPBuffers'
+map <C-a> :NERDTreeToggle<CR>
+map <C-o> :CtrlPMixed<CR>
