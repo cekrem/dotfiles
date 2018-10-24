@@ -34,7 +34,7 @@ Plug 'w0rp/ale'
 
 " Bracket pairing
 Plug 'jiangmiao/auto-pairs'
-Plug 'townk/vim-autoclose'
+Plug 'shougo/neopairs.vim'
 
 " Syntax highlight for javascript and jsx
 Plug 'pangloss/vim-javascript'
