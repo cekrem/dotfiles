@@ -16,7 +16,7 @@ Plug 'tpope/vim-sleuth'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
-Plug 'sjbach/lusty'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Remote integration
 Plug 'roxma/nvim-yarp'
@@ -28,6 +28,9 @@ Plug 'vim-airline/vim-airline'
 
 " Linting
 Plug 'w0rp/ale'
+
+" Bracket pairing
+Plug 'jiangmiao/auto-pairs'
 
 " Syntax highlight for javascript and jsx
 Plug 'pangloss/vim-javascript'
@@ -102,7 +105,6 @@ let g:ale_open_list = 1
 set background=dark
 colorscheme solarized
 
-" Nerdtree config
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" File navigation config
+let g:ctrlp_cmd = 'CtrlPMixed'
 map <C-b> :NERDTreeToggle<CR>
