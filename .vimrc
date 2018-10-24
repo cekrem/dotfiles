@@ -34,6 +34,7 @@ Plug 'w0rp/ale'
 
 " Bracket pairing
 Plug 'jiangmiao/auto-pairs'
+Plug 'townk/vim-autoclose'
 
 " Syntax highlight for javascript and jsx
 Plug 'pangloss/vim-javascript'
@@ -90,6 +91,8 @@ let g:airline_theme='onedark'
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
+set completeopt+=noinsert
+call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 
 " Linting
 let g:ale_linters = {
