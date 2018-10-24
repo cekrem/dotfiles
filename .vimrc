@@ -65,8 +65,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>p :ALEFix<CR>
 noremap <leader>t :TagbarToggle<CR>
-noremap <leader>ev :vsplit ~/.vimrc<cr>
-noremap <leader>sv :source ~/.vimrc<cr>
+noremap <leader>.e :vsplit ~/.vimrc<cr>
+noremap <leader>.s :source ~/.vimrc<cr>
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -121,7 +121,7 @@ set background=dark
 colorscheme solarized
 
 " File navigation config
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_cmd = 'CtrlPMixed'
 map <C-a> :NERDTreeToggle<CR>
-map <C-o> :CtrlPMixed<CR>
+map <C-o> :CtrlP<CR>
 
