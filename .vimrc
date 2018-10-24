@@ -2,7 +2,6 @@
 call plug#begin()
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
