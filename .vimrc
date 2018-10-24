@@ -2,6 +2,7 @@
 call plug#begin()
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -107,4 +108,4 @@ colorscheme solarized
 
 " File navigation config
 let g:ctrlp_cmd = 'CtrlPMixed'
-map <C-b> :NERDTreeToggle<CR>
+map <C-1> :NERDTreeToggle<CR>
