@@ -60,10 +60,13 @@ set tabstop=2     " Tabs width in spaces
 set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
-" Fast save and close
+" Leader shortcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>p :ALEFix<CR>
+noremap <leader>t :TagbarToggle<CR>
+noremap <leader>ev :vsplit ~/.vimrc<cr>
+noremap <leader>sv :source ~/.vimrc<cr>
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -84,7 +87,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='onedark'
 
-"irline_theme='solarized' Autocomplete
+" Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
 
@@ -111,6 +114,7 @@ let g:ale_fixers = {
   \ }
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
+let g:fix_on_save = 1
 
 " Colors
 set background=dark
@@ -121,5 +125,3 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 map <C-a> :NERDTreeToggle<CR>
 map <C-o> :CtrlPMixed<CR>
 
-" Tabbar config
-noremap <leader>t :TagbarToggle<CR>
