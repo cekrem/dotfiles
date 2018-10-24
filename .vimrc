@@ -28,6 +28,7 @@ Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Linting
 Plug 'w0rp/ale'
