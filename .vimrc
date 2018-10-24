@@ -64,9 +64,9 @@ set shiftwidth=2  " Amount of spaces when shifting
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>p :ALEFix<CR>
-noremap <leader>t :TagbarToggle<CR>
-noremap <leader>.e :vsplit ~/.vimrc<cr>
-noremap <leader>.s :source ~/.vimrc<cr>
+nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>.e :vsplit ~/.vimrc<cr>
+nnoremap <leader>.s :source ~/.vimrc<cr>
 
 " Golang
 let g:go_fmt_command = "goimports"
