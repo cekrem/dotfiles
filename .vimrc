@@ -26,6 +26,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " Appearance
 Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 
 " Linting
@@ -81,8 +82,9 @@ let g:go_metalinter_deadline = "10s"
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='onedark'
 
-" Autocomplete
+"irline_theme='solarized' Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
 
