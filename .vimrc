@@ -92,6 +92,7 @@ let g:go_statusline_duration = 10000
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet']
 let g:go_metalinter_deadline = "10s"
+let g:go_auto_type_info = 1
 
 " Airline
 let g:airline_powerline_fonts = 1
