@@ -1,4 +1,4 @@
 # Defined in - @ line 2
 function vi
-	nvim $argv
+	command nvim $argv
 end
