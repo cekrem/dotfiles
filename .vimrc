@@ -1,7 +1,19 @@
 " Plugins
 call plug#begin()
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Git
+Plug 'airblade/vim-gitgutter'
+
+" Snippets
+Plug 'sirver/ultisnips'
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -18,10 +30,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Remote integration
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 
 " Appearance
 Plug 'micha/vim-colors-solarized'
@@ -46,6 +54,7 @@ call plug#end()
 set hidden
 set number
 set autoread
+set autowrite
 set noswapfile
 set ignorecase
 set smartcase
@@ -92,6 +101,7 @@ let g:airline_theme='onedark'
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
+set completeopt-=preview
 set completeopt+=noinsert
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 
