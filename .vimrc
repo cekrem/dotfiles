@@ -79,6 +79,13 @@ nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>.e :vsplit ~/.vimrc<cr>
 nnoremap <leader>.s :source ~/.vimrc<cr>
 
+" Navigation shortcuts
+let g:ctrlp_cmd = 'CtrlPMixed'
+noremap <C-a> :NERDTreeToggle<CR>
+noremap <C-o> :CtrlP<CR>
+noremap <C-j> :bnext<CR>
+noremap <C-f> :bprev<CR>
+
 " Golang
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
@@ -136,9 +143,4 @@ let g:fix_on_save = 1
 " Colors
 set background=dark
 colorscheme solarized
-
-" File navigation config
-let g:ctrlp_cmd = 'CtrlPMixed'
-map <C-a> :NERDTreeToggle<CR>
-map <C-o> :CtrlP<CR>
 
