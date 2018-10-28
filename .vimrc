@@ -86,7 +86,6 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
 noremap <C-j> :bnext<CR>
-noremap <C-f> :bprev<CR>
 
 " Golang
 let g:go_fmt_command = "goimports"
