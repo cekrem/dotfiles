@@ -49,7 +49,7 @@ Plug 'shougo/neopairs.vim'
 " JavaScript and jsx
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'galooshi/import-js'
+Plug 'galooshi/vim-import-js'
 call plug#end()
 
 " General settings
@@ -86,6 +86,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
 noremap <C-j> :bnext<CR>
+noremap <C-k> :bprev<CR>
 
 " Golang
 let g:go_fmt_command = "goimports"
