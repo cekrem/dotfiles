@@ -8,6 +8,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'mattn/emmet-vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -45,9 +46,10 @@ Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/neopairs.vim'
 
-" Syntax highlight for javascript and jsx
+" JavaScript and jsx
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'galooshi/import-js'
 call plug#end()
 
 " General settings
@@ -114,6 +116,12 @@ let g:ale_completion_enabled = 1
 set completeopt-=preview
 set completeopt+=noinsert
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " Linting
 let g:ale_linters = {
