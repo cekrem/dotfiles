@@ -42,6 +42,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Linting
 Plug 'w0rp/ale'
 
+" Comments
+Plug 'scrooloose/nerdcommenter'
+
 " Bracket pairing
 Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/neopairs.vim'
@@ -87,6 +90,9 @@ noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
 noremap <C-j> :bnext<CR>
 noremap <C-k> :bprev<CR>
+nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-\> :call NERDComment(0,"toggle")<CR>
+inoremap <C-\> <C-o>:call NERDComment(0,"append")<CR>
 
 " Golang
 let g:go_fmt_command = "goimports"
