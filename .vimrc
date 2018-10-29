@@ -90,7 +90,6 @@ au FileType go nmap <leader>i <Plug>(go-imports)
 au FileType go nmap <leader>p <Plug>(go-lint)
 
 " Navigation shortcuts
-let g:ctrlp_cmd = 'CtrlPMixed'
 noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
 noremap <C-j> :bnext<CR>
@@ -98,6 +97,12 @@ noremap <C-k> :bprev<CR>
 nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 inoremap <C-\> <C-o>:call NERDComment(0,"append")<CR>
+
+" CtrlP tweaks
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_user_command = ['.git/', 'git ls-files --cached --others  --exclude-standard %s']
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " Golang
 let g:go_fmt_command = "goimports"
