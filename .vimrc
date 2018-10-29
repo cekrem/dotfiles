@@ -84,6 +84,11 @@ nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>.e :vsplit ~/.vimrc<cr>
 nnoremap <leader>.s :source ~/.vimrc<cr>
 
+" Go Specific shortcuts
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>i <Plug>(go-imports)
+au FileType go nmap <leader>p <Plug>(go-lint)
+
 " Navigation shortcuts
 let g:ctrlp_cmd = 'CtrlPMixed'
 noremap <C-a> :NERDTreeToggle<CR>

@@ -16,7 +16,7 @@ pip3 install neovim requests bpython
 gem install colorls neovim
 
 # Install npm packages
-yarn global add neovim typescript
+yarn global add neovim typescript onchange
 
 # Install go packages
 go get -u github.com/mdempsky/gocode
