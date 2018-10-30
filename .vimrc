@@ -34,6 +34,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Appearance
 Plug 'micha/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
@@ -166,5 +167,5 @@ let g:fix_on_save = 1
 
 " Colors
 set background=dark
-colorscheme solarized
-
+set termguicolors
+colorscheme onedark
