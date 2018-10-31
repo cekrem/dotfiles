@@ -28,7 +28,7 @@ export const configuration = {
     "oni.hideMenu"             : "hidden", // Hide top bar menu
     "oni.loadInitVim"          : true, // Load user's init.vim
     "oni.useDefaultConfig"     : false, // Do not load Oni's init.vim
-    "ui.colorscheme"           : "onedark", // Load init.vim colorscheme, remove this line if wants Oni's default
+    "ui.colorscheme"           : "", // Load init.vim colorscheme, remove this line if wants Oni's default
    // "autoClosingPairs.enabled" : false, // disable autoclosing pairs
     "commandline.mode"         : false, // Do not override commandline UI
     "wildmenu.mode"            : false, // Do not override wildmenu UI,

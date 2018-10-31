@@ -20,7 +20,7 @@ exports.configuration = {
     "oni.hideMenu": "hidden",
     "oni.loadInitVim": true,
     "oni.useDefaultConfig": false,
-    "ui.colorscheme": "onedark",
+    "ui.colorscheme": "",
     // "autoClosingPairs.enabled" : false, // disable autoclosing pairs
     "commandline.mode": false,
     "wildmenu.mode": false,
