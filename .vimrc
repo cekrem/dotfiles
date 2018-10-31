@@ -32,9 +32,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Appearance
-Plug 'micha/vim-colors-solarized'
+" Themes
+Plug 'iCyMind/NeoSolarized'
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+
+" Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
@@ -125,7 +128,6 @@ let g:go_term_height = 13
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='onedark'
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
@@ -168,4 +170,5 @@ let g:fix_on_save = 1
 " Colors
 set background=dark
 set termguicolors
-colorscheme onedark
+colorscheme gruvbox
+let g:airline_theme='minimalist'
