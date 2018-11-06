@@ -174,7 +174,8 @@ colorscheme gruvbox
 let g:airline_theme='minimalist'
 
 if strftime("%H") < 17
-  colorscheme onedark
+  "colorscheme onedark
+  colorscheme NeoSolarized
 else
   colorscheme gruvbox
 endif
