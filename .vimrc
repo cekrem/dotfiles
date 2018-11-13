@@ -93,6 +93,9 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
 au FileType go nmap <leader>p <Plug>(go-lint)
 
+" Js specific shortcuts
+au FileType javascript map <C-]> :ALEGoToDefinition<CR>
+
 " Navigation shortcuts
 noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
