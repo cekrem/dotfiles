@@ -7,7 +7,7 @@ xcode-select --install
 if [ ! -f /usr/local/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew install python3 neovim go fish yarn ctags ruby
+brew install python3 neovim go zsh yarn ctags ruby
 
 # Install python packages
 pip3 install neovim requests bpython
@@ -34,14 +34,12 @@ else
 	sudo echo ~/.config/yarn/global/node_modules/.bin/ >> /etc/paths
 fi
 
-if grep -q "fish" /etc/shells
-then
-	echo "Fish shell already in allowed shells"
-else
-	sudo echo /usr/local/bin/fish >> /etc/shells
-fi
+# Remove old zsh, symlink new
+sudo rm /bin/zsh;
+ln -s /usr/local/bin/zsh /bin/zsh;
 
-chsh -s /usr/local/bin/fish
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 rsync -a ./ ~/;
 nvim -c PlugInstall -c UpdateRemotePlugins
