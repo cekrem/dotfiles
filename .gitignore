@@ -7,6 +7,8 @@
 !.vim/
 .vim/plugged/
 
+.zshrc
+
 !.config/
 .config/nvim/plugged/
 .config/fish/

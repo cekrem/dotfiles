@@ -34,10 +34,6 @@ else
 	sudo echo ~/.config/yarn/global/node_modules/.bin/ >> /etc/paths
 fi
 
-# Remove old zsh, symlink new
-sudo rm /bin/zsh;
-ln -s /usr/local/bin/zsh /bin/zsh;
-
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
