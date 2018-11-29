@@ -57,6 +57,10 @@ Plug 'shougo/neopairs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'galooshi/vim-import-js'
+
+" YAML formatting (faster)
+Plug 'stephpy/vim-yaml'
+
 call plug#end()
 
 " General settings
