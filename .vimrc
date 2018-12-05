@@ -96,6 +96,7 @@ nnoremap <leader>.s :source ~/.vimrc<cr>
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
 au FileType go nmap <leader>p <Plug>(go-lint)
+au FileType go noremap <C-s> :GoDeclsDir<CR>
 
 " Js specific shortcuts
 au FileType javascript map <C-]> :ALEGoToDefinition<CR>
