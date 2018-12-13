@@ -63,10 +63,10 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git,
-  kubectl,
-  docker,
-  golang,
+  git
+  kubectl
+  docker
+  golang
   yarn
 )
 
@@ -91,6 +91,8 @@ alias vim="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
