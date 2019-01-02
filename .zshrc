@@ -89,6 +89,9 @@ fi
 alias vi="nvim"
 alias vim="nvim"
 
+# Dev ops helpers
+alias dc-proxy='node ~/code/proxy/index.js'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export LANG=en_US.UTF-8
