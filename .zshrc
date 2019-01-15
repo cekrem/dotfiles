@@ -97,6 +97,9 @@ alias dc-proxy='cd ~/code/proxy/ && node index.js'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Extend PATH
+export PATH=$PATH:~/go/bin
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 

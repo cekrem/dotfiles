@@ -64,6 +64,7 @@ Plug 'stephpy/vim-yaml'
 call plug#end()
 
 " General settings
+set expandtab
 set hidden
 set number
 set autoread
