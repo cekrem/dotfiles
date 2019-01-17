@@ -91,6 +91,9 @@ alias vim="nvim"
 
 # Dev ops helpers
 alias dc-proxy='cd ~/code/proxy/ && node index.js'
+es() {
+  source ~/envVars/"$1"
+}
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,6 +102,8 @@ export LC_ALL=en_US.UTF-8
 
 # Extend PATH
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/envVars
+export PATH=$PATH:~/utils
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"

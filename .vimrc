@@ -43,8 +43,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Linting
-Plug 'w0rp/ale'
+" Linting ALE DISABLED FOR NOW
+"Plug 'w0rp/ale'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -64,7 +64,6 @@ Plug 'stephpy/vim-yaml'
 call plug#end()
 
 " General settings
-set expandtab
 set hidden
 set number
 set autoread
@@ -88,10 +87,10 @@ set shiftwidth=2  " Amount of spaces when shifting
 " Leader shortcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>p :ALEFix<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>.e :vsplit ~/.vimrc<cr>
 nnoremap <leader>.s :source ~/.vimrc<cr>
+nmap <leader>p :ALEFix<CR>
 
 " Go Specific shortcuts
 au FileType go nmap <leader>r <Plug>(go-run)
@@ -119,7 +118,7 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " Golang
 let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
+" let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
@@ -133,6 +132,7 @@ let g:go_metalinter_deadline = "10s"
 let g:go_auto_type_info = 1
 let g:go_term_mode = "split"
 let g:go_term_height = 13
+let g:go_def_mode = 'godef'
 
 " Airline
 let g:airline_powerline_fonts = 1
