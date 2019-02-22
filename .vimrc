@@ -110,6 +110,12 @@ nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 inoremap <C-\> <C-o>:call NERDComment(0,"append")<CR>
 
+" Git shortcuts
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+" Undo hunk: <leader>hu
+" Stage hunk: <leader>hs
+
 " CtrlP tweaks
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0

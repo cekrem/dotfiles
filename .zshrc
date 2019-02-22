@@ -88,6 +88,8 @@ fi
 
 alias vi="nvim"
 alias vim="nvim"
+alias azc="az interactive"
+alias cli="az interactive"
 
 # Dev ops helpers
 alias dc-proxy='cd ~/code/proxy/ && node index.js'
