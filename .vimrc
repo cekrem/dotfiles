@@ -185,7 +185,6 @@ let g:fix_on_save = 1
 " Colors
 set background=dark
 set termguicolors
-colorscheme gruvbox
 let g:airline_theme='minimalist'
 
 if strftime("%H") < 17
