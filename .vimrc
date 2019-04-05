@@ -10,6 +10,9 @@ else
 endif
 Plug 'mattn/emmet-vim'
 
+" Environment handling
+Plug 'tpope/vim-dotenv'
+
 " Git
 Plug 'airblade/vim-gitgutter'
 
