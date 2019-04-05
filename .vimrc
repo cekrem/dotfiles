@@ -119,8 +119,9 @@ nmap [h <Plug>GitGutterPrevHunk
 " CtrlP tweaks
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_user_command = ['.git/', 'git ls-files --cached --others  --exclude-standard %s']
 let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 " Golang
 let g:go_fmt_command = "goimports"
