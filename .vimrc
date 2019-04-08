@@ -64,6 +64,9 @@ Plug 'galooshi/vim-import-js'
 " YAML formatting (faster)
 Plug 'stephpy/vim-yaml'
 
+" tmux integration/navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 " General settings
@@ -107,8 +110,6 @@ au FileType javascript map <C-]> :ALEGoToDefinition<CR>
 " Navigation shortcuts
 noremap <C-a> :NERDTreeToggle<CR>
 noremap <C-o> :CtrlP<CR>
-noremap <C-j> :bnext<CR>
-noremap <C-k> :bprev<CR>
 nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 inoremap <C-\> <C-o>:call NERDComment(0,"append")<CR>
@@ -189,6 +190,8 @@ let g:fix_on_save = 1
 " Colors
 set background=dark
 set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:airline_theme='minimalist'
 
 if strftime("%H") < 17
