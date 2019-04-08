@@ -46,8 +46,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Linting ALE DISABLED FOR NOW
-"Plug 'w0rp/ale'
+" Linting
+Plug 'w0rp/ale'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -150,7 +150,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 set completeopt-=preview
 set completeopt+=noinsert
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])

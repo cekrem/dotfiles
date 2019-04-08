@@ -97,6 +97,11 @@ alias dc-proxy='cd ~/code/proxy/ && node index.js'
 es() {
   source ~/envVars/"$1"
 }
+aks-forward () {
+  if (( $# == 0 ))
+  then echo usage: aks-forward app-name...; fi
+  sudo kubefwd svc -n uat -l "app in($@)"
+ }
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
