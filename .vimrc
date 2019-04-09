@@ -47,7 +47,8 @@ Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Linting
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'scrooloose/syntastic'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -93,6 +94,9 @@ set tabstop=2     " Tabs width in spaces
 set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
+" General shortcuts / overrides
+noremap <C-c> :noh<CR>
+
 " Leader shortcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -103,7 +107,7 @@ nnoremap <leader>.s :source ~/.vimrc<CR>
 " Go Specific shortcuts
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
-au FileType go nmap <leader>p :GoVet<CR>
+" au FileType go nmap <leader>p :GoVet<CR>
 au FileType go noremap <C-s> :GoDeclsDir<CR>
 
 " JS specific shortcuts
@@ -163,7 +167,7 @@ let g:user_emmet_settings = {
     \  },
   \}
 
-" Linting
+" Linting: ALE
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
 let g:ale_linters = {
@@ -189,6 +193,17 @@ let g:ale_fixers = {
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
 let g:fix_on_save = 1
+
+" Linting: Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 " Colors
 set background=dark
