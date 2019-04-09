@@ -80,6 +80,9 @@ set smartcase
 set splitright
 set splitbelow
 
+" Mouse integration
+set mouse=a
+
 " Clipboard
 set clipboard^=unnamed
 set clipboard^=unnamedplus
@@ -94,18 +97,18 @@ set shiftwidth=2  " Amount of spaces when shifting
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>t :TagbarToggle<CR>
-nnoremap <leader>.e :vsplit ~/.vimrc<cr>
-nnoremap <leader>.s :source ~/.vimrc<cr>
-nmap <leader>p :ALEFix<CR>
+nnoremap <leader>.e :vsplit ~/.vimrc<CR>
+nnoremap <leader>.s :source ~/.vimrc<CR>
 
 " Go Specific shortcuts
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
-au FileType go nmap <leader>p <Plug>(go-lint)
+au FileType go nmap <leader>p :GoVet<CR>
 au FileType go noremap <C-s> :GoDeclsDir<CR>
 
-" Js specific shortcuts
+" JS specific shortcuts
 au FileType javascript map <C-]> :ALEGoToDefinition<CR>
+au FileType javascript nmap <leader>p :ALEFix<CR>
 
 " Navigation shortcuts
 noremap <C-a> :NERDTreeToggle<CR>
@@ -125,7 +128,7 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1 
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -136,11 +139,9 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
-let g:go_statusline_duration = 10000
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet']
-let g:go_metalinter_deadline = "10s"
-let g:go_auto_type_info = 1
+" let g:go_statusline_duration = 10000
+let g:go_metalinter_autosave = 0 
+let g:go_auto_type_info = 0
 let g:go_term_mode = "split"
 let g:go_term_height = 13
 let g:go_def_mode = 'godef'
@@ -163,8 +164,10 @@ let g:user_emmet_settings = {
   \}
 
 " Linting
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '?'
 let g:ale_linters = {
-  \ 'go': [],
+  \ 'go': ['vet', 'errcheck'],
   \ 'html': [],
   \ 'javascript': ['eslint', 'prettier', 'tsserver'],
   \ 'python': ['flake8'],
