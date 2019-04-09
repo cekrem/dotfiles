@@ -47,8 +47,8 @@ Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Linting
-" Plug 'w0rp/ale'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+" Plug 'scrooloose/syntastic'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -136,7 +136,7 @@ let g:ctrlp_use_caching = 1
 
 " Golang
 let g:go_fmt_command = "goimports"
-" let g:go_fmt_fail_silently = 1
+let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
@@ -168,29 +168,9 @@ let g:user_emmet_settings = {
   \}
 
 " Linting: ALE
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '?'
-let g:ale_linters = {
-  \ 'go': ['vet', 'errcheck'],
-  \ 'html': [],
-  \ 'javascript': ['eslint', 'prettier', 'tsserver'],
-  \ 'python': ['flake8'],
-  \ 'ruby': ['brakeman', 'rails_best_pratices', 'rubocop']
-  \ }
-let g:ale_go_gometalinter_options = '
-  \ --aggregate
-  \ --disable=gas
-  \ --disable=goconst
-  \ --disable=vetshadow
-  \ --fast
-  \ --sort=line
-  \ --tests
-  \ --vendor
-  \ '
-let g:ale_fixers = {
-  \ 'javascript': ['prettier']
-  \ }
-let g:ale_set_quickfix = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
 let g:fix_on_save = 1
 
