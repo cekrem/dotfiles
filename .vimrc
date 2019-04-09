@@ -29,6 +29,7 @@ Plug 'zchee/deoplete-jedi'
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-unimpaired'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
