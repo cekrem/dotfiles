@@ -135,6 +135,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0 
+let g:ctrlp_root_markers = ['.ctrlp']
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -178,6 +179,11 @@ let g:ale_sign_warning = '⚠'
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
 
 " Linting: Syntastic
 set statusline+=%#warningmsg#
