@@ -108,6 +108,7 @@ nnoremap <leader>.s :source ~/.vimrc<CR>
 " Go Specific shortcuts
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
+au FileType go nmap <leader>h :GoSameIdsToggle<CR>
 " au FileType go nmap <leader>p :GoVet<CR>
 au FileType go noremap <C-s> :GoDeclsDir<CR>
 
@@ -133,7 +134,7 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_use_caching = 1 
+let g:ctrlp_use_caching = 0 
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -175,7 +176,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_quickfix = 0
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:fix_on_save = 1
 
 " Linting: Syntastic
