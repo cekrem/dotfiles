@@ -168,6 +168,9 @@ let g:user_emmet_settings = {
     \  },
   \}
 
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
+
 " Linting: ALE
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
