@@ -179,6 +179,11 @@ let g:ale_sign_warning = '⚠'
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
 
 " Linting: Syntastic
 set statusline+=%#warningmsg#
