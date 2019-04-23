@@ -22,6 +22,11 @@ Plug 'sirver/ultisnips'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+" if has('nvim')
+"  Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+" else
+"   Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" endif
 
 " Python
 Plug 'zchee/deoplete-jedi'
@@ -37,8 +42,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Themes
-Plug 'iCyMind/NeoSolarized'
-Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 
 " Appearance
@@ -148,7 +151,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 " let g:go_statusline_duration = 10000
 let g:go_metalinter_autosave = 0 
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
 let g:go_term_mode = "split"
 let g:go_term_height = 13
 let g:go_def_mode = 'godef'

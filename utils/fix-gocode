@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mv ~/go/bin/gocode ~/go/bin/gocode-old
+cp ~/go/bin/gocode-gomod ~/go/bin/gocode
