@@ -84,6 +84,7 @@ set ignorecase
 set smartcase
 set splitright
 set splitbelow
+set noshowmode
 
 " Mouse integration
 set mouse=a
