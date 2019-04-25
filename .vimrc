@@ -17,11 +17,11 @@ Plug 'tpope/vim-dotenv'
 Plug 'airblade/vim-gitgutter'
 
 " Snippets
-Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 " if has('nvim')
 "  Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 " else
@@ -29,17 +29,18 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 " endif
 
 " Python
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 
-" File navigation
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" File navigation / search
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -62,15 +63,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/neopairs.vim'
 
 " JavaScript and jsx
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'galooshi/vim-import-js'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx']  }
 
 " YAML formatting (faster)
-Plug 'stephpy/vim-yaml'
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
-" tmux integration/navigation
-Plug 'christoomey/vim-tmux-navigator'
+" tmux integration/navigation (and fix gocode, just because this is the last
+" entry)
+Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
 
 call plug#end()
 
@@ -85,6 +87,7 @@ set smartcase
 set splitright
 set splitbelow
 set noshowmode
+set cursorline
 
 " Mouse integration
 set mouse=a
@@ -137,9 +140,14 @@ nmap [h <Plug>GitGutterPrevHunk
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0 
 let g:ctrlp_root_markers = ['.ctrlp']
+
+" use ag when available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " Golang
 let g:go_fmt_command = "goimports"
@@ -167,12 +175,6 @@ let g:ale_completion_enabled = 0
 set completeopt-=preview
 set completeopt+=noinsert
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
-let g:user_emmet_leader_key='<Tab>'
-let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
@@ -188,6 +190,9 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \}
 
+" Emmet
+let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}}
+let g:jsx_ext_required = 0
 
 " Linting: Syntastic
 set statusline+=%#warningmsg#

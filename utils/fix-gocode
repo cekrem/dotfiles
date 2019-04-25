@@ -2,3 +2,5 @@
 
 mv ~/go/bin/gocode ~/go/bin/gocode-old
 cp ~/go/bin/gocode-gomod ~/go/bin/gocode
+
+echo "Replaced vanilla gocode with gocode-gomod! All good."
