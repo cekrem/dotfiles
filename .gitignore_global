@@ -2,3 +2,4 @@
 uat.env
 prod.env
 .idea/
+vendor/

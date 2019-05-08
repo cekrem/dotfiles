@@ -116,7 +116,7 @@ nnoremap <leader>.s :source ~/.vimrc<CR>
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>i <Plug>(go-imports)
 au FileType go nmap <leader>h :GoSameIdsToggle<CR>
-" au FileType go nmap <leader>p :GoVet<CR>
+au FileType go nmap <leader>p :GoMetaLinter<CR>
 au FileType go noremap <C-s> :GoDeclsDir<CR>
 
 " JS specific shortcuts
