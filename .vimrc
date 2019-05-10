@@ -103,12 +103,12 @@ set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
 " General shortcuts / overrides
-noremap <C-c> :noh<CR>
+noremap <silent> <C-c> :noh<CR>
 
 " Leader shortcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <silent> <leader>t :TagbarToggle<CR>
 nnoremap <leader>.e :vsplit ~/.vimrc<CR>
 nnoremap <leader>.s :source ~/.vimrc<CR>
 
@@ -124,8 +124,8 @@ au FileType javascript map <C-]> :ALEGoToDefinition<CR>
 au FileType javascript nmap <leader>p :ALEFix<CR>
 
 " Navigation shortcuts
-noremap <C-a> :NERDTreeToggle<CR>
-noremap <C-o> :CtrlP<CR>
+noremap <silent> <C-a> :NERDTreeToggle<CR>
+" noremap <silent> <C-o> :CtrlP<CR>
 nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-\> :call NERDComment(0,"toggle")<CR>
 inoremap <C-\> <C-o>:call NERDComment(0,"append")<CR>
@@ -139,7 +139,7 @@ nmap [h <Plug>GitGutterPrevHunk
 " CtrlP tweaks
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_use_caching = 0 
 let g:ctrlp_root_markers = ['.ctrlp']
 
