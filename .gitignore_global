@@ -1,5 +1,6 @@
 .ctrlp
 uat.env
 prod.env
+local.env
 .idea/
 vendor/
