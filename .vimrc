@@ -65,9 +65,9 @@ Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] 
 " YAML formatting (faster)
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
-" tmux integration/navigation (and fix gocode, just because this is the last
-" entry)
-Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
+" tmux integration/navigation
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
 
 call plug#end()
 
@@ -134,9 +134,11 @@ nmap [h <Plug>GitGutterPrevHunk
 " CtrlP tweaks
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_use_caching = 0 
 let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_custom_ignore = 'main'
+let g:ctrlp_user_command_async = 1
 
 " use ag when available
 if executable('ag')

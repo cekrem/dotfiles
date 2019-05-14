@@ -4,3 +4,6 @@ prod.env
 local.env
 .idea/
 vendor/
+tmp/
+main
+ssh_readonly_github.rsa 
