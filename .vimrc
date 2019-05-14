@@ -22,11 +22,6 @@ Plug 'sirver/ultisnips', { 'for': 'go' }
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-" if has('nvim')
-"  Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-" else
-"   Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-" endif
 
 " Python
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
