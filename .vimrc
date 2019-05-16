@@ -65,6 +65,12 @@ Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] 
 " YAML formatting (faster)
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
+" HTTP requests
+Plug 'nicwest/vim-http'
+
+" SQL
+Plug 'tpope/vim-dadbod'
+
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
 
