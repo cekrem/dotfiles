@@ -66,8 +66,7 @@ Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] 
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
 " tmux integration/navigation
-Plug 'christoomey/vim-tmux-navigator'
-" Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
+Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
 
 call plug#end()
 
@@ -168,6 +167,8 @@ let g:airline#extensions#ale#enabled = 1
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#num_processes = 0
+let g:deoplete#auto_refresh_delay = 0
 let g:ale_completion_enabled = 0
 set completeopt-=preview
 set completeopt+=noinsert
