@@ -48,7 +48,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " Linting
 Plug 'w0rp/ale'
-" Plug 'scrooloose/syntastic'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -114,10 +113,11 @@ nnoremap <leader>.s :source ~/.vimrc<CR>
 
 " Go Specific shortcuts
 au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>i <Plug>(go-imports)
+au FileType go nmap <leader>i <Plug>(go-imports);
 au FileType go nmap <leader>h :GoSameIdsToggle<CR>
 au FileType go nmap <leader>p :GoMetaLinter<CR>
 au FileType go noremap <C-s> :GoDeclsDir<CR>
+au FileType go nmap <leader>v <Plug>(go-info)
 
 " JS specific shortcuts
 au FileType javascript map <C-]> :ALEGoToDefinition<CR>
@@ -162,7 +162,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 " let g:go_statusline_duration = 10000
 let g:go_metalinter_autosave = 0 
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 let g:go_term_mode = "split"
 let g:go_term_height = 13
 let g:go_def_mode = 'godef'
@@ -197,17 +197,6 @@ let g:ale_fixers = {
 " Emmet
 let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}}
 let g:jsx_ext_required = 0
-
-" Linting: Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 " Colors
 set background=dark
