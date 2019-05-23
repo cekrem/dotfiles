@@ -1,13 +1,6 @@
 " Plugins
 call plug#begin()
 " Autocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 Plug 'mattn/emmet-vim'
 
 " Environment handling
@@ -21,10 +14,6 @@ Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-
-" Python
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -103,6 +92,7 @@ set shiftwidth=2  " Amount of spaces when shifting
 
 " General shortcuts / overrides
 noremap <silent> <C-c> :noh<CR>
+nnoremap <leader>u :ALEFindReferences<CR> 
 
 " Leader shortcuts
 nnoremap <leader>w :w<CR>
@@ -151,7 +141,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" Golang
+" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
@@ -165,20 +155,17 @@ let g:go_metalinter_autosave = 0
 let g:go_auto_type_info = 0
 let g:go_term_mode = "split"
 let g:go_term_height = 13
-let g:go_def_mode = 'godef'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
 " Autocomplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#num_processes = 0
-let g:deoplete#auto_refresh_delay = 0
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 set completeopt-=preview
 set completeopt+=noinsert
-call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
@@ -188,11 +175,15 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
-let g:fix_on_save = 1
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
+\   'go': ['goimports'],
 \}
+let g:ale_linters = {'go': ['gofmt', 'golint', 'go vet', 'bingo']}
+" TODO: Change bingo => gopls when it supports ALEFindReferences
+let g:ale_go_langserver_executable = 'gopls'
 
 " Emmet
 let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}}
