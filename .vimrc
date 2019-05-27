@@ -29,11 +29,15 @@ Plug 'mileszs/ack.vim'
 " Themes
 Plug 'morhetz/gruvbox'
 
-" Appearance
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
+" Statusline
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+
+" Indent guides
 Plug 'nathanaelkane/vim-indent-guides'
+
+" Tagbar
+Plug 'majutsushi/tagbar'
 
 " Linting
 Plug 'w0rp/ale'
@@ -161,9 +165,11 @@ let g:go_term_height = 13
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
-" Airline
+" Statusline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " Autocomplete
 let g:ale_completion_enabled = 1
@@ -199,3 +205,4 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:airline_theme='gruvbox'
 
 colorscheme gruvbox
+
