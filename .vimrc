@@ -91,27 +91,28 @@ set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
 " General shortcuts / overrides
-noremap <silent> <C-c> :noh<CR>
+inoremap <C-c> <esc>
+inoremap jk <esc>
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 
 " Intellisense & linting shortcuts
-map <C-[> :ALEFindReferences<CR> 
-map <C-]> :ALEGoToDefinition<CR>
-nmap <leader>p :ALEFix<CR>
-nmap <leader>v :ALEHover<CR>
-nmap <leader>d :ALEDetail<CR>
+noremap <C-[> :ALEFindReferences<CR> 
+noremap <C-]> :ALEGoToDefinition<CR>
+nnoremap <leader>p :ALEFix<CR>
+nnoremap <leader>v :ALEHover<CR>
+nnoremap <leader>d :ALEDetail<CR>
 
 " Leader shortcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
 " Go Specific shortcuts
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>i <Plug>(go-imports);
-au FileType go nmap <leader>h :GoSameIdsToggle<CR>
-au FileType go noremap <C-s> :GoDeclsDir<CR>
+au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
+au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
+au FileType go nnoremap <buffer> <leader>h :GoSameIdsToggle<CR>
+au FileType go noremap <buffer> <C-s> :GoDeclsDir<CR>
 
 " Navigation shortcuts
 noremap <silent> <C-a> :NERDTreeToggle<CR>
@@ -123,8 +124,8 @@ nnoremap <leader>.e :vsplit ~/.vimrc<CR>
 nnoremap <leader>.s :source ~/.vimrc<CR>
 
 " Git shortcuts
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nnoremap ]h <Plug>GitGutterNextHunk
+nnoremap [h <Plug>GitGutterPrevHunk
 " Undo hunk: <leader>hu
 " Stage hunk: <leader>hs
 
