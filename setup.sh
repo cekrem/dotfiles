@@ -7,7 +7,7 @@ xcode-select --install
 if [ ! -f /usr/local/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew install python3 neovim go zsh yarn ctags ruby ag brew tmux txn2/tap/kubefwd fpp
+brew install python3 neovim go zsh yarn ctags ruby ag tmux fpp
 
 # Install python packages
 pip3 install neovim requests bpython
