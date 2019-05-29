@@ -47,7 +47,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Bracket pairing
 Plug 'jiangmiao/auto-pairs'
-Plug 'shougo/neopairs.vim'
 
 " JavaScript and jsx
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -95,14 +94,18 @@ set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
 " General shortcuts / overrides
-inoremap <C-c> <esc>
+noremap <silent> <C-c> :nohl<CR>
+noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
+
+" Ack (ag) search
+nnoremap fi :Ack<Space>
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 
 " Intellisense & linting shortcuts
-noremap <C-[> :ALEFindReferences<CR> 
+nnoremap fr :ALEFindReferences<CR> 
 noremap <C-]> :ALEGoToDefinition<CR>
 nnoremap <leader>p :ALEFix<CR>
 nnoremap <leader>v :ALEHover<CR>
