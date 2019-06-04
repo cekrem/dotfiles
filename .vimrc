@@ -13,7 +13,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'disabledgo' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -99,13 +99,13 @@ noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
 
 " Ack (ag) search
-nnoremap fi :Ack<Space>
+nnoremap gs :Ack<Space>
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 
 " Intellisense & linting shortcuts
-nnoremap fr :ALEFindReferences<CR> 
+nnoremap gr :ALEFindReferences<CR> 
 noremap <C-]> :ALEGoToDefinition<CR>
 nnoremap <leader>p :ALEFix<CR>
 nnoremap <leader>v :ALEHover<CR>
@@ -131,8 +131,8 @@ nnoremap <leader>.e :vsplit ~/.vimrc<CR>
 nnoremap <leader>.s :source ~/.vimrc<CR>
 
 " Git shortcuts
-nnoremap ]h <Plug>GitGutterNextHunk
-nnoremap [h <Plug>GitGutterPrevHunk
+nnoremap ]h :GitGutterNextHunk<CR>
+nnoremap [h :GitGutterPrevHunk<CR>
 " Undo hunk: <leader>hu
 " Stage hunk: <leader>hs
 
@@ -189,12 +189,17 @@ let g:ale_open_list = 0
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'html': ['prettier'],
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \}
 let g:ale_linters = {'go': ['gofmt', 'golint', 'go vet', 'bingo']}
 " TODO: Change bingo => gopls when it supports ALEFindReferences
 let g:ale_go_langserver_executable = 'gopls'
+" let g:ale_go_bingo_options = '--diagnostics-style=onsave'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 0
 
 " Emmet
 let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}}

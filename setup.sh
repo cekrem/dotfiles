@@ -22,6 +22,7 @@ yarn global add neovim typescript onchange import-js
 go get -u github.com/mdempsky/gocode
 go get -u github.com/sourcegraph/go-langserver
 go get -u github.com/saibing/bingo 
+go get -u golang.org/x/tools/cmd/gopls
 
 # Add yarn package installs to path
 if grep -q "yarn" /etc/paths
