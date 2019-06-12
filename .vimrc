@@ -193,9 +193,10 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \}
-let g:ale_linters = {'go': ['gofmt', 'golint', 'go vet', 'bingo']}
+let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
+let g:ale_go_golanci_lint_options = '--disable=typecheck --enable=gocyclo,gosec,gocritic'
+
 " TODO: Change bingo => gopls when it supports ALEFindReferences
-let g:ale_go_langserver_executable = 'gopls'
 " let g:ale_go_bingo_options = '--diagnostics-style=onsave'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
