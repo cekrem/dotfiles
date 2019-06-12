@@ -8,4 +8,5 @@
 	excludesfile = /Users/cekrem/.gitignore_global
 [url "git@github.com:vippsas/"]
 	insteadOf = https://github.com/vippsas/
-
+[alias]
+	sed = ! git grep -z --full-name -l '.' | xargs -0 gsed -i -e
