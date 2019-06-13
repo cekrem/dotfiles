@@ -98,9 +98,9 @@ noremap <silent> <C-c> :nohl<CR>
 noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
 
-" Ack (ag) search
-nnoremap gs :Ack<Space>
-
+" Search
+nnoremap ga :Ack<Space>
+nnoremap gs :ALESymbolSearch<Space>
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 
@@ -193,8 +193,8 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \}
-let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
-let g:ale_go_golanci_lint_options = '--disable=typecheck --enable=gocyclo,gosec,gocritic'
+let g:ale_linters = {'go': ['bingo', 'golangci-lint']}
+let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
 " let g:ale_go_bingo_options = '--diagnostics-style=onsave'
