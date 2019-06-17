@@ -13,7 +13,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'disabledgo' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -60,7 +60,7 @@ Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'nicwest/vim-http'
 
 " SQL
-Plug 'tpope/vim-dadbod'
+" Plug 'tpope/vim-dadbod'
 
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
@@ -99,21 +99,21 @@ noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
 
 " Search
-nnoremap ga :Ack<Space>
-nnoremap gs :ALESymbolSearch<Space>
+nnoremap <leader>a :Ack<Space>
+nnoremap <leader>s :ALESymbolSearch<Space>
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
 
 " Intellisense & linting shortcuts
-nnoremap gr :ALEFindReferences<CR> 
 noremap <C-]> :ALEGoToDefinition<CR>
+nnoremap <leader>fr :ALEFindReferences<CR> 
 nnoremap <leader>p :ALEFix<CR>
 nnoremap <leader>v :ALEHover<CR>
 nnoremap <leader>d :ALEDetail<CR>
-
-" Leader shortcuts
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
+nnoremap <silent> ]w :ALENext<cr>
+nnoremap <silent> [w :ALEPrevious<cr>
+nnoremap <silent> <leader>w :lopen<cr>
 
 " Go Specific shortcuts
 au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
@@ -173,6 +173,13 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline.active = 'left': { [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ] }
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+      \ }
+      \ }
 
 " Autocomplete
 let g:ale_completion_enabled = 1
@@ -194,7 +201,7 @@ let g:ale_fixers = {
 \   'go': ['goimports'],
 \}
 let g:ale_linters = {'go': ['bingo', 'golangci-lint']}
-let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck'
+let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck --disable gochecknoglobals'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
 " let g:ale_go_bingo_options = '--diagnostics-style=onsave'
