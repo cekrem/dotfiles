@@ -8,6 +8,7 @@ Plug 'tpope/vim-dotenv'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Snippets
 Plug 'sirver/ultisnips', { 'for': 'go' }
@@ -135,6 +136,10 @@ nnoremap <leader>.s :source ~/.vimrc<CR>
 " Git shortcuts
 nnoremap ]h :GitGutterNextHunk<CR>
 nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap <leader>gf :GitGutterFold<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>g* :Git sed 's/\<<C-r><C-w>\>//g'<Left><Left><Left>
 " Undo hunk: <leader>hu
 " Stage hunk: <leader>hs
 
