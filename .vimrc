@@ -98,6 +98,7 @@ noremap <silent> <C-c> :nohl<CR>
 noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
 inoremap JK <esc>
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Search
 nnoremap <leader>a :Ack<Space>
