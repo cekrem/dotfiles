@@ -7,3 +7,4 @@ vendor/
 tmp/
 main
 ssh_readonly_github.rsa 
+.dev.go

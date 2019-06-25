@@ -10,3 +10,4 @@
 	insteadOf = https://github.com/vippsas/
 [alias]
 	sed = ! git grep -z --full-name -l '.' | xargs -0 gsed -i -e
+	check-go = ! git diff --name-only origin/master | grep ".go"| sort -u | xargs -I % golangci-lint run -p style -p bugs --disable typecheck --disable gochecknoglobals % 

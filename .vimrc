@@ -13,7 +13,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goDISABLED' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -97,6 +97,7 @@ set shiftwidth=2  " Amount of spaces when shifting
 noremap <silent> <C-c> :nohl<CR>
 noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
+inoremap JK <esc>
 
 " Search
 nnoremap <leader>a :Ack<Space>
