@@ -61,7 +61,7 @@ Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'nicwest/vim-http'
 
 " SQL
-" Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dadbod'
 
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
@@ -117,6 +117,11 @@ nnoremap <leader>d :ALEDetail<CR>
 nnoremap <silent> ]w :ALENext<cr>
 nnoremap <silent> [w :ALEPrevious<cr>
 nnoremap <silent> <leader>w :lopen<cr>
+
+" DB shortcuts
+au FileType sql nnoremap <leader>dbu :%DB $UAT_DB<CR>
+au FileType sql nnoremap <leader>dbm :%DB $MT_DB<CR>
+au FileType sql nnoremap <leader>dbp :%DB $PROD_DB<CR>
 
 " Go Specific shortcuts
 au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)

@@ -8,12 +8,14 @@ if [ ! -f /usr/local/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 brew install python3 neovim go zsh yarn ctags ruby ag tmux fpp sed
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+ACCEPT_EULA=y brew install --no-sandbox msodbcsql mssql-tools
 
 # Install python packages
 pip3 install neovim requests bpython
 
 # Install ruby gems
-gem install colorls neovim
+gem install colorls neovim sqlint
 
 # Install npm packages
 yarn global add neovim typescript onchange import-js

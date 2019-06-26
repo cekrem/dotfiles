@@ -1,0 +1,7 @@
+#!/bin/bash
+if pgrep -f sshuttle > /dev/null; then
+  echo "jumping"
+else
+  echo "not jumping"
+  exit 1
+fi

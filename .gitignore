@@ -10,7 +10,8 @@
 !.vim/
 .vim/plugged/
 
-.zshrc
+!.zshrc
+.private.env
 
 !.config/
 .config/nvim/plugged/

@@ -78,6 +78,10 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+#
+
+# Add private vars to env:
+source ~/.private.env &>/dev/null
 
 # Preferred editor
 export VISUAL=nvim
