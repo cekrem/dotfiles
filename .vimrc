@@ -14,7 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goDISABLED' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -212,7 +212,7 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \}
-let g:ale_linters = {'go': ['bingo', 'golangci-lint']}
+let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
 let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck --disable gochecknoglobals'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
