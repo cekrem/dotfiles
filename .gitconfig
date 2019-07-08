@@ -2,7 +2,7 @@
 	insteadOf = https://bitbucket.org/
 [user]
 	name = Christian Ekrem
-	email = christianekrem@gmail.com
+	email = cekrem@pm.me
 [core]
 	editor = nvim
 	excludesfile = /Users/cekrem/.gitignore_global
