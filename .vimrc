@@ -211,8 +211,12 @@ let g:ale_fixers = {
 \   'html': ['prettier'],
 \   'css': ['prettier'],
 \   'go': ['goimports'],
+\   'c': ['clang-format']
 \}
-let g:ale_linters = {'go': ['bingo', 'golangci-lint']}
+let g:ale_linters = {
+\   'go': ['bingo', 'golangci-lint'],
+\   'c': 'all'
+\}
 let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck --disable gochecknoglobals'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
