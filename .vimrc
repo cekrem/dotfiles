@@ -214,7 +214,7 @@ let g:ale_fixers = {
 \   'c': ['clang-format']
 \}
 let g:ale_linters = {
-\   'go': ['gopls', 'golangci-lint'],
+\   'go': ['bingo', 'golangci-lint'],
 \   'c': 'all'
 \}
 let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck --disable gochecknoglobals'
