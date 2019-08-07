@@ -1,0 +1,4 @@
+#!/bin/bash
+url="https://vippsas.atlassian.net/browse/$@"
+
+open "$url"

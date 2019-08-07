@@ -92,6 +92,8 @@ alias vim="nvim"
 alias azc="az interactive"
 alias cli="az interactive"
 alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
+alias pr="hub pr show"
+alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
 
 # Dev ops helpers
 alias dc-proxy='cd ~/code/proxy/ && node index.js'

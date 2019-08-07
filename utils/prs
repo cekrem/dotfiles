@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [[ "$@" == "" ]]; then
+   projects="vaam merchantportal-frontend"
+else
+   projects="$@"
+fi
+
+padding=-1
+for project in $projects
+do
+   if [ ${#project} -gt $padding ]
+   then
+      padding=${#project}
+   fi
+done
+padding=$(($padding + 1))
+
+for project in $projects
+do
+   if [[ "$project" == "vaam" ]]; then
+      filter="mp-"
+   else
+      filter=""
+   fi
+
+   cd $HOME/code/$project
+   if [[ "$projects" != "$project" ]]; then
+      project=$(printf "%-${padding}s" "$project")
+   else
+      project=""
+   fi
+
+   prs=`hub pr list --color -f 'PROJECT%pC%i %t (%ur)%n' | grep -i "$filter" | sed "s/PROJECT/$project/"`
+
+   hash=`md5 -q -s "$prs"`
+   prevhash=`cat .prhash`
+   if [[ $prevhash != $hash ]]; then
+      echo $hash > .prhash
+      # Do something; alert!
+   fi
+
+   echo -e "$prs"
+done
+exit
+
