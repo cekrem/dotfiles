@@ -52,7 +52,11 @@ Plug 'jiangmiao/auto-pairs'
 " JavaScript and jsx
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
-Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx']  }
+Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] } 
+
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " YAML formatting (faster)
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
@@ -65,6 +69,9 @@ Plug 'tpope/vim-dadbod'
 
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
+
+" StackOverflow
+Plug 'mickaobrien/vim-stackoverflow'
 
 call plug#end()
 
@@ -208,6 +215,8 @@ let g:ale_open_list = 0
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'json': ['prettier'],
 \   'html': ['prettier'],
 \   'css': ['prettier'],
 \   'go': ['goimports'],
@@ -217,7 +226,7 @@ let g:ale_linters = {
 \   'go': ['bingo', 'golangci-lint'],
 \   'c': 'all'
 \}
-let g:ale_go_golangci_lint_options = '-p style -p bugs --disable typecheck --disable gochecknoglobals'
+let g:ale_go_golangci_lint_options = '-p style -p complexity -p bugs -p format --disable typecheck --disable gochecknoglobals --disable scopelint'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
 " let g:ale_go_bingo_options = '--diagnostics-style=onsave'
@@ -226,7 +235,7 @@ let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_text_changed = 0
 
 " Emmet
-let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}}
+let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'extends':'jsx'}, 'typescript.tsx': {'extends':'jsx'}, 'typescript': {'extends':'jsx'}}
 let g:jsx_ext_required = 0
 
 " Colors

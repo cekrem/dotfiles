@@ -13,7 +13,7 @@ brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-rel
 ACCEPT_EULA=y brew install --no-sandbox msodbcsql mssql-tools
 
 # Install python packages
-pip3 install neovim requests bpython
+pip3 install neovim requests bpython beautifulsoup4 html5lib
 
 # Install ruby gems
 gem install colorls neovim sqlint

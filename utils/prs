@@ -31,7 +31,7 @@ do
       project=""
    fi
 
-   prs=`hub pr list --color -f 'PROJECT%pC%i %t (%ur)%n' | grep -i "$filter" | sed "s/PROJECT/$project/"`
+   prs=`hub pr list --color -f 'PROJECT%pC%i %t (%ur)%Nc%n' | grep -i "$filter" | sed "s/PROJECT/$project/"`
 
    hash=`md5 -q -s "$prs"`
    prevhash=`cat .prhash`

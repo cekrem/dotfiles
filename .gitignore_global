@@ -9,3 +9,8 @@ main
 ssh_readonly_github.rsa 
 .dev.go
 .prhash
+.vaam
+sql.sql
+uat.sql
+prod.sql
+test.sql

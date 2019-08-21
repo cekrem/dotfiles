@@ -87,6 +87,10 @@ source ~/.private.env &>/dev/null
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# Prefered python (:D)
+alias python=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
+
 alias vi="nvim"
 alias vim="nvim"
 alias azc="az interactive"
@@ -94,6 +98,9 @@ alias cli="az interactive"
 alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
 alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
+
+# gnu version of bsd built-ins
+alias sed="gsed"
 
 # Dev ops helpers
 alias dc-proxy='cd ~/code/proxy/ && node index.js'
@@ -127,3 +134,7 @@ export PATH=$PATH:~/utils
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# tabtab source for jiractl package
+# uninstall by removing these lines or running `tabtab uninstall jiractl`
+[[ -f /Users/cekrem/.config/yarn/global/node_modules/tabtab/.completions/jiractl.zsh ]] && . /Users/cekrem/.config/yarn/global/node_modules/tabtab/.completions/jiractl.zsh
