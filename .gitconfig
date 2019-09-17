@@ -12,3 +12,5 @@
 	sed = ! git grep -z --full-name -l '.' | xargs -0 gsed -i -e
 	check-go = ! git diff --name-only origin/master | grep ".go"| sort -u | xargs -I % golangci-lint run -p style -p bugs --disable typecheck --disable gochecknoglobals % 
 	ls = ! git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+[push]
+	default = current

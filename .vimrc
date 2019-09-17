@@ -136,6 +136,9 @@ au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
 au FileType go nnoremap <buffer> <leader>h :GoSameIdsToggle<CR>
 au FileType go noremap <buffer> <C-s> :GoDeclsDir<CR>
 
+" Bash script tab => spaces
+au FileType sh set expandtab
+
 " Navigation shortcuts
 noremap <silent> <C-a> :NERDTreeToggle<CR>
 nnoremap <C-\> :call NERDComment(0,"toggle")<CR>
