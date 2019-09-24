@@ -135,6 +135,3 @@ export PATH=$PATH:~/utils
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# tabtab source for jiractl package
-# uninstall by removing these lines or running `tabtab uninstall jiractl`
-[[ -f /Users/cekrem/.config/yarn/global/node_modules/tabtab/.completions/jiractl.zsh ]] && . /Users/cekrem/.config/yarn/global/node_modules/tabtab/.completions/jiractl.zsh
