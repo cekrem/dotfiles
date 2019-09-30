@@ -15,9 +15,10 @@ cd
 yay -S --noconfirm --needed fpp perl-extract-url cquery msodbcsql mssql-tools
 
 # Change default shell
-sudo chsh vagrant -s /usr/bin/zsh
+sudo chsh vagrant -s /bin/zsh
 
 # install vim plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +UpdateRemotePlugins +qall
+
+vim +'PlugInstall --sync' +'UpdateRemotePlugins --sync' +qa
