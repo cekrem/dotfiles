@@ -8,7 +8,7 @@ go get -u golang.org/x/tools/cmd/gopls
 go get -u github.com/cjbassi/gotop
 
 # Install python packages
-pip3 install neovim requests bpython beautifulsoup4 html5lib
+pip install neovim requests bpython beautifulsoup4 html5lib
 
 # Install ruby gems
 gem install colorls neovim sqlint
@@ -26,9 +26,6 @@ fi
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Move git repo to home
-rsync -a ./ ~/;
 
 # Install neovim plugins
 nvim -c PlugInstall -c UpdateRemotePlugins
