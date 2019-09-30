@@ -21,6 +21,7 @@
 !.tmux/
 !.tmux.conf
 !config.tsx
-!setup.sh
+!mac-setup.sh
+!setup-sub-packages.sh
 !iterm/
 !intellij/

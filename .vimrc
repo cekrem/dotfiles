@@ -17,7 +17,8 @@ Plug 'sirver/ultisnips', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 " C#
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs', 'do': ':OmniSharpInstall' }
+Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
+Plug 'tpope/vim-dispatch'
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
@@ -195,6 +196,9 @@ let g:go_info_mode='gopls'
 
 " C# tweaks
 let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_stdio_quickload = 1
+let g:OmniSharp_server_loading_timeout = 5
+let g:OmniSharp_highlight_types = 2
 
 " Statusline config
 let g:airline_powerline_fonts = 1
@@ -230,11 +234,12 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \   'c': ['clang-format'],
-\   'cs': ['OmniSharp']
+\   'cs': ['uncrustify']
 \}
 let g:ale_linters = {
 \   'go': ['bingo', 'golangci-lint'],
-\   'c': 'all'
+\   'c': 'all',
+\   'cs': 'OmniSharp'
 \}
 let g:ale_go_golangci_lint_options = '-p style -p complexity -p bugs -p format --disable typecheck --disable gochecknoglobals --disable scopelint'
 
