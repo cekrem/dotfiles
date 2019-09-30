@@ -17,8 +17,8 @@ Plug 'sirver/ultisnips', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 " C#
-Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
-Plug 'tpope/vim-dispatch'
+"Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
+"Plug 'tpope/vim-dispatch'
 
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'

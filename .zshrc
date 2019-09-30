@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cekrem/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,19 +83,19 @@ source $ZSH/oh-my-zsh.sh
 # Add private vars to env:
 source ~/.private.env &>/dev/null
 
-# Preferred editor
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias python=/usr/local/bin/python3
   alias pip=/usr/local/bin/pip3
   alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
   alias sed="gsed"
+  alias vim="nvim"
+  export VISUAL=nvim
+else
+  export VISUAL=vim
 fi
 
-alias vi="nvim"
-alias vim="nvim"
+export EDITOR="$VISUAL"
+alias vi="vim"
 alias azc="az interactive"
 alias cli="az interactive"
 alias pr="hub pr show"

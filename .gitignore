@@ -2,6 +2,7 @@
 !.gitconfig
 !.gitignore
 !.gitignore_global
+!.profile
 
 !utils/
 !fonts/
@@ -22,6 +23,9 @@
 !.tmux.conf
 !config.tsx
 !mac-setup.sh
+!arch-setup.sh
 !setup-sub-packages.sh
 !iterm/
 !intellij/
+
+!Vagrantfile
