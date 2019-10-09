@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$@" == "" ]]; then
-   projects="vaam merchantportal-frontend"
+   projects="vaam merchantportal-frontend golib signup-backend signup-frontend qr-code contactform"
 else
    projects="$@"
 fi
