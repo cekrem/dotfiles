@@ -85,7 +85,8 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # Add private vars to env:
-source ~/.private.env &>/dev/null
+touch ~/.private.env
+source ~/.private.env
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias python=/usr/local/bin/python3
@@ -108,7 +109,6 @@ alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidV
 # gnu version of bsd built-ins
 
 # Dev ops helpers
-alias dc-proxy='cd ~/code/proxy/ && node index.js'
 es() {
   source ~/envVars/"$1"
 }
@@ -116,12 +116,29 @@ aks-forward () {
   if (( $# == 0 ))
   then echo usage: aks-forward app-name...; fi
   sudo kubefwd svc -n uat -l "app in($@)"
- }
+}
 aks-forward-mt () {
   if (( $# == 0 ))
   then echo usage: aks-forward app-name...; fi
   sudo kubefwd svc -n mt -l "app in($@)"
- }
+}
+encrypt() {
+  if (( $# == 0 ))
+  then echo usage: encrypt filename; fi
+  fileIn="$1"
+  fileOut="$1.enc"
+  echo "creating $fileOut..."
+  openssl enc -aes-256-cbc -salt -in $fileIn -out $fileOut -k $ENCRYPTION_SECRET
+  echo decrypt by doing: openssl enc -d -aes-256-cbc -in $fileOut -out $fileIn -k INSERT_SECRET_HERE
+}
+decrypt() {
+  if (( $# == 0 ))
+  then echo usage: decrypt filename; fi
+  fileIn="$1"
+  fileOut=$(basename $1 .enc)
+  echo "creating $fileOut..."
+  openssl enc -d -aes-256-cbc -in $fileIn -out $fileOut -k $ENCRYPTION_SECRET
+}
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
