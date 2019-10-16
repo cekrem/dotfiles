@@ -115,6 +115,7 @@ nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Search
 nnoremap <leader>a :Ack<Space>
 nnoremap <leader>s :ALESymbolSearch<Space>
+nnoremap <leader>fd :syn clear Repeat \| g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' \| nohlsearch<CR>
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
