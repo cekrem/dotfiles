@@ -8,7 +8,8 @@ go get -u golang.org/x/tools/cmd/gopls
 go get -u github.com/cjbassi/gotop
 
 # Install python packages
-pip install neovim requests bpython beautifulsoup4 html5lib --user
+pip install neovim requests bpython beautifulsoup4 html5lib pgcli
+pip2 mssql-cli
 
 # Install ruby gems
 gem install colorls neovim sqlint

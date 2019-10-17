@@ -21,8 +21,8 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
+# CASE_SENSITIVE="true"
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -72,6 +72,10 @@ plugins=(
   docker
   golang
   yarn
+  brew
+  postgres
+  rsync
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,8 +132,8 @@ encrypt() {
   fileIn="$1"
   fileOut="$1.enc"
   echo "creating $fileOut..."
-  openssl enc -aes-256-cbc -salt -in $fileIn -out $fileOut -k $ENCRYPTION_SECRET
-  echo decrypt by doing: openssl enc -d -aes-256-cbc -in $fileOut -out $fileIn -k INSERT_SECRET_HERE
+  openssl enc -blowfish -salt -in $fileIn -out $fileOut -md SHA256 -k $ENCRYPTION_SECRET
+  echo decrypt by doing: openssl enc -d -blowfish -in $fileOut -out $fileIn -md SHA256 -k INSERT_SECRET_HERE
 }
 decrypt() {
   if (( $# == 0 ))
@@ -137,7 +141,7 @@ decrypt() {
   fileIn="$1"
   fileOut=$(basename $1 .enc)
   echo "creating $fileOut..."
-  openssl enc -d -aes-256-cbc -in $fileIn -out $fileOut -k $ENCRYPTION_SECRET
+  openssl enc -d -blowfish -in $fileIn -out $fileOut -md SHA256 -k $ENCRYPTION_SECRET
 }
 
 # Compilation flags
