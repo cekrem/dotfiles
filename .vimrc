@@ -77,6 +77,9 @@ Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
 " StackOverflow
 Plug 'mickaobrien/vim-stackoverflow'
 
+" Super important stuff
+Plug 'mattn/vim-starwars'
+
 call plug#end()
 
 " General settings
@@ -230,6 +233,8 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
+\   'python': ['yapf'],
+\   'sql': ['pgformatter'],
 \   'json': ['prettier'],
 \   'html': ['prettier'],
 \   'css': ['prettier'],
@@ -239,6 +244,7 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'go': ['bingo', 'golangci-lint'],
+\   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp'
 \}
