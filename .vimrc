@@ -11,7 +11,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Snippets
-Plug 'sirver/ultisnips', { 'for': 'go' }
+Plug 'sirver/ultisnips', { 'for': 'go-foo' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
