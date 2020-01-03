@@ -72,13 +72,13 @@ Plug 'nicwest/vim-http'
 Plug 'tpope/vim-dadbod'
 
 " tmux integration/navigation
-Plug 'christoomey/vim-tmux-navigator', { 'do': '~/utils/fix-gocode' }
+Plug 'christoomey/vim-tmux-navigator'
 
 " StackOverflow
 Plug 'mickaobrien/vim-stackoverflow'
 
 " Super important stuff
-Plug 'mattn/vim-starwars'
+Plug 'mattn/vim-starwars', { 'do': '~/utils/fix-gostuff' }
 
 call plug#end()
 
@@ -244,7 +244,7 @@ let g:ale_fixers = {
 \   'cs': ['uncrustify']
 \}
 let g:ale_linters = {
-\   'go': ['bingo', 'golangci-lint'],
+\   'go': ['gopls', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp'
