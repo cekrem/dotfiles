@@ -149,6 +149,9 @@ decrypt() {
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Go private repos
+export GOPRIVATE="github.com/vippsas/golib"
+
 # Extend PATH
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/envVars
