@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# only proceed if HEAD commit is in master
+masterMatches="$(git log origin/master | grep -c $(git rev-parse HEAD))"
+if (( $masterMatches > 0 )); then
+	echo "source is in master, continuing..."
+else
+	echo "source is not in master, aborting!"
+	exit 64
+fi
+
+# Get VP-task content from git commit, only proceed on MP-task
+mpTask=$(git log -1 | grep -o 'MP-\d\+') 
+if [[ $mpTask == "" ]]; then
+	echo "not MP release, aborting!"
+	exit 64
+fi
+mpTaskLine="Task: https:\/\/vippsas.atlassian.net\/browse\/$mpTask"
+commitLine="$(git log -1 --pretty='format:Commit: https:\/\/github.com\/vippsas\/vaam\/commit\/%h (%s)')"
+content="$commitLine\\r\\n$mpTaskLine"
+template=$(cat <<EOF
+
+{
+  "fields": {
+    "project": {
+      "key": "VP"
+    },
+    "summary": "New version of merchantportal backend (mp-backend)",
+    "description": "Continous delivery on VaaM merchantportal backend.\r\n\rINSERT_CONTENT\r\n\r\nRef standard change: https://vippsas.atlassian.net/wiki/spaces/VIP/pages/317653000/Display+changes+to+Merchant+Portal",
+    "issuetype": {
+      "name": "Change"
+    },
+    "customfield_10333": {
+      "self": "https://vippsas.atlassian.net/rest/api/2/customFieldOption/10104",
+      "value": "Standard",
+      "id": "10104"
+    },
+    "customfield_10335": {
+      "value": "New functionality"
+    },
+    "customfield_10455": "New functionality",
+    "customfield_10456": "Deploy mp-backend to production",
+    "customfield_10457": "Low risk, no impact on other services",
+    "customfield_10458": "Standard rollback",
+    "customfield_10459": "Tested by team"
+  }
+}
+EOF
+)
+
+# create payload based on template
+echo $template | sed "s/INSERT_CONTENT/`echo -n $content`/g" > payload.json
+
+# change task type to repair if commit includes "fix"
+if [[ $content =~ "fix" ]]
+then
+   sed -i "s/New functionality/Repair/g" payload.json
+fi
+
+# create task
+curl \
+   -H "Authorization: $JIRA_AUTH" \
+   -X POST \
+   -d @payload.json \
+   -H "Content-Type: application/json" \
+   https://vippsas.atlassian.net/rest/api/2/issue/

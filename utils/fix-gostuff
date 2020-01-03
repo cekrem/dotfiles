@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mv ~/go/bin/gocode ~/go/bin/gocode-old
+cp ~/go/bin/gocode-gomod ~/go/bin/gocode
+
+~/go/bin/gocode-old exit
+~/go/bin/gocode-old close
+
+echo "Replaced vanilla gocode with gocode-gomod! All good."
+
+if [ ! -d "tools" ] ; then
+		git clone -b bingo https://github.com/saibing/tools.git
+fi
+
+cd tools/gopls
+go install
+
+echo "Replaced vanilla gopls with bingo gopls! All good."
