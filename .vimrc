@@ -241,13 +241,15 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'go': ['goimports'],
 \   'c': ['clang-format'],
-\   'cs': ['uncrustify']
+\   'cs': ['uncrustify'],
+\   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
 \   'go': ['gopls', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
-\   'cs': 'OmniSharp'
+\   'cs': 'OmniSharp',
+\   'rust': ['rls']
 \}
 let g:ale_go_golangci_lint_options = '-p style -p complexity -p bugs -p format --disable typecheck --disable gochecknoglobals --disable scopelint'
 
