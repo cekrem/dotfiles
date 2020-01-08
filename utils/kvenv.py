@@ -11,7 +11,7 @@ debug = os.environ.get('DEBUG', False)
 with open(valuespath, "r") as f:
     envs = yaml.safe_load(f)['envs']
     for key, values in envs.items():
-        value = values.get('uat', values['_default'])
+        value = values.get('uat', values.get('_default', ''))
         if "keyvault" in value:
             matches = re.search(
                 '\${keyvault:(?P<keyvault>.+)/(?P<secret>.+)\}', value)
