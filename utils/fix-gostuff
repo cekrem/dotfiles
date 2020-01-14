@@ -8,11 +8,14 @@ cp ~/go/bin/gocode-gomod ~/go/bin/gocode
 
 echo "Replaced vanilla gocode with gocode-gomod! All good."
 
+cd
 if [ ! -d "tools" ] ; then
 		git clone -b bingo https://github.com/saibing/tools.git
 fi
 
 cd tools/gopls
 go install
+cd
+rm -rf tools
 
 echo "Replaced vanilla gopls with bingo gopls! All good."
