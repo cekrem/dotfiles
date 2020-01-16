@@ -19,7 +19,7 @@ padding=$(($padding + 1))
 for project in $projects
 do
    if [[ "$project" == "vaam" ]]; then
-      filter="mp-"
+      filter="mp-\|risk-"
    else
       filter=""
    fi

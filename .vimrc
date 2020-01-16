@@ -245,7 +245,7 @@ let g:ale_fixers = {
 \   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
-\   'go': ['gopls', 'golangci-lint'],
+\   'go': ['bingo', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
