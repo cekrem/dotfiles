@@ -76,6 +76,7 @@ plugins=(
   postgres
   rsync
   web-search
+  taskwarrior
 )
 
 source $ZSH/oh-my-zsh.sh
