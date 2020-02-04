@@ -12,6 +12,7 @@
 .vim/plugged/
 
 !.zshrc
+!.taskrc
 .private.env
 
 !.config/
