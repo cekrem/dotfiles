@@ -137,6 +137,7 @@ nnoremap <silent> <leader>w :lopen<cr>
 au FileType sql nnoremap <leader>dbu :%DB $UAT_DB<CR>
 au FileType sql nnoremap <leader>dbm :%DB $MT_DB<CR>
 au FileType sql nnoremap <leader>dbp :%DB $PROD_DB<CR>
+au FileType sql nnoremap <leader>dbd :%DB $DEV_DB<CR>
 
 " Go Specific shortcuts
 au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
@@ -245,7 +246,7 @@ let g:ale_fixers = {
 \   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
-\   'go': ['bingo', 'golangci-lint'],
+\   'go': ['gopls', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
