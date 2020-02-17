@@ -11,7 +11,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Snippets
-Plug 'sirver/ultisnips', { 'for': 'go-foo' }
+Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
@@ -246,7 +246,7 @@ let g:ale_fixers = {
 \   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
-\   'go': ['gopls', 'golangci-lint'],
+\   'go': ['bingo', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',

@@ -1,0 +1,8 @@
+#!/usr/local/bin/zsh
+usualSuspects="nvim gopls godef bingo golangci-lint"
+killall $usualSuspects &>/dev/null
+
+echo "Killing potential CPU/memory killers:"
+echo $usualSuspects | xargs -n 1 -I {} echo {}✓
+
+echo "Enjoy! :)"
