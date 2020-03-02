@@ -14,7 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
 
 " C#
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
@@ -78,7 +78,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mickaobrien/vim-stackoverflow'
 
 " Super important stuff
-Plug 'mattn/vim-starwars', { 'do': '~/utils/fix-gostuff' }
+Plug 'mattn/vim-starwars'
 
 call plug#end()
 
@@ -246,7 +246,7 @@ let g:ale_fixers = {
 \   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
-\   'go': ['bingo', 'golangci-lint'],
+\   'go': ['gopls', 'golangci-lint'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
