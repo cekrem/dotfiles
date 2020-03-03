@@ -253,6 +253,7 @@ let g:ale_linters = {
 \   'rust': ['rls']
 \}
 let g:ale_go_golangci_lint_options = '-p style -p complexity -p bugs -p format --disable typecheck --disable gochecknoglobals --disable scopelint'
+let g:ale_go_bingo_options = '--format-style goimports --diagnostics-style none --cache-style=always'
 
 " TODO: Change bingo => gopls when it supports ALEFindReferences
 " let g:ale_go_bingo_options = '--diagnostics-style=onsave'
