@@ -110,6 +110,7 @@ alias azc="az interactive"
 alias cli="az interactive"
 alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
+alias lint="golangci-lint -p style -p complexity -p bugs -p format --disable typecheck --disable gochecknoglobals --disable scopelint"
 
 # gnu version of bsd built-ins
 
