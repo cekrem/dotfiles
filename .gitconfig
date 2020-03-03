@@ -16,3 +16,7 @@
 	default = current
 [pull]
 	default = current
+[mergetool "vimdiff"]
+	path = nvim
+[merge]
+	tool = vimdiff

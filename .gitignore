@@ -30,3 +30,4 @@
 !intellij/
 
 !Vagrantfile
+!*.pdf
