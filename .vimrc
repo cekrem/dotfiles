@@ -115,8 +115,8 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " General shortcuts / overrides
-noremap <silent> <C-c> :nohl<CR>
-noremap <silent> <esc> :nohl<CR>
+noremap <silent> <C-c> :nohl<CR> :ccl<CR>
+noremap <silent> <esc> :nohl<CR> :ccl<CR>
 inoremap jk <esc>
 inoremap JK <esc>
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
