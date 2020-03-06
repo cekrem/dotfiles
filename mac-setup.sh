@@ -20,8 +20,9 @@ else
 	sudo echo ~/.config/yarn/global/node_modules/.bin/ >> /etc/paths
 fi
 
-# Upgrade vim
-./utils/upgrade-vim
+# Install custom vim
+brew tap cekrem/dotfiles
+brew install vim --head
 
 # Install vim plugins
 vim -c PlugInstall -c UpdateRemotePlugins

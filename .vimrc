@@ -10,12 +10,10 @@ Plug 'tpope/vim-dotenv'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Snippets
-Plug 'sirver/ultisnips', { 'for': 'go' }
-
 " Golang
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
-Plug 'govim/govim'
+Plug 'govim/govim', { 'for': 'go' }
+autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
 
 " C#
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
@@ -146,7 +144,7 @@ au FileType sql nnoremap <leader>dbm :%DB $MT_DB<CR>
 au FileType sql nnoremap <leader>dbp :%DB $PROD_DB<CR>
 au FileType sql nnoremap <leader>dbd :%DB $DEV_DB<CR>
 
-" Golang Specific shortcuts
+" Golang shortcuts
 "au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
 "au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
 au FileType go nnoremap <buffer> <leader>h :GOVIMHighlightReferences<CR>
