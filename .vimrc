@@ -28,8 +28,9 @@ Plug 'tpope/vim-unimpaired'
 " File navigation / search
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter' 
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -114,9 +115,10 @@ noremap <silent> <esc> :nohl<CR>
 inoremap jk <esc>
 inoremap JK <esc>
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
+set grepprg=rg\ --color=vimgrep
 
 " Search
-nnoremap <leader>a :Ack<Space>
+nnoremap <leader>a :Rg<CR>
 nnoremap <leader>s :ALESymbolSearch<Space>
 nnoremap <leader>fd :syn clear Repeat \| g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' \| nohlsearch<CR>
 
@@ -167,20 +169,9 @@ nnoremap <leader>g* :Git sed 's/\<<C-r><C-w>\>//g'<Left><Left><Left>
 " Undo hunk: <leader>hu
 " Stage hunk: <leader>hs
 
-" CtrlP tweaks
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
-" let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_use_caching = 0 
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_custom_ignore = 'main'
-let g:ctrlp_user_command_async = 1
-
-" use ag when available
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" Fuzzy finding
+let g:rooter_patterns = ['.ctrlp', '.gitignore', 'package.json', 'go.mod']
+noremap <C-p> :Files<CR>
 
 " vim-go tweaks
 let g:go_fmt_command = "goimports"

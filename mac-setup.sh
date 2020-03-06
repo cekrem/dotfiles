@@ -7,7 +7,7 @@ xcode-select --install
 if [ ! -f /usr/local/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew install hub python3 neovim go zsh yarn ctags cquery ruby ag tmux fpp sed extract_url task entr
+brew install hub python3 neovim vim go zsh yarn ctags cquery ruby ag tmux fpp sed extract_url task entr ripgrep
 brew cask install alacritty
 brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
 ACCEPT_EULA=y brew install --no-sandbox msodbcsql mssql-tools

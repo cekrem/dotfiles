@@ -154,6 +154,9 @@ export LC_ALL=en_US.UTF-8
 # Go private repos
 export GOPRIVATE="github.com/vippsas/golib"
 
+# ripgrep / fzf settings
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
 # Extend PATH
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/envVars
@@ -171,3 +174,5 @@ export PATH=$PATH:~/utils
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

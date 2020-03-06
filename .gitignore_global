@@ -15,3 +15,4 @@ uat.sql
 prod.sql
 test.sql
 gitignore.*
+.root/
