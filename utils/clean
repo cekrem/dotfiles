@@ -1,5 +1,5 @@
 #!/usr/local/bin/zsh
-usualSuspects="nvim gopls godef bingo golangci-lint"
+usualSuspects="nvim gopls godef bingo golangci-lint go-statsus"
 killall $usualSuspects &>/dev/null
 
 echo "Killing potential CPU/memory killers:"
