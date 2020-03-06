@@ -4,7 +4,7 @@
 	name = Christian Ekrem
 	email = cekrem@pm.me
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = /Users/cekrem/.gitignore_global
 [url "git@github.com:vippsas/"]
 	insteadOf = https://github.com/vippsas/
@@ -16,7 +16,5 @@
 	default = current
 [pull]
 	default = current
-[mergetool "vimdiff"]
-	path = nvim
 [merge]
 	tool = vimdiff

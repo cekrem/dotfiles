@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /tmp
+rm -rf vim
+git clone git@github.com:vim/vim.git
+cd vim
+./configure --enable-multibyte --with-tlib=ncurses --enable-cscope --enable-terminal --with-compiledby=cekrem --enable-perlinterp --enable-rubyinterp --enable-python3interp --enable-pythoninterp --enable-gui=no --without-x --enable-luainterp
+make
+sudo make install

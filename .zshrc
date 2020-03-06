@@ -98,12 +98,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias pip=/usr/local/bin/pip3
   alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
   alias sed="gsed"
-  alias vim="nvim"
-  export VISUAL=nvim
-else
-  export VISUAL=vim
 fi
 
+export VISUAL=vim
 export EDITOR="$VISUAL"
 alias vi="vim"
 alias azc="az interactive"

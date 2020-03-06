@@ -13,8 +13,9 @@ Plug 'tpope/vim-fugitive'
 " Snippets
 Plug 'sirver/ultisnips', { 'for': 'go' }
 
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
+" Golang
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
+Plug 'govim/govim'
 
 " C#
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
@@ -109,6 +110,10 @@ set tabstop=2     " Tabs width in spaces
 set softtabstop=2 " Soft tab width in spaces
 set shiftwidth=2  " Amount of spaces when shifting
 
+" Cursor styling
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " General shortcuts / overrides
 noremap <silent> <C-c> :nohl<CR>
 noremap <silent> <esc> :nohl<CR>
@@ -141,11 +146,13 @@ au FileType sql nnoremap <leader>dbm :%DB $MT_DB<CR>
 au FileType sql nnoremap <leader>dbp :%DB $PROD_DB<CR>
 au FileType sql nnoremap <leader>dbd :%DB $DEV_DB<CR>
 
-" Go Specific shortcuts
-au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
-au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
-au FileType go nnoremap <buffer> <leader>h :GoSameIdsToggle<CR>
-au FileType go noremap <buffer> <C-s> :GoDeclsDir<CR>
+" Golang Specific shortcuts
+"au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
+"au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
+au FileType go nnoremap <buffer> <leader>h :GOVIMHighlightReferences<CR>
+au FileType go nnoremap <buffer> <leader>fr :GOVIMReferences<CR>
+au FileType go nnoremap <buffer> <leader>v :<C-u>call GOVIMHover()<CR>
+au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
 
 " Bash script tab => spaces
 au FileType sh set expandtab
@@ -171,6 +178,7 @@ nnoremap <leader>g* :Git sed 's/\<<C-r><C-w>\>//g'<Left><Left><Left>
 
 " Fuzzy finding
 let g:rooter_patterns = ['.ctrlp', '.gitignore', 'package.json', 'go.mod']
+let g:rooter_silent_chdir = 1
 noremap <C-p> :Files<CR>
 
 " vim-go tweaks
@@ -231,7 +239,7 @@ let g:ale_fixers = {
 \   'json': ['prettier'],
 \   'html': ['prettier'],
 \   'css': ['prettier'],
-\   'go': ['goimports'],
+\   'go': [],
 \   'c': ['clang-format'],
 \   'cs': ['uncrustify'],
 \   'rust': 'rustfmt'
