@@ -152,7 +152,7 @@ export LC_ALL=en_US.UTF-8
 export GOPRIVATE="github.com/vippsas/golib"
 
 # ripgrep / fzf settings
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob "!{node_modules,.git}"'
 
 # Extend PATH
 export PATH=$PATH:~/go/bin

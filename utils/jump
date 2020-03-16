@@ -1,2 +1,1 @@
-#!/bin/bash
 ~/utils/jump-status || sshuttle -r cekrem@gf-jump.vipps.io 0.0.0.0/0 -x 172.0.0.0/8 -x 127.0.0.0/8 -x 192.168.0.0/16 -x 52.166.110.97

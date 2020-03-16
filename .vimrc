@@ -236,6 +236,7 @@ let g:ale_fixers = {
 \   'sql': ['pgformatter'],
 \   'json': ['prettier'],
 \   'html': ['prettier'],
+\   'xml': ['xmllint'],
 \   'css': ['prettier'],
 \   'go': [],
 \   'c': ['clang-format'],
