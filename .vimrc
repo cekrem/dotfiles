@@ -14,6 +14,8 @@ Plug 'tpope/vim-fugitive'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
 Plug 'govim/govim', { 'for': 'go' }
 autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
+autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
+"autocmd! User govim call govim#config#Set("HighlightDiagnostics", 0)
 
 " C#
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
@@ -83,20 +85,41 @@ Plug 'mattn/vim-starwars'
 call plug#end()
 
 " General settings
-set hidden
-set number
+set autoindent
 set autoread
 set autowrite
-set noswapfile
-set ignorecase
-set smartcase
-set splitright
-set splitbelow
-set noshowmode
+set backspace=indent,eol,start
+set complete-=i
 set cursorline
-
-" Mouse integration
+set display=lastline
+set encoding=utf-8
+set formatoptions=tcqj
+set hidden
+set history=10000
+set hlsearch
+set ignorecase
+set incsearch
+set langnoremap
+set laststatus=2
+set listchars=tab:>\ ,trail:-,nbsp:+
 set mouse=a
+set noshowmode
+set noswapfile
+set nrformats=hex
+set number
+set sessionoptions-=options
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set tabpagemax=50
+set tags=./tags;,tags
+set ttyfast
+set viminfo+=!
+set wildmenu
+
+" Mouse focus change on click
+set mousefocus
 
 " Clipboard
 set clipboard^=unnamed
