@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'govim/govim', { 'for': 'go' }
 autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
 autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
+autocmd! User govim call govim#config#Set("Staticcheck", 0)
 "autocmd! User govim call govim#config#Set("HighlightDiagnostics", 0)
 
 " C#
@@ -117,6 +118,12 @@ set tags=./tags;,tags
 set ttyfast
 set viminfo+=!
 set wildmenu
+
+" auto complete 'hover' help
+if has("patch-8.1.1904")
+      set completeopt+=popup
+      set completepopup=align:menu,border:off,highlight:Pmenu
+endif
 
 " Mouse focus change on click
 set mousefocus
