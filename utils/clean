@@ -5,4 +5,8 @@ killall $usualSuspects &>/dev/null
 echo "Killing potential CPU/memory killers:"
 echo $usualSuspects | xargs -n 1 -I {} echo {}✓
 
+echo "Restarting DNS over HTTPS:"
+cloudflared service uninstall
+cloudflared service install
+
 echo "Enjoy! :)"

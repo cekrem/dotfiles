@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 
 " Golang
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
-Plug 'govim/govim', { 'for': 'go' }
+Plug 'govim/govim', { 'for': 'go', 'do': 'GOVIMPluginInstall' }
 autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
 autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
 autocmd! User govim call govim#config#Set("Staticcheck", 0)
