@@ -108,6 +108,7 @@ alias cli="az interactive"
 alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
 alias lint="golangci-lint run --disable-all -p style -p complexity -p bugs -p format"
+alias lispserver="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
 
 # gnu version of bsd built-ins
 

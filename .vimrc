@@ -22,6 +22,9 @@ autocmd! User govim call govim#config#Set("Staticcheck", 0)
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
 "Plug 'tpope/vim-dispatch'
 
+" Lisp
+Plug 'kovisoft/slimv'
+
 " Sensible defaults ++
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
@@ -181,6 +184,10 @@ au FileType go nnoremap <buffer> <leader>h :GOVIMHighlightReferences<CR>
 au FileType go nnoremap <buffer> <leader>fr :GOVIMReferences<CR>
 au FileType go nnoremap <buffer> <leader>v :<C-u>call GOVIMHover()<CR>
 au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
+
+" Lisp
+let g:lisp_rainbow=1
+let g:slimv_baloon=1
 
 " Bash script tab => spaces
 au FileType sh set expandtab
