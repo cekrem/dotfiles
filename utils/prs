@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
 if [[ "$@" == "" ]]; then
-   projects="vaam merchantportal-frontend golib signup-backend signup-frontend qr-code contactform"
+   projects="vaam golib signup-backend signup-frontend qr-code contactform"
 else
    projects="$@"
 fi
@@ -24,7 +24,7 @@ do
       filter=""
    fi
 
-   cd $HOME/code/$project
+   cd "$HOME/code/$project"
    if [[ "$projects" != "$project" ]]; then
       project=$(printf "%-${padding}s" "$project")
    else

@@ -188,6 +188,7 @@ au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
 " Lisp
 let g:lisp_rainbow=1
 let g:slimv_baloon=1
+let g:slimv_ctags="/usr/local/bin/ctags"
 
 " Bash script tab => spaces
 au FileType sh set expandtab
