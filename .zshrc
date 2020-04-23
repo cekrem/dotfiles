@@ -108,7 +108,7 @@ alias cli="az interactive"
 alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
 alias lint="golangci-lint run --disable-all -p style -p complexity -p bugs -p format"
-alias lispserver="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
+alias sbcl="rlwrap ros run"
 
 # gnu version of bsd built-ins
 
@@ -159,6 +159,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/envVars
 export PATH=$PATH:~/utils
+export PATH=$PATH:~/.roswell/bin/
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"

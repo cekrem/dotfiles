@@ -186,9 +186,16 @@ au FileType go nnoremap <buffer> <leader>v :<C-u>call GOVIMHover()<CR>
 au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
 
 " Lisp
+au FileType lisp set lisp
+au FileType lisp nnoremap <buffer> <leader>p gg=G``
+au filetype lisp setlocal equalprg=scmindent
+
 let g:lisp_rainbow=1
 let g:slimv_baloon=1
 let g:slimv_ctags="/usr/local/bin/ctags"
+let g:slimv_swank_cmd = "!ros -e '(ql:quickload :swank) (swank:create-server)' wait &"
+let g:slimv_lisp = 'ros run'
+let g:slimv_impl = 'sbcl'
 
 " Bash script tab => spaces
 au FileType sh set expandtab

@@ -16,7 +16,11 @@ pip2 mssql-cli
 gem install colorls neovim sqlint
 
 # Install npm packages
-yarn global add neovim typescript onchange import-js
+yarn global add neovim typescript onchange import-js scmindent
+
+# Intsall lisp stuff with roswell
+ros install sbcl
+ros install cxxxr/sblint
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
