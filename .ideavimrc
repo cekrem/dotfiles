@@ -1,0 +1,88 @@
+" Clipboard
+set clipboard^=unnamed
+set clipboard^=unnamedplus
+
+" General settings
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+set autoindent
+set autoread
+set autowrite
+set backspace=indent,eol,start
+set complete-=i
+set cursorline
+set display=lastline
+set encoding=utf-8
+set formatoptions=tcqj
+set hidden
+set history=10000
+set hlsearch
+set ignorecase
+set incsearch
+set langnoremap
+set laststatus=2
+set listchars=tab:>\ ,trail:-,nbsp:+
+set mouse=a
+set noshowmode
+set noswapfile
+set nrformats=hex
+set number
+set sessionoptions-=options
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set tabpagemax=50
+set tags=./tags;,tags
+set ttyfast
+set viminfo+=!
+set wildmenu
+set visualbell
+set noerrorbells
+
+" Keys
+" general
+noremap <silent> <C-c> :nohl<CR> :ccl<CR>
+noremap <silent> <esc> :nohl<CR> :ccl<CR>
+inoremap jk <esc>
+inoremap JK <esc>
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" navigation
+noremap <silent> <C-a> :action ActivateProjectToolWindow<CR>
+noremap <silent> <C-p> :action GotoFile<CR>
+noremap <silent> <leader>a :action FindInPath<CR>
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <leader>tt :action ActivateTerminalToolWindow<CR>
+noremap ]f :action MethodDown<CR>
+noremap [f :action MethodUp<CR>
+
+" tmux replacement <3
+noremap <C-space>s :action tasks.switch<CR>
+noremap <C-space>: :action tasks.and.contexts<CR>
+noremap <C-space>j :action tasks.show.task.description<CR>
+
+" super full screen
+noremap <leader>ff :action ToggleDistractionFreeMode<CR>
+
+" vimrc
+nnoremap <leader>.e :vsplit ~/.ideavimrc<CR>
+nnoremap <leader>.s :source ~/.ideavimrc<CR>
+
+" git
+nnoremap <leader>gb :action Annotate<CR>
+
+" refactor/intellisense stuff
+nnoremap <buffer> <leader>gr :action RenameElement<CR>
+"nnoremap <leader>fr :action FindUsages<CR>
+nnoremap <leader>fr <C-}>
+nnoremap <leader>p :action ReformatCode<CR>
+nnoremap <silent> ]w :action GotoNextError<CR>
+nnoremap <silent> [w :action GotoPreviousError<CR>
+nnoremap <leader>d :action ShowErrorDescription<CR>
+nnoremap <leader>v K
+" TODO nnoremap <silent> <leader>w :lopen<cr>
+"

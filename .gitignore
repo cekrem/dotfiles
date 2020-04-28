@@ -8,6 +8,7 @@
 !fonts/
 
 !.vimrc
+!.ideavimrc
 !.vim/
 .vim/plugged/
 
@@ -19,6 +20,7 @@
 .config/nvim/plugged/
 .config/fish/
 !.config/fish/functions/
+!Library/Application\ Support/JetBrains/GoLand2020.*/
 
 !.tmux/
 !.tmux.conf

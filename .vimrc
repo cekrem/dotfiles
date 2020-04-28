@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 
 " Golang
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
-Plug 'govim/govim', { 'for': 'go', 'do': 'GOVIMPluginInstall' }
+Plug 'govim/govim'
 autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
 autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
 autocmd! User govim call govim#config#Set("Staticcheck", 0)
@@ -145,9 +145,11 @@ set shiftwidth=2  " Amount of spaces when shifting
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+function! _broken()
 " General shortcuts / overrides
 noremap <silent> <C-c> :nohl<CR> :ccl<CR>
 noremap <silent> <esc> :nohl<CR> :ccl<CR>
+endfunction
 inoremap jk <esc>
 inoremap JK <esc>
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>

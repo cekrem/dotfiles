@@ -100,9 +100,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias sed="gsed"
 fi
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
-alias vi="vim"
+editor=vim
+if [[ "$GOLAND" == "true" ]]; then
+  editor=nvim
+fi
+
+export VISUAL=$editor
+export EDITOR=$editor
+alias vi=$editor
+
 alias azc="az interactive"
 alias cli="az interactive"
 alias pr="hub pr show"
@@ -160,6 +166,7 @@ export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/envVars
 export PATH=$PATH:~/utils
 export PATH=$PATH:~/.roswell/bin/
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
