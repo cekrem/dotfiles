@@ -102,7 +102,7 @@ fi
 
 editor=vim
 if [[ "$GOLAND" == "true" ]]; then
-  editor=nvim
+  # editor=nvim
 fi
 
 export VISUAL=$editor
