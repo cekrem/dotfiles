@@ -59,12 +59,14 @@ noremap <C-l> <C-w>l
 noremap <leader>tt :action ActivateTerminalToolWindow<CR>
 noremap ]f :action MethodDown<CR>
 noremap [f :action MethodUp<CR>
+noremap <C-}> :action GotoImplementation<CR>
 
 " tmux replacement <3
 noremap <C-space>s :action tasks.switch<CR>
 noremap <C-space>: :action tasks.and.contexts<CR>
 noremap <C-space>j :action tasks.show.task.description<CR>
-
+noremap <C-space>d :action ActivateDatabaseToolWindow<CR>
+noremap <C-space>r :action android.deploy.ApplyChanges<CR>
 " super full screen
 noremap <leader>ff :action ToggleDistractionFreeMode<CR>
 

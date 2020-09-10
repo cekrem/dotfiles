@@ -9,4 +9,11 @@ echo "Restarting DNS over HTTPS:"
 sudo cloudflared service uninstall
 sudo cloudflared service install
 
+if [ $1 = "docker" ]; then
+  echo "Pruning docker and her entire extended family"
+  docker container stop $(docker container list -aq) && docker container prune
+else
+  echo "(Leaving docker alone)"
+fi
+
 echo "Enjoy! :)"

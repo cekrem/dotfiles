@@ -155,6 +155,9 @@ decrypt() {
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Vagrant default provider
+VAGRANT_DEFAULT_PROVIDER=virtualbox
+
 # Go private repos
 export GOPRIVATE="github.com/vippsas/golib"
 
@@ -167,6 +170,7 @@ export PATH=$PATH:~/envVars
 export PATH=$PATH:~/utils
 export PATH=$PATH:~/.roswell/bin/
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"

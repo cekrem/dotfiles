@@ -1,4 +1,9 @@
 .ctrlp
+.ctrlf
+.air.conf
+*.env
+*.enc
+*foo*
 uat.env
 prod.env
 local.env
@@ -16,3 +21,5 @@ prod.sql
 test.sql
 gitignore.*
 .root/
+.http
+.ignore*

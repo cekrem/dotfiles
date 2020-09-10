@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/cekrem/code/vaam/services/merchant-management/app'
+let g:netrw_dirhist_4='/Users/cekrem/code/qr-code/internal/app'
 let g:netrw_dirhist_3='/Users/cekrem/foo'
 let g:netrw_dirhist_2='/Users/cekrem/code/lisp'
 let g:netrw_dirhist_1='/Users/cekrem/foo'

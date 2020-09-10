@@ -81,7 +81,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'christoomey/vim-tmux-navigator'
 
 " StackOverflow
-Plug 'mickaobrien/vim-stackoverflow'
+"Plug 'mickaobrien/vim-stackoverflow'
 
 " Super important stuff
 Plug 'mattn/vim-starwars'
