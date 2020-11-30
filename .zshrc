@@ -94,7 +94,7 @@ touch ~/.private.env
 source ~/.private.env
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias python=/usr/local/bin/python3
+  alias python=python3
   alias pip=/usr/local/bin/pip3
   alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
   alias sed="gsed"
@@ -192,3 +192,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# Python 3.7
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
+export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"

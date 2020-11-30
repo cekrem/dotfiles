@@ -7,10 +7,11 @@
 uat.env
 prod.env
 local.env
-.idea/
+.idea/*
+.idea/compiler.xml
+.DS_Store
 vendor/
 tmp/
-main
 ssh_readonly_github.rsa 
 .dev.go
 .prhash

@@ -51,6 +51,7 @@ nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 " navigation
 noremap <silent> <C-a> :action ActivateProjectToolWindow<CR>
 noremap <silent> <C-p> :action GotoFile<CR>
+noremap <silent> <C-r> :action RecentChangedFiles<CR>
 noremap <silent> <leader>a :action FindInPath<CR>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -67,6 +68,7 @@ noremap <C-space>: :action tasks.and.contexts<CR>
 noremap <C-space>j :action tasks.show.task.description<CR>
 noremap <C-space>d :action ActivateDatabaseToolWindow<CR>
 noremap <C-space>r :action android.deploy.ApplyChanges<CR>
+noremap <C-space>m :marks<CR>
 " super full screen
 noremap <leader>ff :action ToggleDistractionFreeMode<CR>
 
@@ -81,7 +83,7 @@ nnoremap <leader>gb :action Annotate<CR>
 nnoremap <buffer> <leader>gr :action RenameElement<CR>
 "nnoremap <leader>fr :action FindUsages<CR>
 nnoremap <leader>fr <C-}>
-nnoremap <leader>p :action ReformatCode<CR>
+nnoremap <leader>p :action ReformatCode <CR> :action OptimizeImports<CR>
 nnoremap <silent> ]w :action GotoNextError<CR>
 nnoremap <silent> [w :action GotoPreviousError<CR>
 nnoremap <leader>d :action ShowErrorDescription<CR>
