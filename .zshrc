@@ -150,6 +150,10 @@ decrypt() {
   openssl enc -d -blowfish -in $fileIn -out $fileOut -md SHA256 -k $ENCRYPTION_SECRET
 }
 
+gradle-clean() {
+  ./gradlew --stop && ./gradlew clean aUD --no-build-cache
+}
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export LANG=en_US.UTF-8
@@ -169,8 +173,10 @@ export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/envVars
 export PATH=$PATH:~/utils
 export PATH=$PATH:~/.roswell/bin/
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"

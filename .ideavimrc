@@ -67,7 +67,8 @@ noremap <C-space>s :action tasks.switch<CR>
 noremap <C-space>: :action tasks.and.contexts<CR>
 noremap <C-space>j :action tasks.show.task.description<CR>
 noremap <C-space>d :action ActivateDatabaseToolWindow<CR>
-noremap <C-space>r :action android.deploy.ApplyChanges<CR>
+noremap <C-space>r :action android.deploy.RunWithoutBuild<CR>
+noremap <C-space>a :action ActivateResourcesExplorerToolWindow<CR>
 noremap <C-space>m :marks<CR>
 " super full screen
 noremap <leader>ff :action ToggleDistractionFreeMode<CR>
