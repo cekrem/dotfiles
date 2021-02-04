@@ -1,0 +1,67 @@
+" General settings
+set autoindent
+set autoread
+set autowrite
+set backspace=indent,eol,start
+set complete-=i
+set cursorline
+set display=lastline
+set encoding=utf-8
+set formatoptions=tcqj
+set hidden
+set history=10000
+set hlsearch
+set ignorecase
+set incsearch
+set langnoremap
+set laststatus=2
+set listchars=tab:>\ ,trail:-,nbsp:+
+set mouse=a
+set noshowmode
+set noswapfile
+set nrformats=hex
+set number
+set sessionoptions-=options
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set tabpagemax=50
+set tags=./tags;,tags
+set ttyfast
+set viminfo+=!
+set wildmenu
+
+" auto complete 'hover' help
+if has("patch-8.1.1904")
+      set completeopt+=popup
+      set completepopup=align:menu,border:off,highlight:Pmenu
+endif
+
+" Mouse focus change on click
+set mousefocus
+
+" Clipboard
+set clipboard^=unnamed
+set clipboard^=unnamedplus
+
+" Tab settings
+set expandtab     " Expand tabs to the proper type and size
+set tabstop=2     " Tabs width in spaces
+set softtabstop=2 " Soft tab width in spaces
+set shiftwidth=2  " Amount of spaces when shifting
+
+" Cursor styling
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+function! _broken()
+" General shortcuts / overrides
+noremap <silent> <C-c> :nohl<CR> :ccl<CR>
+noremap <silent> <esc> :nohl<CR> :ccl<CR>
+endfunction
+inoremap jk <esc>
+inoremap JK <esc>
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
+set grepprg=rg\ --color=vimgrep
+

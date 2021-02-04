@@ -11,11 +11,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Golang
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'goooo' }
-Plug 'govim/govim'
-autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
-autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
-autocmd! User govim call govim#config#Set("Staticcheck", 0)
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+" Plug 'govim/govim'
+"autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
+"autocmd! User govim call govim#config#Set("QuickfixSigns", 0)
+"autocmd! User govim call govim#config#Set("Staticcheck", 0)
 "autocmd! User govim call govim#config#Set("HighlightDiagnostics", 0)
 
 " C#
@@ -64,6 +64,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx']
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] } 
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -88,80 +91,8 @@ Plug 'mattn/vim-starwars'
 
 call plug#end()
 
-" General settings
-set autoindent
-set autoread
-set autowrite
-set backspace=indent,eol,start
-set complete-=i
-set cursorline
-set display=lastline
-set encoding=utf-8
-set formatoptions=tcqj
-set hidden
-set history=10000
-set hlsearch
-set ignorecase
-set incsearch
-set langnoremap
-set laststatus=2
-set listchars=tab:>\ ,trail:-,nbsp:+
-set mouse=a
-set noshowmode
-set noswapfile
-set nrformats=hex
-set number
-set sessionoptions-=options
-set smartcase
-set smarttab
-set splitbelow
-set splitright
-set tabpagemax=50
-set tags=./tags;,tags
-set ttyfast
-set viminfo+=!
-set wildmenu
-
-" auto complete 'hover' help
-if has("patch-8.1.1904")
-      set completeopt+=popup
-      set completepopup=align:menu,border:off,highlight:Pmenu
-endif
-
-" Mouse focus change on click
-set mousefocus
-
-" Clipboard
-set clipboard^=unnamed
-set clipboard^=unnamedplus
-
-" Tab settings
-set expandtab     " Expand tabs to the proper type and size
-set tabstop=2     " Tabs width in spaces
-set softtabstop=2 " Soft tab width in spaces
-set shiftwidth=2  " Amount of spaces when shifting
-
-" Cursor styling
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
-function! _broken()
-" General shortcuts / overrides
-noremap <silent> <C-c> :nohl<CR> :ccl<CR>
-noremap <silent> <esc> :nohl<CR> :ccl<CR>
-endfunction
-inoremap jk <esc>
-inoremap JK <esc>
-nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
-set grepprg=rg\ --color=vimgrep
-
-" Search
-nnoremap <leader>a :Rg<CR>
-nnoremap <leader>s :ALESymbolSearch<Space>
-nnoremap <leader>fd :syn clear Repeat \| g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' \| nohlsearch<CR>
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-j>" : "\<TAB>"
+" General settings (not plugin related)
+source ~/.vimrc.basics
 
 " Intellisense & linting shortcuts
 noremap <C-]> :ALEGoToDefinition<CR>
@@ -181,11 +112,11 @@ au FileType sql nnoremap <leader>dbd :%DB $DEV_DB<CR>
 
 " Golang shortcuts
 "au FileType go nnoremap <buffer> <leader>r <Plug>(go-run)
-"au FileType go nnoremap <buffer> <leader>i <Plug>(go-imports);
-au FileType go nnoremap <buffer> <leader>h :GOVIMHighlightReferences<CR>
-au FileType go nnoremap <buffer> <leader>fr :GOVIMReferences<CR>
-au FileType go nnoremap <buffer> <leader>v :<C-u>call GOVIMHover()<CR>
-au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
+"au filetype go nnoremap <buffer> <leader>i <plug>(go-imports);
+"au filetype go nnoremap <buffer> <leader>h :govimhighlightreferences<cr>
+"au FileType go nnoremap <buffer> <leader>fr :GOVIMReferences<CR>
+"au FileType go nnoremap <buffer> <leader>v :<C-u>call GOVIMHover()<CR>
+"au FileType go nnoremap <buffer> <leader>gr :GOVIMRename<CR>
 
 " Lisp
 au FileType lisp set lisp
@@ -249,6 +180,11 @@ let g:OmniSharp_server_stdio_quickload = 1
 let g:OmniSharp_server_loading_timeout = 5
 let g:OmniSharp_highlight_types = 2
 
+" Kotlin tweaks
+let g:ale_kotlin_kotlinc_executable = '/usr/local/bin/kotlinc'
+let g:ale_kotlin_ktlint_executable = '/usr/local/bin/ktlint'
+let g:ale_kotlin_ktlint_options = '--experimental'
+
 " Statusline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
@@ -264,6 +200,7 @@ let g:lightline = {
 
 " Autocomplete
 let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
 set completeopt-=preview
 set completeopt+=noinsert
 
@@ -285,7 +222,7 @@ let g:ale_fixers = {
 \   'html': ['prettier'],
 \   'xml': ['xmllint'],
 \   'css': ['prettier'],
-\   'go': [],
+\   'go': ['goimports'],
 \   'c': ['clang-format'],
 \   'cs': ['uncrustify'],
 \   'rust': 'rustfmt'
@@ -295,6 +232,7 @@ let g:ale_linters = {
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
+\   'kotlin': 'ktlint',
 \   'rust': ['rls']
 \}
 let g:ale_go_golangci_lint_options = '--disable-all -p style -p complexity -p bugs -p format'

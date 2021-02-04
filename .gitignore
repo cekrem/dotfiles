@@ -8,6 +8,7 @@
 !fonts/
 
 !.vimrc
+!.vimrc.basics
 !.ideavimrc
 !.vim/
 .vim/plugged/
