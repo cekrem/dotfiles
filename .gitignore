@@ -3,6 +3,7 @@
 !.gitignore
 !.gitignore_global
 !.profile
+!.emacs
 
 !utils/
 !fonts/
