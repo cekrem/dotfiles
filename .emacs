@@ -78,13 +78,29 @@
 ;; Evil mode
 (use-package evil
              :ensure t
+             :init
+             (setq evil-want-keybinding nil)
              :config
+             (evil-set-undo-system 'undo-tree)
              (evil-mode 1)
              (define-key evil-normal-state-map (kbd "H") 'evil-window-left)
              (define-key evil-motion-state-map (kbd "J") 'evil-window-down)
              (define-key evil-normal-state-map (kbd "J") 'evil-window-down)
              (define-key evil-normal-state-map (kbd "K") 'evil-window-up)
              (define-key evil-normal-state-map (kbd "L") 'evil-window-right))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :custom
+  (evil-collection-company-use-tng nil)
+  :init
+  (evil-collection-init))
+
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode))
 
 (use-package evil-leader
              :ensure t
@@ -93,11 +109,26 @@
              (define-key evil-motion-state-map (kbd "\\") nil)
              (global-evil-leader-mode t)
              (evil-leader/set-leader "\\")
-             (evil-leader/set-key "x" 'helm-M-x)
-             (evil-leader/set-key "b" 'helm-buffers-list)
-             (evil-leader/set-key "t" 'eshell)
-             (evil-leader/set-key "g" 'magit)
-             (evil-leader/set-key "e" (lambda() (interactive)(find-file "~/.emacs"))))
+             (evil-leader/set-key
+               "x" 'helm-M-x
+               "b" 'helm-buffers-list
+               "t t" 'shell
+               "g" 'magit
+               "a" 'helm-projectile-rg
+               "o" 'helm-find-files
+               "q" 'delete-all-overlays
+               "p" 'indent-region
+               "n" (lambda()
+                     (interactive)
+                     (elfeed-update)
+                     (elfeed)
+                     )
+
+               ;; Intellisense leader shortcuts
+               "r r" 'lsp-rename
+               "f r" 'lsp-find-references
+
+               ". e" (lambda() (interactive)(find-file "~/.emacs"))))
 
 (use-package evil-indent-textobject
              :ensure t)
@@ -121,7 +152,6 @@
              :config
              (powerline-evil-vim-color-theme))
 
-
 (use-package key-chord
              :ensure t
              :config
@@ -136,6 +166,24 @@
              (key-chord-define evil-normal-state-map "ff" 'toggle-frame-fullscreen)
              (key-chord-define evil-normal-state-map "mm" 'toggle-frame-maximized)
              (key-chord-mode 1))
+
+;; Feed/news
+(use-package elfeed
+  :ensure t
+  :init
+  (setq elfeed-feeds
+   '(
+     ;;dev.to
+     ("http://dev.to/feed" dev)
+
+     ;;reddit
+     ("http://reddit.com/r/emacs/.rss" dev)
+     ("http://reddit.com/r/golang/.rss" dev)
+     ("http://reddit.com/r/kotlin/.rss" dev)
+
+     ;;hackernews
+     ("https://news.ycombinator.com/rss" news)
+     )))
 
 ;; Navigation
 (use-package projectile
@@ -179,8 +227,13 @@
                           (setq projectile-enable-caching t)
                           (define-key evil-normal-state-map
                             (kbd "C-p")
-                            'helm-projectile-find-file)
-                          (evil-leader/set-key "a" 'helm-projectile-grep)))
+                            'helm-projectile-find-file))
+             (use-package helm-company
+               :ensure t)
+             (use-package helm-lsp
+               :ensure t)
+             (use-package helm-rg
+               :ensure t))
 
 ;; Git
 (use-package magit
@@ -197,11 +250,26 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (global-company-mode))
 
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 ;; Lisp
 (use-package slime
   :ensure t
   :config
   (setq inferior-lisp-program "/usr/local/bin/ros run"))
+
+(use-package evil-paredit
+  :ensure t
+  :hook
+  (emacs-lisp-mode-hook . evil-paredit-mode)
+  (emacs-lisp-mode-hook . paredit-mode))
+
+(use-package eros
+  :ensure t
+  :hook
+  (eros-mode . emacs-lisp-mode))
 
 ;; IntelliSense stuff
 (use-package flycheck
@@ -215,19 +283,20 @@
   :commands (lsp lsp-deferred)
   :config
   ;; use flycheck, not flymake
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil)
+  :hook
+  ((go-mode kotlin-mode) . lsp)
+  (before-save . lsp-format-buffer)
+  (before-save . lsp-organize-imports))
+
+(use-package lsp-treemacs
+  :ensure t)
 
 (use-package go-mode
-  :ensure t
-  :bind (
-         ;; If you want to switch existing go-mode bindings to use lsp-mode/gopls instead
-         ;; uncomment the following lines
-         ;; ("C-c C-j" . lsp-find-definition)
-         ;; ("C-c C-d" . lsp-describe-thing-at-point)
-         )
-  :hook ((go-mode . lsp-deferred)
-         (before-save . lsp-format-buffer)
-         (before-save . lsp-organize-imports)))
+  :ensure t)
+
+(use-package kotlin-mode
+  :ensure t)
 
 ;; Explain keys
 (use-package which-key
