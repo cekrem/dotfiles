@@ -29,7 +29,6 @@
 (setq tramp-default-method "ssh")
 (setq tramp-syntax 'simplified)
 (global-hl-line-mode t)
-(setq mac-command-modifier 'meta)
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
 (tool-bar-mode -1)
@@ -37,6 +36,13 @@
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t)
 (global-display-line-numbers-mode)
+
+;; Mac meta key
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
+(setq mac-command-modifier 'meta)
 
 ;; Reuse help window
 (setq display-buffer-alist
@@ -152,7 +158,7 @@
     "v" 'helm-lsp-code-actions
 
     ". i" (lambda() (interactive)(find-file "~/Jottacloud/org/inbox.org"))
-    ". t" (lambda() (interactive)(find-file "~/Jottacloud/org/main.org.org"))
+    ". t" (lambda() (interactive)(find-file "~/Jottacloud/org/main.org"))
     ". e" (lambda() (interactive)(find-file "~/.emacs"))))
 
 (use-package evil-indent-textobject
@@ -253,7 +259,6 @@
   (setq org-archive-location "~/Jottacloud/org/archived.org::* From %s")
   (setq org-refile-targets
         '((("~/Jottacloud/org/main.org") :maxlevel . 3)
-          (("~/Jottacloud/org/archived.org") :maxlevel . 3)
           (("~/Jottacloud/org/backlog.org") :maxlevel . 3)
           ))
   :ensure org-plus-contrib)
