@@ -97,7 +97,10 @@
   (require 'use-package))
 
 ;; Themes and appearance
-(load-theme 'gruvbox t)
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox t))
 
 ;; Restart emacs
 (use-package restart-emacs
@@ -204,6 +207,7 @@
     "v" 'helm-lsp-code-actions
 
     ". j" 'find-journal
+    ". h" 'suggest
     ". t" (lambda() (interactive)(find-file "~/Dropbox/org/main.org"))
     ". s" (lambda() (interactive)(switch-to-buffer "*scratch*"))
     ". e" (lambda() (interactive)(find-file "~/.emacs"))))
