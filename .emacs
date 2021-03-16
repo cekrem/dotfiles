@@ -12,6 +12,7 @@
 (set-default-coding-systems 'utf-8-unix)
 (setq locale-coding-system 'utf-8-unix)
 (prefer-coding-system 'utf-8-unix)
+
 ;; Basic settings
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -32,17 +33,46 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t)
+(setq initial-buffer-choice "~/Dropbox/org/main.org")
 (global-display-line-numbers-mode)
+(setq x-select-enable-clipboard t)
 
-;; Mac meta key
+;; Don't leave backup files all over the place
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Mac specific settings
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
       mac-command-modifier 'meta
       mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
+
+(when (equal system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'super)
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (when (member "JetBrains Mono" (font-family-list))
+    (add-to-list 'initial-frame-alist '(font . "JetBrains Mono-14"))
+    (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14")))
+  (set-fontset-font t 'symbol (font-spec :family "Apple Symbols") nil 'prepend)
+  (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend))
+
+(when (featurep 'ns)
+  (defun ns-raise-emacs ()
+    "Raise Emacs."
+    (ns-do-applescript "tell application \"Emacs\" to activate"))(defun ns-raise-emacs-with-frame (frame)
+    "Raise Emacs and select the provided frame."
+    (with-selected-frame frame
+      (when (display-graphic-p)
+        (ns-raise-emacs))))(add-hook 'after-make-frame-functions 'ns-raise-emacs-with-frame)(when (display-graphic-p)
+    (ns-raise-emacs)))
 
 ;; Reuse help window
 (setq display-buffer-alist
@@ -53,9 +83,9 @@
 
 ;; Require and initialize `package`.
 (require 'package)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 
 ;; Setup `use-package`
@@ -83,16 +113,28 @@
   :config
   (bind-key* "C-a" 'treemacs)
   (bind-key* "C-SPC" 'helm-projectile-switch-project)
+  (bind-key* "Q" 'delete-other-windows)
   (bind-key* "C-c l" 'org-link)
   (bind-key* "C-c a" 'org-agenda)
   (bind-key* "C-c c" 'org-capture)
+
+  (global-set-key (kbd "<C-tab>") 'switch-to-next-buffer)
+  (global-set-key (kbd "<C-S-tab>") 'switch-to-prev-buffer)
   )
 
 ;; Shell env
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (exec-path-from-shell-initialize))
+(defun set-path-from-file (filePath)
+  "Set up Emacs' `exec-path` and `PATH` env var to match content of filePath."
+  (interactive)
+  (let ((path-from-file (with-temp-buffer
+                          (insert-file-contents filePath)
+                          (buffer-string)
+                          )
+                        ))
+    (setenv "PATH" path-from-file)
+    (setq exec-path (split-string path-from-file path-separator))))
+
+(set-path-from-file "~/path")
 
 ;; Evil mode
 (use-package evil
@@ -120,9 +162,6 @@
   :config
   (global-undo-tree-mode))
 
-(use-package format-all
-  :ensure t)
-
 (use-package evil-leader
   :ensure t
   :after evil
@@ -140,12 +179,19 @@
     "r e" 'restart-emacs
     "x" 'helm-M-x
     "b" 'helm-buffers-list
-    "t t" 'shell
+    "t t" 'eshell
     "g" 'magit
     "a" 'helm-projectile-rg
     "o" 'helm-find-files
     "q" 'delete-all-overlays
-    "p" 'format-all-buffer
+    "p" (lambda ()
+          (interactive)
+          (if (bound-and-true-p lsp-mode)
+              (lsp-format-buffer)
+            (format-all-ensure-formatter)
+            (format-all-buffer)
+            )
+          )
     "n" (lambda()
           (interactive)
           (elfeed-update)
@@ -157,8 +203,9 @@
     "f r" 'lsp-find-references
     "v" 'helm-lsp-code-actions
 
-    ". i" (lambda() (interactive)(find-file "~/Jottacloud/org/inbox.org"))
-    ". t" (lambda() (interactive)(find-file "~/Jottacloud/org/main.org"))
+    ". j" 'find-journal
+    ". t" (lambda() (interactive)(find-file "~/Dropbox/org/main.org"))
+    ". s" (lambda() (interactive)(switch-to-buffer "*scratch*"))
     ". e" (lambda() (interactive)(find-file "~/.emacs"))))
 
 (use-package evil-indent-textobject
@@ -166,7 +213,6 @@
 
 (use-package evil-matchit
   :ensure t)
-
 
 (use-package powerline-evil
   :ensure t
@@ -178,8 +224,6 @@
   :config
   (setq key-chord-two-keys-delay 0.5)
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-  (key-chord-define evil-normal-state-map "xx" 'delete-other-windows)
-  (key-chord-define evil-normal-state-map "qq" 'delete-other-windows)
   (key-chord-define evil-normal-state-map "]w" 'flycheck-next-error)
   (key-chord-define evil-normal-state-map "[w" 'flycheck-previous-error)
   (key-chord-define evil-normal-state-map "vv" 'evil-window-vsplit)
@@ -210,7 +254,7 @@
 (use-package projectile
   :ensure t
   :init
-  (setq projectile-project-search-path '("~/code")))
+  (setq projectile-project-search-path '("~/code" "~/Dropbox")))
 
 (use-package treemacs
   :ensure t
@@ -226,12 +270,52 @@
   :after treemacs projectile)
 
 ;; Org-mode
+(defvar journal-dir
+  (expand-file-name"~/Dropbox/org/journals/"))
+
+(defvar journal
+  (format "%sjournal%s.org"
+	  journal-dir
+	  (format-time-string "%Y%m%d")))
+
+(defvar org-journal-template
+  (concat
+   "#+TITLE: Journal\n"
+   "#+DATE: " (format-time-string "%A %d/%m/%Y\n")
+   "* TODAY\n"
+   "* NOTES"))
+
+(defun find-journal (days-ago)
+  "Find journal from DAYS-AGO"
+  (interactive "p")
+  (if (not current-prefix-arg)
+      (find-file
+       journal)
+    (find-file
+     (concat
+      journal-dir
+      "journal"
+      (format-time-string
+       "%Y%m%d"
+       (seconds-to-time (- (time-to-seconds) (* days-ago 86400))))
+      ".org"))))
+
 (use-package org
+  :ensure org-plus-contrib
   :mode (("\\.org$" . org-mode))
   :config
+
+  ;; default export options
+  (setq org-export-with-section-numbers nil)
+  (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://gongzhitaao.org/orgcss/org.css\" />")
+  (setq org-html-validation-link nil)
+
+  ;; set agenda files
+  (setq org-agenda-files '("~/Dropbox/org"))
+
   ;; customize todo states
   (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "LATER" "DONE")))
+        '((sequence "TODO" "IN-PROGRESS" "IN-REVIEW" "BLOCKED" "LATER" "DONE")))
 
   ;; customize default tags
   (setq org-tag-alist '(
@@ -239,29 +323,33 @@
                         ("@eCom" .?e)
                         ("@SPAE" .?s)
                         ("@OrgChore" .?r)
+                        ("@HouseChore" .?h)
                         ("@Learn" .?l)
+                        ("@Family" .?f)
+                        ("@Personal" .?p)
+                        ("@Workout" .?w)
                         ))
 
   ;; customize capture
-  (setq org-default-notes-file "~/Jottacloud/org/inbox.org")
+  (setq org-default-notes-file "~/Dropbox/org/ideas.org")
   (setq org-capture-templates
-	'(("t" "Todo [inbox]" entry
-	   (file+headline "~/Jottacloud/org/inbox.org" "Tasks")
-	   "* TODO %i%?\n%a")
-	  ("n" "Todo [inbox, no link]" entry
-	   (file+headline "~/Jottacloud/org/inbox.org" "Tasks")
-	   "* TODO %i%?\n")
-	  ("i" "Idea" entry
-	   (file+headline "~/Jottacloud/org/inbox.org" "Backlog")
-	   "* %i%?\n%a")))
+	'(
+          ("i" "Idea" entry (file+headline "~/Dropbox/org/ideas.org" "Ideas")
+	   "** %?\n")
+
+          ("t" "Todo" entry (file+headline journal "Today")
+	   "** TODO %?\n")
+	  ("n" "Note" entry (file+headline journal "Notes")
+	   "** %?\n\n")
+          ))
 
   ;; customize targets for archive/refile
-  (setq org-archive-location "~/Jottacloud/org/archived.org::* From %s")
+  (setq org-archive-location "~/Dropbox/org/archived.org::* From %s")
   (setq org-refile-targets
-        '((("~/Jottacloud/org/main.org") :maxlevel . 3)
-          (("~/Jottacloud/org/backlog.org") :maxlevel . 3)
-          ))
-  :ensure org-plus-contrib)
+        '(
+          (("~/Dropbox/org/main.org") :maxlevel . 3)
+          (("~/Dropbox/org/backlog.org") :maxlevel . 3)
+          )))
 
 (use-package evil-org
   :ensure t
@@ -273,6 +361,12 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
+(use-package verb
+  :ensure t
+  :after org
+  :config
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
+
 ;; Helm
 (use-package helm
   :ensure t
@@ -281,6 +375,7 @@
   :config
   (helm-mode 1)
   (global-set-key (kbd "M-x") 'helm-M-x)  ;; Improved M-x menu
+  (global-set-key (kbd "M-p") 'helm-show-kill-ring)  ;; Paste history
   (define-key helm-map (kbd "ESC") 'helm-keyboard-quit)
 
   (use-package helm-projectile
@@ -324,18 +419,24 @@
   :config
   (setq inferior-lisp-program "/usr/local/bin/ros run"))
 
+(use-package suggest
+  :ensure t)
+
 (use-package evil-paredit
   :ensure t
   :hook
-  (emacs-lisp-mode-hook . evil-paredit-mode)
-  (emacs-lisp-mode-hook . paredit-mode))
+  (emacs-lisp-mode . evil-paredit-mode)
+  (emacs-lisp-mode . paredit-mode))
 
 (use-package eros
   :ensure t
   :hook
-  (eros-mode . emacs-lisp-mode))
+  (emacs-lisp-mode . eros-mode))
 
-;; IntelliSense stuff
+;; IntelliSense stuff and languages
+(use-package format-all
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   :config
@@ -349,7 +450,7 @@
   ;; use flycheck, not flymake
   (setq lsp-prefer-flymake nil)
   :hook
-  ((go-mode kotlin-mode) . lsp)
+  ((go-mode kotlin-mode web-mode) . lsp)
   (before-save . lsp-format-buffer)
   (before-save . lsp-organize-imports))
 
@@ -361,8 +462,20 @@
 (use-package lsp-treemacs
   :ensure t)
 
+(use-package web-mode
+  :mode (("\\.js$" . web-mode))
+  :ensure t)
+
+(use-package json-mode
+  :ensure t)
+
 (use-package go-mode
   :ensure t)
+
+(use-package flycheck-golangci-lint
+  :after go-mode flycheck
+  :ensure t
+  :hook (go-mode . flycheck-golangci-lint-setup))
 
 (use-package kotlin-mode
   :ensure t)

@@ -204,3 +204,5 @@ export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
+
+echo "$PATH" > ~/path
