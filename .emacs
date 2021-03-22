@@ -47,15 +47,11 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; Mac specific settings
-(setq mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier 'meta
-      mac-option-modifier 'none)
-(setq mac-command-modifier 'meta)
-
 (when (equal system-type 'darwin)
+  (setq mac-command-key-is-meta t)
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'super)
+  (setq mac-option-key-is-meta nil)
+  (setq mac-option-modifier 'none)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (when (member "JetBrains Mono" (font-family-list))
@@ -80,6 +76,27 @@
          (display-buffer-reuse-mode-window display-buffer-below-selected)
          (window-height . 0.33)
          (mode apropos-mode help-mode helpful-mode Info-mode Man-mode))))
+
+;; Custom functions
+(defun get-json (uri)
+  "Fetch the contents of URI and parse."
+  (with-current-buffer (url-retrieve-synchronously uri)
+    (goto-char (point-min))
+    (goto-char url-http-end-of-headers)
+    (prog1 (json-read)
+      (kill-buffer))))
+
+(defun manna ()
+  "Fetch random bible verse."
+  (cdr
+   (assoc 'text
+          (assoc 'details
+                 (assoc 'verse
+                        (get-json "https://beta.ourmanna.com/api/v1/get/?format=json&order=random"))
+                 )
+          )
+   )
+  )
 
 ;; Require and initialize `package`.
 (require 'package)
@@ -120,6 +137,7 @@
   (bind-key* "C-c l" 'org-link)
   (bind-key* "C-c a" 'org-agenda)
   (bind-key* "C-c c" 'org-capture)
+  (bind-key* "M-RET" 'helm-lsp-code-actions)
 
   (global-set-key (kbd "<C-tab>") 'switch-to-next-buffer)
   (global-set-key (kbd "<C-S-tab>") 'switch-to-prev-buffer)
@@ -204,11 +222,12 @@
     ;; Intellisense leader shortcuts
     "r r" 'lsp-rename
     "f r" 'lsp-find-references
-    "v" 'helm-lsp-code-actions
+    "v" 'lsp-ui-doc-glance
 
     ". j" 'find-journal
     ". h" 'suggest
     ". t" (lambda() (interactive)(find-file "~/Dropbox/org/main.org"))
+    ". v" (lambda() (interactive)(find-file "~/Dropbox/org/vipps.org"))
     ". s" (lambda() (interactive)(switch-to-buffer "*scratch*"))
     ". e" (lambda() (interactive)(find-file "~/.emacs"))))
 
@@ -234,6 +253,8 @@
   (key-chord-define evil-normal-state-map "ss" 'evil-window-split)
   (key-chord-define evil-normal-state-map "ff" 'toggle-frame-fullscreen)
   (key-chord-define evil-normal-state-map "mm" 'toggle-frame-maximized)
+  (key-chord-define evil-normal-state-map "MM" (lambda () (interactive) ((save-excursion (insert (manna))))))
+  (key-chord-define evil-normal-state-map "tt" (lambda () (interactive) (org-agenda-list 1)))
   (key-chord-mode 1))
 
 ;; Feed/news
@@ -307,7 +328,11 @@
 (use-package org
   :ensure org-plus-contrib
   :mode (("\\.org$" . org-mode))
+  :hook (org-mode . visual-line-mode)
   :config
+
+  ;; default org clocktable properties
+  (setq org-clock-clocktable-default-properties '(:maxlevel 2 :compact t :block today :scope file))
 
   ;; default export options
   (setq org-export-with-section-numbers nil)
@@ -383,6 +408,7 @@
   (define-key helm-map (kbd "ESC") 'helm-keyboard-quit)
 
   (use-package helm-projectile
+    :ensure
     :config
     (projectile-mode)
     (setq projectile-completion-system 'helm)
@@ -444,33 +470,27 @@
 (use-package flycheck
   :ensure t
   :config
-  (flycheck-mode))
+  (global-flycheck-mode))
 
 (use-package lsp-mode
   :ensure t
   :after flycheck
   :commands (lsp lsp-deferred)
   :config
-  ;; use flycheck, not flymake
-  (setq lsp-prefer-flymake nil)
+  (setq lsp-disabled-clients '(javascript-eslint eslint jsts-ls deno-ls))
   :hook
-  ((go-mode kotlin-mode web-mode) . lsp)
+  ((go-mode web-mode kotlin-mode) . lsp)
   (before-save . lsp-format-buffer)
   (before-save . lsp-organize-imports))
 
 (use-package lsp-ui
   :ensure t
+  :init
+  (setq lsp-ui-doc-enable nil)
   :hook
   ((lsp-mode . lsp-ui-mode)))
 
 (use-package lsp-treemacs
-  :ensure t)
-
-(use-package web-mode
-  :mode (("\\.js$" . web-mode))
-  :ensure t)
-
-(use-package json-mode
   :ensure t)
 
 (use-package go-mode
@@ -482,6 +502,27 @@
   :hook (go-mode . flycheck-golangci-lint-setup))
 
 (use-package kotlin-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t
+  :mode (("\\.js\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode)
+         ("\\.ts\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.html\\'" . web-mode)
+         ("\\.vue\\'" . web-mode)
+         ("\\.json\\'" . web-mode))
+  :commands web-mode
+  :config
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.js[x]?\\'")))
+  )
+
+(use-package json-mode
+  :ensure t)
+
+(use-package typescript-mode
   :ensure t)
 
 ;; Explain keys

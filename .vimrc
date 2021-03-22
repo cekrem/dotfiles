@@ -104,6 +104,11 @@ nnoremap <silent> ]w :ALENext<cr>
 nnoremap <silent> [w :ALEPrevious<cr>
 nnoremap <silent> <leader>w :lopen<cr>
 
+" Search
+nnoremap <leader>a :Rg<CR>
+nnoremap <leader>s :ALESymbolSearch<Space>
+nnoremap <leader>fd :syn clear Repeat \| g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' \| nohlsearch<CR>
+
 " DB shortcuts
 au FileType sql nnoremap <leader>dbu :%DB $UAT_DB<CR>
 au FileType sql nnoremap <leader>dbm :%DB $MT_DB<CR>
@@ -183,6 +188,8 @@ let g:OmniSharp_highlight_types = 2
 " Kotlin tweaks
 let g:ale_kotlin_kotlinc_executable = '/usr/local/bin/kotlinc'
 let g:ale_kotlin_ktlint_executable = '/usr/local/bin/ktlint'
+let g:ale_kotlin_ktlint_executable = '/usr/local/bin/ktlint'
+let g:ale_kotlin_languageserver_executable = '/Users/cekrem/code/kotlin-language-server/server/build/install/server/bin/kotlin-language-server'
 let g:ale_kotlin_ktlint_options = '--experimental'
 
 " Statusline config
@@ -232,7 +239,7 @@ let g:ale_linters = {
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
-\   'kotlin': 'ktlint',
+\   'kotlin': 'languageserver',
 \   'rust': ['rls']
 \}
 let g:ale_go_golangci_lint_options = '--disable-all -p style -p complexity -p bugs -p format'
