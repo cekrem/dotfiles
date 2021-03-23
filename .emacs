@@ -14,6 +14,7 @@
 (prefer-coding-system 'utf-8-unix)
 
 ;; Basic settings
+(display-time-mode 1) 
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
