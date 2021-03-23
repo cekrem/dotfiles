@@ -13,17 +13,17 @@
 ;; General shortcuts (TODO: create sections if this gets large)
 (map! :leader
       "r e" 'restart-emacs
-      "t t" 'eshell
+      "t t" 'vterm
       "b" 'helm-buffers-list
       "M-p" 'helm-show-kill-ring
       "g" 'magit)
 
 ;; Window management
 (map! :g
-      "C-s-h" 'evil-window-left
-      "C-s-j" 'evil-window-down
-      "C-s-k" 'evil-window-up
-      "C-s-l" 'evil-window-right)
+      "C-M-h" 'evil-window-left
+      "C-M-j" 'evil-window-down
+      "C-M-k" 'evil-window-up
+      "C-M-l" 'evil-window-right)
 (map! :leader
       "f f" 'toggle-frame-fullscreen
       "m m" 'toggle-frame-maximized
@@ -58,13 +58,7 @@
       "r r" 'lsp-rename
       "f r" 'lsp-find-references
       "v" 'lsp-ui-doc-glance
-      "p" (lambda ()
-            (interactive)
-            (if (bound-and-true-p lsp-mode)
-                (lsp-format-buffer)
-              (format-all-buffer)
-              )
-            )
+      "p" '+format/region-or-buffer
       )
 
 
@@ -78,12 +72,12 @@
 
 ;; Find/search/projects
 (map! :n "C-p" nil)
-(map! :g "C-p" 'helm-projectile-find-file
+(map! :g "C-p" '+helm/projectile-find-file
       "C-SPC" 'helm-projectile-switch-project)
 (map! :leader
       "w n" '+workspace/new
       "w r" '+workspace/rename
-      "a" 'helm-projectile-rg
+      "a" '+helm/project-search
       "o" 'helm-find-files)
 
 ;; [] prefix hack part 2/2 (leave on bottom!)

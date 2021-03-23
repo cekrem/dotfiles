@@ -14,6 +14,10 @@
 (setq org-directory "~/Dropbox/org")
 (setq org-agenda-files '("~/Dropbox/org"))
 
+(after! evil-org
+  (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading calendar))
+  )
+
 (after! org
   ;; customize todo states
   (setq org-todo-keywords

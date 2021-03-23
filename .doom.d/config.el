@@ -25,10 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
-
-;; Directories
-(setq projectile-project-search-path '("~/code" "~/Dropbox"))
+;;(setq doom-theme 'doom-vibrant)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -54,9 +51,8 @@
 
 ;; Tweaks undeserving of their own file (for now)
 (setq projectile-project-search-path '("~/code" "~/Dropbox"))
+(add-to-list 'company-backends 'company-files)
 (setq lsp-ui-doc-enable nil)
-(add-hook! lsp-mode lsp-ui-mode)
-(add-hook! go-mode lsp)
 
 (load! "./org.el")
 (load! "./keys.el")
