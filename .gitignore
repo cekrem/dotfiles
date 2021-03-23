@@ -3,7 +3,6 @@
 !.gitignore
 !.gitignore_global
 !.profile
-!.emacs
 
 !utils/
 !fonts/
@@ -13,6 +12,7 @@
 !.ideavimrc
 !.vim/
 .vim/plugged/
+!.doom.d
 
 !.zshrc
 !.taskrc

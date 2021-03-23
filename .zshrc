@@ -175,6 +175,7 @@ export PATH=$PATH:~/utils
 export PATH=$PATH:~/.roswell/bin/
 export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/code/kotlin-language-server/server/build/install/server/bin
+export PATH=$PATH:~/.emacs.d/bin
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 

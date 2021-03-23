@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/cekrem/.emacs.d'
+let g:netrw_dirhist_7='/Users/cekrem/.emacs.d/personal/preload'
 let g:netrw_dirhist_6='/Users/cekrem/code/golib/concurrency'
 let g:netrw_dirhist_5='/Users/cekrem/code/vaam/services/merchant-management/app'
 let g:netrw_dirhist_4='/Users/cekrem/code/qr-code/internal/app'
