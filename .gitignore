@@ -12,7 +12,10 @@
 !.ideavimrc
 !.vim/
 .vim/plugged/
+
 !.doom.d
+!.emacs.vanilla.d/init.el
+!.emacs.vanilla.d/custom.el
 
 !.zshrc
 !.taskrc

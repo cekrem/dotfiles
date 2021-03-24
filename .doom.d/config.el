@@ -50,9 +50,15 @@
 ;; they are implemented.
 
 ;; Tweaks undeserving of their own file (for now)
+
+(setq initial-major-mode 'lisp-interaction-mode)
 (setq projectile-project-search-path '("~/code" "~/Dropbox"))
-(add-to-list 'company-backends 'company-files)
 (setq lsp-ui-doc-enable nil)
+(add-to-list 'company-backends 'company-files)
 
 (load! "./org.el")
 (load! "./keys.el")
+
+(load! "./fast-scroll.el")
+(fast-scroll-config)
+(fast-scroll-mode 1)
