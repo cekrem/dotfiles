@@ -77,6 +77,8 @@
 (map! :leader
       "w n" '+workspace/new
       "w r" '+workspace/rename
+      "w s" '+workspace/save
+      "w l" '+workspace/load
       "a" '+helm/project-search
       "o" 'helm-find-files)
 

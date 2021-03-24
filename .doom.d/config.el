@@ -51,11 +51,17 @@
 
 ;; Tweaks undeserving of their own file (for now)
 (setq initial-major-mode 'lisp-interaction-mode)
-(setq projectile-project-search-path '("~/code" "~/Dropbox"))
 (setq lsp-ui-doc-enable nil)
 (add-to-list 'company-backends 'company-files)
 (ispell-change-dictionary "american" t)
 (hl-line-mode -1)
+(helm-projectile-on)
+(setq projectile-project-search-path '("~/code" "~/Dropbox"))
+(setq projectile-completion-system 'helm)
+(setq scroll-conservatively 0)
+(setq scroll-step 10)
+(setq frame-title-format "%b - cekrem Emacs")
+(load-theme 'doom-gruvbox)
 
 ;; Mac customization
 (when (equal system-type 'darwin)
