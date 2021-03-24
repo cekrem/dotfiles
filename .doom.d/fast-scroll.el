@@ -44,7 +44,7 @@
 (defvar fast-scroll-pending-reset nil)
 (defvar fast-scroll-timeout 0)
 (defvar fast-scroll-count 0)
-(defvar fast-scroll-throttle 0.2)
+(defvar fast-scroll-throttle 0.1)
 (defvar fast-scroll-throttling-p nil)
 
 (defvar fast-scroll-start-hook '())
@@ -192,6 +192,9 @@ during scrolling activity."
         (fast-scroll-advice-scroll-functions))
     (progn
       (fast-scroll-unload-function))))
+
+(fast-scroll-config)
+(fast-scroll-mode 1)
 
 (provide 'fast-scroll)
 ;;; fast-scroll.el ends here

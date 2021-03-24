@@ -50,15 +50,29 @@
 ;; they are implemented.
 
 ;; Tweaks undeserving of their own file (for now)
-
 (setq initial-major-mode 'lisp-interaction-mode)
 (setq projectile-project-search-path '("~/code" "~/Dropbox"))
 (setq lsp-ui-doc-enable nil)
 (add-to-list 'company-backends 'company-files)
+(ispell-change-dictionary "american" t)
+(hl-line-mode -1)
+
+;; Mac customization
+(when (equal system-type 'darwin)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-key-is-meta nil)
+  (setq mac-option-modifier 'none)
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (when (member "JetBrains Mono" (font-family-list))
+    (add-to-list 'initial-frame-alist '(font . "JetBrains Mono-14"))
+    (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14")))
+  (set-fontset-font t 'symbol (font-spec :family "Apple Symbols") nil 'prepend)
+  (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend))
 
 (load! "./org.el")
 (load! "./keys.el")
 
+;; disable "everything" while scrolling
 (load! "./fast-scroll.el")
-(fast-scroll-config)
-(fast-scroll-mode 1)
