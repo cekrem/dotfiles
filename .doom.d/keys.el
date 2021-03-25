@@ -55,14 +55,10 @@
       "f r" 'lsp-find-references
       "v" 'lsp-ui-doc-glance
       "p" '+format/region-or-buffer
+      "e" 'flycheck-list-errors
       )
 (map! :g
       "M-RET" 'lsp-ui-sideline-apply-code-actions)
-
-(map! :n
-      "] e" 'flycheck-next-error
-      "[ e" 'flycheck-previous-error
-      )
 
 ;; Improve go to definition behavior
 (map! :m "C-]" '+lookup/definition)
