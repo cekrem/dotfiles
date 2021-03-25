@@ -28,9 +28,7 @@
       "f f" 'toggle-frame-fullscreen
       "m m" 'toggle-frame-maximized
       ". s" (lambda() (interactive)(switch-to-buffer "*scratch*"))
-      "v v" 'evil-window-vsplit
-      "s s" evil-normal-state-map "ss" 'evil-window-split
-      "b" 'helm-buffers-list)
+      "b" '+helm/workspace-mini)
 
 ;; Org
 (map! :g
