@@ -1,11 +1,5 @@
 ;;; keys.el -*- lexical-binding: t; -*-
 
-;; [] prefix hack part 1/12 (leave on top!)
-(map! :n
-      "]" nil
-      "[" nil
-      )
-
 ;; Leader key: \
 (map! :m "\\" nil)
 (setq doom-leader-key "\\")
@@ -62,11 +56,12 @@
       "v" 'lsp-ui-doc-glance
       "p" '+format/region-or-buffer
       )
-
+(map! :g
+      "M-RET" 'lsp-ui-sideline-apply-code-actions)
 
 (map! :n
-      "] w" 'flycheck-next-error
-      "[ w" 'flycheck-previous-error
+      "] e" 'flycheck-next-error
+      "[ e" 'flycheck-previous-error
       )
 
 ;; Improve go to definition behavior
@@ -82,9 +77,3 @@
       "w l" '+workspace/load
       "a" '+ivy/project-search
       "o" '+default/find-file-under-here)
-
-;; [] prefix hack part 2/2 (leave on bottom!)
-(map! :i
-      "]" 'self-insert-command
-      "[" 'self-insert-command
-      )
