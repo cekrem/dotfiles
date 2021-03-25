@@ -55,13 +55,10 @@
 (add-to-list 'company-backends 'company-files)
 (ispell-change-dictionary "american" t)
 (hl-line-mode -1)
-(helm-projectile-on)
 (setq projectile-project-search-path '("~/code" "~/Dropbox"))
-(setq projectile-completion-system 'helm)
 (setq scroll-conservatively 0)
 (setq scroll-step 10)
 (setq frame-title-format "%b - cekrem Emacs")
-(load-theme 'doom-gruvbox)
 
 ;; Mac customization
 (when (equal system-type 'darwin)
@@ -70,12 +67,7 @@
   (setq mac-option-key-is-meta nil)
   (setq mac-option-modifier 'none)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
-  (when (member "JetBrains Mono" (font-family-list))
-    (add-to-list 'initial-frame-alist '(font . "JetBrains Mono-14"))
-    (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14")))
-  (set-fontset-font t 'symbol (font-spec :family "Apple Symbols") nil 'prepend)
-  (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 (load! "./org.el")
 (load! "./keys.el")

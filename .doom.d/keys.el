@@ -14,9 +14,9 @@
 (map! :leader
       "r e" 'restart-emacs
       "t t" 'vterm
-      "b" 'helm-buffers-list
-      "M-p" 'helm-show-kill-ring
       "g" 'magit)
+(map! :g
+      "M-p" '+default/yank-pop)
 
 ;; Window management
 (map! :g
@@ -28,7 +28,7 @@
       "f f" 'toggle-frame-fullscreen
       "m m" 'toggle-frame-maximized
       ". s" (lambda() (interactive)(switch-to-buffer "*scratch*"))
-      "b" '+helm/workspace-mini)
+      "b" '+ivy/switch-buffer)
 
 ;; Org
 (map! :g
@@ -46,10 +46,14 @@
       ". p" (lambda() (interactive)(find-file "~/.doom.d/packages.el"))
       )
 
-;; Autocomplete
+;; Autocomplete next/prev
 (map! :map company-active-map
       "C-n" 'company-select-next
       "C-p" 'company-select-previous)
+
+(map! :map ivy-mode-map
+      "C-n" 'ivy-next-line
+      "C-p" 'ivy-previous-line)
 
 ;; LSP / IntelliSense
 (map! :leader
@@ -69,16 +73,15 @@
 (map! :m "C-]" '+lookup/definition)
 
 ;; Find/search/projects
-(map! :n "C-p" nil)
-(map! :g "C-p" '+helm/projectile-find-file
-      "C-SPC" 'helm-projectile-switch-project)
+(map! :n "C-p" '+ivy/projectile-find-file
+      "C-SPC" 'projectile-switch-project)
 (map! :leader
       "w n" '+workspace/new
       "w r" '+workspace/rename
       "w s" '+workspace/save
       "w l" '+workspace/load
-      "a" '+helm/project-search
-      "o" 'helm-find-files)
+      "a" '+ivy/project-search
+      "o" '+default/find-file-under-here)
 
 ;; [] prefix hack part 2/2 (leave on bottom!)
 (map! :i
