@@ -7,6 +7,7 @@
 ;; Tweaks undeserving of their own file (for now)
 (setq display-line-numbers-type t)
 (setq initial-major-mode 'lisp-interaction-mode)
+(global-display-fill-column-indicator-mode +1)
 
 (setq lsp-ui-doc-enable nil)
 (setq lsp-intelephense-multi-root nil)
