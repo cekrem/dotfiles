@@ -14,6 +14,7 @@
 
 ;; Window management
 (map! :g
+      "C-a" '+treemacs/toggle
       "C-M-h" 'evil-window-left
       "C-M-j" 'evil-window-down
       "C-M-k" 'evil-window-up

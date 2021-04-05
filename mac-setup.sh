@@ -24,6 +24,14 @@ fi
 brew tap cekrem/dotfiles
 brew install vim --head
 
+# Install proper emacs
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
+
+rm -rf ~/.emacs.d ~/.emacs
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.doom.d
+ln -s ~/.emacs.doom.d ~/.emacs.d
+
 # Install vim plugins
 vim -c PlugInstall -c UpdateRemotePlugins
 
