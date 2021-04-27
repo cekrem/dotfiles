@@ -1,0 +1,17 @@
+awk '{ 
+  TR=0
+  for( I = 1; I <= NF; I++ ) {
+    TR += $I
+    TC[I] += $I
+    printf( "%6d", $I )
+  }
+  print "  = " TR
+  TF = NF
+}
+
+END {
+  for( I = 1; I <= TF; I++ )
+    printf "%6d", TC[I]
+  print ""
+}
+'

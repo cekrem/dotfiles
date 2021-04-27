@@ -1,0 +1,2 @@
+date +"%A %m-%d-%y"
+git-today-all | tail -n 1 | xargs printf 'additions: %d, deletions: %d\n'

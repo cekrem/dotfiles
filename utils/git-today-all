@@ -1,0 +1,1 @@
+find ~/code -maxdepth 2 -name .git -execdir zsh -c 'git-today' \; | sum-columns

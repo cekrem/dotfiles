@@ -14,6 +14,37 @@
 (setq org-directory "~/Dropbox/org")
 (setq org-agenda-files '("~/Dropbox/org"))
 
+;; Journal setup
+(defvar journal-dir
+  (expand-file-name"~/Dropbox/org/journals/"))
+
+(defvar journal
+  (format "%sjournal%s.org"
+	  journal-dir
+	  (format-time-string "%Y%m%d")))
+
+(defvar org-journal-template
+  (concat
+   "#+TITLE: Journal\n"
+   "#+DATE: " (format-time-string "%A %d/%m/%Y\n")
+   "* TODAY\n"
+   "* NOTES"))
+
+(defun find-journal (days-ago)
+  "Find journal from DAYS-AGO"
+  (interactive "p")
+  (if (not current-prefix-arg)
+      (find-file
+       journal)
+    (find-file
+     (concat
+      journal-dir
+      "journal"
+      (format-time-string
+       "%Y%m%d"
+       (seconds-to-time (- (time-to-seconds) (* days-ago 86400))))
+      ".org"))))
+
 (after! evil-org
   (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading calendar))
   )
@@ -25,15 +56,16 @@
 
   ;; customize default tags
   (setq org-tag-alist '(
+                        ("@Workweek" .?w)
                         ("@AndroidCore" .?c)
                         ("@eCom" .?e)
                         ("@SPAE" .?s)
                         ("@OrgChore" .?r)
-                        ("@HouseChore" .?h)
+                        ("@HouseChore" .?H)
                         ("@Learn" .?l)
                         ("@Family" .?f)
                         ("@Personal" .?p)
-                        ("@Workout" .?w)
+                        ("@Workout" .?W)
                         ))
   )
 

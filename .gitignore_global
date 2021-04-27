@@ -23,6 +23,7 @@ test.sql
 gitignore.*
 .root/
 .http
+compiler.xml
 .ignore*
 \#*
 .#*

@@ -7,7 +7,9 @@
 ;; General shortcuts (TODO: create sections if this gets large)
 (map! :leader
       "r e" 'restart-emacs
+      "r p" 'projectile-discover-projects-in-search-path
       "t t" 'vterm
+      "f j" 'find-journal
       "g" 'magit)
 (map! :g
       "M-p" '+default/yank-pop)
@@ -35,6 +37,7 @@
 (map! :leader
       ". t" (lambda() (interactive)(find-file "~/Dropbox/org/main.org"))
       ". v" (lambda() (interactive)(find-file "~/Dropbox/org/vipps.org"))
+      ". w" (lambda() (interactive)(find-file "~/Dropbox/org/workweek.org"))
       ". i" (lambda() (interactive)(find-file "~/.doom.d/init.el"))
       ". e" (lambda() (interactive)(find-file "~/.doom.d/config.el"))
       ". k" (lambda() (interactive)(find-file "~/.doom.d/keys.el"))

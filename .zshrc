@@ -117,6 +117,13 @@ alias lint="golangci-lint run --disable-all -p style -p complexity -p bugs -p fo
 alias sbcl="rlwrap ros run"
 
 # gnu version of bsd built-ins
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Sorted and nice disk usage
+dunice() {
+  du -mh -d1 . | sort -hr
+}
 
 # Dev ops helpers
 es() {
@@ -176,6 +183,7 @@ export PATH=$PATH:~/.roswell/bin/
 export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/code/kotlin-language-server/server/build/install/server/bin
 export PATH=$PATH:~/.emacs.d/bin
+export PATH=$PATH:~/.local/bin
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
@@ -207,3 +215,4 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 echo "$PATH" > ~/path
+[ -f "/Users/cekrem/.ghcup/env" ] && source "/Users/cekrem/.ghcup/env" # ghcup-env
