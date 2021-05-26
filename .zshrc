@@ -115,6 +115,8 @@ alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
 alias lint="golangci-lint run --disable-all -p style -p complexity -p bugs -p format"
 alias sbcl="rlwrap ros run"
+alias git-report="~/code/git-report/index.js ~/code"
+alias git-report-short="~/code/git-report/index.js ~/code | tail -1"
 
 # gnu version of bsd built-ins
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

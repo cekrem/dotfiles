@@ -8,7 +8,7 @@ uat.env
 prod.env
 local.env
 .idea/*
-.idea/compiler.xml
+compiler.xml
 .DS_Store
 vendor/
 tmp/

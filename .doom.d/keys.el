@@ -40,6 +40,7 @@
       ". w" (lambda() (interactive)(find-file "~/Dropbox/org/workweek.org"))
       ". i" (lambda() (interactive)(find-file "~/.doom.d/init.el"))
       ". e" (lambda() (interactive)(find-file "~/.doom.d/config.el"))
+      ". l" (lambda() (interactive)(find-file "~/.doom.d/lisp.el"))
       ". k" (lambda() (interactive)(find-file "~/.doom.d/keys.el"))
       ". p" (lambda() (interactive)(find-file "~/.doom.d/packages.el"))
       )
@@ -75,5 +76,6 @@
       "w r" '+workspace/rename
       "w s" '+workspace/save
       "w l" '+workspace/load
+      "w q" '+workspace/delete
       "a" '+ivy/project-search
       "o" '+default/find-file-under-here)

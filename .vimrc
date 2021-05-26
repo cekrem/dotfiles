@@ -64,6 +64,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx']
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 Plug 'galooshi/vim-import-js', { 'for': ['javascript', 'javascript.jsx', 'jsx'] } 
 
+" Elm
+Plug 'elmcast/elm-vim'
+
 " Kotlin
 Plug 'udalov/kotlin-vim'
 
@@ -79,6 +82,10 @@ Plug 'nicwest/vim-http'
 
 " SQL
 Plug 'tpope/vim-dadbod'
+
+" Org mode (testing!)
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode'
 
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -222,6 +229,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
+\   'elm': ['elm-format'],
 \   'scss': ['prettier'],
 \   'python': ['yapf'],
 \   'sql': ['pgformatter'],
@@ -236,6 +244,7 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'go': ['gopls', 'golangci-lint'],
+\   'elm': ['elm_ls'],
 \   'python': ['pyls'],
 \   'c': 'all',
 \   'cs': 'OmniSharp',
@@ -261,6 +270,11 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 let g:airline_theme='gruvbox'
+
+" Org mode
+nnoremap <leader>.t :e ~/Dropbox/org/main.org<CR> 
+let g:org_agenda_files = ['~/Dropbox/org/*.org']
+let g:org_todo_keywords=['TODO', 'IN-PROGRESS', 'IN-REVIEW',  'BLOCKED', 'LATER',  '|', 'DONE', 'DELEGATED']
 
 colorscheme gruvbox
 

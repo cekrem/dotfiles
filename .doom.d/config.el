@@ -9,6 +9,7 @@
 (setq initial-major-mode 'lisp-interaction-mode)
 (global-display-fill-column-indicator-mode +1)
 (setq doom-theme 'doom-one-light)
+(setq lsp-auto-guess-root -1)
 
 (setq lsp-ui-doc-enable nil)
 (setq lsp-intelephense-multi-root nil)
@@ -33,6 +34,7 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 (load! "./org.el")
+(load! "./lisp.el")
 (load! "./keys.el")
 
 ;; disable "everything" while scrolling

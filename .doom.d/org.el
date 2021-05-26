@@ -52,7 +52,7 @@
 (after! org
   ;; customize todo states
   (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "IN-REVIEW" "BLOCKED" "LATER" "DONE")))
+        '((sequence "TODO" "IN-PROGRESS" "IN-REVIEW" "BLOCKED" "LATER" "|" "CLOSED" "DELEGATED" "DONE")))
 
   ;; customize default tags
   (setq org-tag-alist '(
