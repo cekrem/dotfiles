@@ -8,7 +8,7 @@
 (setq display-line-numbers-type t)
 (setq initial-major-mode 'lisp-interaction-mode)
 (global-display-fill-column-indicator-mode +1)
-(setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-solarized-light)
 (setq lsp-auto-guess-root -1)
 
 (setq lsp-ui-doc-enable nil)

@@ -59,7 +59,11 @@
       "r r" 'lsp-rename
       "f r" 'lsp-find-references
       "v" 'lsp-ui-doc-glance
-      "p" '+format/region-or-buffer
+      "p" (lambda() (interactive) (if
+                                      (or (bound-and-true-p js2-mode)
+                                          (bound-and-true-p typescript-mode))
+                                      (+format/buffer)
+                                    (format-all-buffer)))
       "e" 'flycheck-list-errors
       )
 (map! :g

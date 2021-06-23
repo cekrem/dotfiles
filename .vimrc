@@ -39,6 +39,7 @@ Plug 'airblade/vim-rooter'
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 
 " Statusline
 Plug 'itchyny/lightline.vim'
@@ -203,10 +204,10 @@ let g:ale_kotlin_ktlint_options = '--experimental'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.colorscheme = 'solarized'
 "let g:lightline.active = 'left': { [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ] }
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
       \ }
@@ -265,16 +266,16 @@ let g:user_emmet_settings={'javascript.jsx': {'extends':'jsx'}, 'javascript': {'
 let g:jsx_ext_required = 0
 
 " Colors
-set background=dark
+set background=light
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-let g:airline_theme='gruvbox'
+let g:airline_theme='solarized'
 
 " Org mode
 nnoremap <leader>.t :e ~/Dropbox/org/main.org<CR> 
 let g:org_agenda_files = ['~/Dropbox/org/*.org']
 let g:org_todo_keywords=['TODO', 'IN-PROGRESS', 'IN-REVIEW',  'BLOCKED', 'LATER',  '|', 'DONE', 'DELEGATED']
 
-colorscheme gruvbox
+colorscheme solarized8
 
