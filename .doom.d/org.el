@@ -7,7 +7,9 @@
 
 ;; default export options
 (setq org-export-with-section-numbers nil)
-(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://gongzhitaao.org/orgcss/org.css\" />")
+;; (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://gongzhitaao.org/orgcss/org.css\" />")
+;;(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.jsdelivr.net/npm/water.css@2/out/water.css\" />")
+(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://markdowncss.github.io/retro/css/retro.css\" />")
 (setq org-html-validation-link nil)
 
 ;; Directories

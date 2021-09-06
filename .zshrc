@@ -216,5 +216,8 @@ export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+
 echo "$PATH" > ~/path
 [ -f "/Users/cekrem/.ghcup/env" ] && source "/Users/cekrem/.ghcup/env" # ghcup-env

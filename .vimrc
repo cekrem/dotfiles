@@ -102,6 +102,12 @@ call plug#end()
 " General settings (not plugin related)
 source ~/.vimrc.basics
 
+" Fix å! 
+imap <buffer> å å
+
+" Spellcheck markdown
+au FileType markdown setlocal spell
+
 " Intellisense & linting shortcuts
 noremap <C-]> :ALEGoToDefinition<CR>
 nnoremap <leader>fr :ALEFindReferences<CR> 
@@ -111,10 +117,11 @@ nnoremap <leader>d :ALEDetail<CR>
 nnoremap <silent> ]w :ALENext<cr>
 nnoremap <silent> [w :ALEPrevious<cr>
 nnoremap <silent> <leader>w :lopen<cr>
+nnoremap <leader>s :setlocal spell<cr>j
 
 " Search
 nnoremap <leader>a :Rg<CR>
-nnoremap <leader>s :ALESymbolSearch<Space>
+"nnoremap <leader>s :ALESymbolSearch<Space>
 nnoremap <leader>fd :syn clear Repeat \| g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' \| nohlsearch<CR>
 
 " DB shortcuts
@@ -239,12 +246,14 @@ let g:ale_fixers = {
 \   'xml': ['xmllint'],
 \   'css': ['prettier'],
 \   'go': ['goimports'],
+\   'markdown': ['prettier'],
 \   'c': ['clang-format'],
 \   'cs': ['uncrustify'],
 \   'rust': 'rustfmt'
 \}
 let g:ale_linters = {
 \   'go': ['gopls', 'golangci-lint'],
+\   'markdown': ['prettier'],
 \   'elm': ['elm_ls'],
 \   'python': ['pyls'],
 \   'c': 'all',

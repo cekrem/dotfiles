@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/cekrem/code/git-report'
 let g:netrw_dirhist_9='/Users/cekrem/code/vipps-ecom-api'
 let g:netrw_dirhist_8='/Users/cekrem/.emacs.d'
 let g:netrw_dirhist_7='/Users/cekrem/.emacs.d/personal/preload'

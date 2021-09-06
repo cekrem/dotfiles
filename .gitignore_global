@@ -27,3 +27,6 @@ compiler.xml
 .ignore*
 \#*
 .#*
+design-system-sample/
+CekremAktivity.kt
+
