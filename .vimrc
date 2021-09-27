@@ -10,7 +10,7 @@ Plug 'tpope/vim-dotenv'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Golang
+" Golang (done via ALE)
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 " Plug 'govim/govim'
 "autocmd! User govim call govim#config#Set("QuickfixAutoDiagnostics", 0)
@@ -21,6 +21,10 @@ Plug 'tpope/vim-fugitive'
 " C#
 "Plug 'OmniSharp/omnisharp-vim', { 'do': ':OmniSharpInstall', 'for': 'cs' }
 "Plug 'tpope/vim-dispatch'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Lisp
 Plug 'kovisoft/slimv'

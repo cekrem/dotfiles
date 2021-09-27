@@ -163,6 +163,10 @@ gradle-clean() {
   ./gradlew --stop && ./gradlew clean aUD --no-build-cache
 }
 
+stuff() {
+  vi ~/stuff.md
+}
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export LANG=en_US.UTF-8
