@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export ZSH="/Users/cekrem/.oh-my-zsh"
+  export ZSH="/Users/christian.ekrem/.oh-my-zsh"
 else
   export ZSH="/home/vagrant/.oh-my-zsh"
 fi
@@ -193,4 +193,4 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f "/Users/cekrem/.ghcup/env" ] && source "/Users/cekrem/.ghcup/env" # ghcup-env
+[ -f "/Users/christian.ekrem/.ghcup/env" ] && source "/Users/christian.ekrem/.ghcup/env" # ghcup-env

@@ -1,5 +1,4 @@
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -32,3 +31,4 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 echo "$PATH" > ~/path
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"

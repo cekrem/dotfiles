@@ -3,6 +3,7 @@
 !.gitignore
 !.gitignore_global
 !.profile
+!.zprofile
 
 !utils/
 !fonts/
