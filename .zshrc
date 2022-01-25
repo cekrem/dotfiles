@@ -193,4 +193,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f "/Users/christian.ekrem/.ghcup/env" ] && source "/Users/christian.ekrem/.ghcup/env" # ghcup-env
+# haskell stuff
+# [ -f "/Users/christian.ekrem/.ghcup/env" ] && source "/Users/christian.ekrem/.ghcup/env" # ghcup-env
