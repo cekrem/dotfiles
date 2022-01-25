@@ -31,4 +31,3 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 echo "$PATH" > ~/path
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$HOME/.cargo/env"
