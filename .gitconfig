@@ -15,5 +15,6 @@
 	default = current
 [pull]
 	default = current
+	ff = only
 [merge]
 	tool = vimdiff
