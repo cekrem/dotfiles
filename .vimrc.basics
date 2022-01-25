@@ -32,6 +32,10 @@ set ttyfast
 set viminfo+=!
 set wildmenu
 
+" Space leader
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 " auto complete 'hover' help
 if has("patch-8.1.1904")
       set completeopt+=popup

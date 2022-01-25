@@ -107,7 +107,7 @@ call plug#end()
 source ~/.vimrc.basics
 
 " Fix å! 
-imap <buffer> å å
+imap å å
 
 " Spellcheck markdown
 au FileType markdown setlocal spell

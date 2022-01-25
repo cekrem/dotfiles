@@ -39,6 +39,12 @@ set viminfo+=!
 set wildmenu
 set visualbell
 set noerrorbells
+set
+" Space leader
+nnoremap <SPACE> <Nop>
+set mapleader=" "
+let mapleader=" "
+nnoremap <Bslash> :e stop-using-backslash-as-leader<CR>
 
 " Keys
 " general
