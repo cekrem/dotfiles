@@ -118,10 +118,6 @@ alias sbcl="rlwrap ros run"
 alias git-report="~/code/git-report/index.js ~/code"
 alias git-report-short="~/code/git-report/index.js ~/code | tail -1"
 
-# gnu version of bsd built-ins
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 # Sorted and nice disk usage
 dunice() {
   du -mh -d1 . | sort -hr
@@ -181,18 +177,6 @@ export GOPRIVATE="github.com/vippsas/golib"
 # ripgrep / fzf settings
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob "!{node_modules,.git}"'
 
-# Extend PATH
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:~/envVars
-export PATH=$PATH:~/utils
-export PATH=$PATH:~/.roswell/bin/
-export PATH=$PATH:~/Library/Android/sdk/platform-tools
-export PATH=$PATH:~/code/kotlin-language-server/server/build/install/server/bin
-export PATH=$PATH:~/.emacs.d/bin
-export PATH=$PATH:~/.local/bin
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -209,19 +193,4 @@ export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-
-# Python 3.7
-export PATH="/usr/local/opt/python@3.7/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
-export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
-
-# Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-
-echo "$PATH" > ~/path
 [ -f "/Users/cekrem/.ghcup/env" ] && source "/Users/cekrem/.ghcup/env" # ghcup-env
