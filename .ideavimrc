@@ -100,3 +100,6 @@ nnoremap <leader>d :action ShowErrorDescription<CR>
 nnoremap <leader>v K
 " TODO nnoremap <silent> <leader>w :lopen<cr>
 "
+
+" Elm stuff
+nnoremap <leader>ep :!yes | elm format %<CR>

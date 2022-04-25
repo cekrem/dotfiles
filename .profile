@@ -28,6 +28,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 
+# Haskell (ghcup)
+export PATH=$PATH:~/.ghcup/bin
+
 echo "$PATH" > ~/path
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
