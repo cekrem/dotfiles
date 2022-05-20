@@ -18,3 +18,5 @@
 	ff = only
 [merge]
 	tool = vimdiff
+[init]
+	defaultBranch = master

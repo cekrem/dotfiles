@@ -160,8 +160,13 @@ gradle-clean() {
 }
 
 stuff() {
-  vi ~/stuff.md
+  vi ~/stuff.org
 }
+
+android-release() {
+  vi ~/android-release.org
+}
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -193,5 +198,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# haskell stuff
-# [ -f "/Users/christian.ekrem/.ghcup/env" ] && source "/Users/christian.ekrem/.ghcup/env" # ghcup-env
+source ~/.profile
+

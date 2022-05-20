@@ -287,7 +287,7 @@ let g:airline_theme='solarized'
 
 " Org mode
 nnoremap <leader>.t :e ~/Dropbox/org/main.org<CR> 
-let g:org_agenda_files = ['~/Dropbox/org/*.org']
+let g:org_agenda_files = ['~/code/*.org']
 let g:org_todo_keywords=['TODO', 'IN-PROGRESS', 'IN-REVIEW',  'BLOCKED', 'LATER',  '|', 'DONE', 'DELEGATED']
 
 colorscheme solarized8
