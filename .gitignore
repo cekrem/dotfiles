@@ -4,6 +4,7 @@
 !.gitignore_global
 !.profile
 !.zprofile
+!Brewfile
 
 !utils/
 !fonts/

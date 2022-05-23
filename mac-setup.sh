@@ -10,13 +10,9 @@ rsync -a ./ ~./
 if [ ! -f /opt/homebrew/bin/brew ]; then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew install hub python3 go zsh yarn ctags cquery ruby tmux fpp gnu-sed extract_url task entr ripgrep httpie roswell coreutils ktlint wiremock-standalone tidy-html5 exa amethyst alacritty jetbrains-toolbox
 
-brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
-ACCEPT_EULA=y brew install msodbcsql mssql-tools
-
-# Install custom vim
-brew install vim --head
+brew tap homebrew/bundle
+brew bundle install
 
 # Install proper emacs
 #brew tap railwaycat/emacsmacport

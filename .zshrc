@@ -198,5 +198,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/.profile
+source ~/.zprofile
 
