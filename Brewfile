@@ -36,6 +36,7 @@ brew "task"
 brew "tidy-html5"
 brew "tmux"
 brew "vim", args: ["HEAD"]
+brew "watch"
 brew "wget"
 brew "wiremock-standalone"
 brew "yamllint"
