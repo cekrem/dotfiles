@@ -92,6 +92,9 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 
+" Table stuff
+Plug 'dhruvasagar/vim-table-mode'
+
 " tmux integration/navigation
 Plug 'christoomey/vim-tmux-navigator'
 

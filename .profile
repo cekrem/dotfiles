@@ -11,8 +11,10 @@ export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/code/kotlin-language-server/server/build/install/server/bin
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.local/bin
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+# gnu coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"

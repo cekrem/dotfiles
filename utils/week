@@ -1,0 +1,70 @@
+#!/bin/bash
+root_path="$HOME/Jottacloud/week"
+year_path="$root_path/$(date +%Y)"
+mkdir -p "$year_path"
+
+if command -v ghead &>/dev/null; then
+  echo "ghead exists"
+  function head() {
+    ghead $*
+  }
+fi
+
+default_week=$(
+  cat <<EOF
+# Mind management helpers
+## Seven Mental States of Creative Work
+Prioritize, Explore, Research, Generate, Polish, Administrate, Recharge
+## The Four Stages of Creativity
+Preparation, Incubation, Illumination, and Verification
+# Monday
+# Tuesday
+# Wednesday
+# Thursday
+# Friday
+# Inbox
+EOF
+)
+
+# Generate week template if none is present
+week_template="$HOME/Jottacloud/week/template.md"
+if [[ ! -e "$week_template" ]]; then
+  echo "$default_week" >"$week_template"
+fi
+
+# Generate current week if none is present
+current_week="$year_path/$(date +%U).md"
+previous_week="$year_path/$(($(date +%U) - 1)).md"
+if [[ ! -e "$current_week" ]]; then
+  if [[ -e "$previous_week" ]]; then
+    echo "# From previous week" >"$current_week"
+    cat "$previous_week" | grep "\[ " >>"$current_week"
+  fi
+  cat "$week_template" >>"$current_week"
+fi
+
+# TODO: add -s "shutdown" flag
+while getopts 'cti:' flag; do
+  case "${flag}" in
+  c)
+    $EDITOR "$week_template"
+    exit 0
+    ;;
+  t)
+    awk "/$(date +%A)/, /Inbox/" "$current_week" | head -n -1
+    exit 0
+    ;;
+  i)
+    something="${OPTARG}"
+    echo "## $something" >>"$current_week"
+    echo "$something added to this week!"
+    exit 0
+    ;;
+  *)
+    echo "invalid flag"
+    exit 1
+    ;;
+  esac
+done
+
+$EDITOR "$current_week"

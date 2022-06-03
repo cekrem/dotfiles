@@ -1,0 +1,12 @@
+#!/bin/bash
+
+idea_path="$HOME/Jottacloud/ideas"
+idea_title="$*"
+idea_filename="$idea_path/$(gdate -I)_${idea_title// /-}.md"
+mkdir -p -v "$idea_path"
+touch $idea_filename
+echo $idea_filename
+echo "# $idea_title" >$idea_filename
+echo "" >>$idea_filename
+echo "" >>$idea_filename
+vim +3 "$idea_filename"
