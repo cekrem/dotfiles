@@ -112,8 +112,10 @@ source ~/.vimrc.basics
 " Fix å! 
 imap å å
 
-" Spellcheck markdown
+" Markdown
 au FileType markdown setlocal spell
+let g:vim_markdown_folding_level = 2
+
 
 " Intellisense & linting shortcuts
 noremap <C-]> :ALEGoToDefinition<CR>

@@ -20,10 +20,15 @@ fi
 default_week=$(
   cat <<EOF
 # Monday
+- Shutdown day
 # Tuesday
+- Shutdown day
 # Wednesday
+- Shutdown day
 # Thursday
+- Shutdown day
 # Friday
+- Shutdown week
 # Inbox
 EOF
 )
@@ -45,17 +50,21 @@ if [[ ! -e "$current_week" ]]; then
   fi
 fi
 
-# TODO: add -s "shutdown" flag
-while getopts 'cti:' flag; do
+today="$(date +%A)"
+next_day_or_inbox="$(date --date=tomorrow +%A | sed 's/Saturday/Inbox/g')"
+
+while getopts 'ctsi:' flag; do
   case "${flag}" in
   c)
     $EDITOR "$week_template"
     exit 0
     ;;
   t)
-    today="$(date +%A)"
-    today_end="$(date --date=tomorrow +%A | sed 's/Saturday/Inbox/g')"
-    awk "/$today/, /$today_end/" "$current_week" | head -n -1
+    awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | grep -v 'Shutdown\|  '
+    exit 0
+    ;;
+  s)
+    awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | grep 'Shutdown\|  '
     exit 0
     ;;
   i)
