@@ -15,6 +15,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # gnu coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
