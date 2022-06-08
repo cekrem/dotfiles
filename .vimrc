@@ -268,7 +268,7 @@ let g:ale_linters = {
 \   'c': 'all',
 \   'cs': 'OmniSharp',
 \   'kotlin': 'languageserver',
-\   'rust': ['rls']
+\   'rust': ['analyzer']
 \}
 let g:ale_go_golangci_lint_options = '--disable-all -p style -p complexity -p bugs -p format'
 let g:ale_go_bingo_options = '--format-style goimports --diagnostics-style none --cache-style=always'
