@@ -20,7 +20,7 @@ Usage: week
   -e[dit]:
   Use this flag (first!) to open output in vim instead of printing to stdout. Only applicable as standalone (to edit week) or combined with -c or -n.
 
-  -[c]onfig:
+  -c[onfig]:
   Config week template. Prefix with -e to edit.
 
   -t[oday]:
@@ -40,6 +40,9 @@ Usage: week
 
   -i[nbox {something}]:
   Create a new {something} task and add to this week\'s inbox.
+
+  -u[nassigned (inbox)]
+  Show content of inbox.
 
   @Keyword:
   Filter input (ie | grep @Keyword) before printing
@@ -122,13 +125,8 @@ fi
 
 cmd=cat
 
-while getopts 'phecrtsnoai:' flag; do
+while getopts 'uhecrtsnoai:' flag; do
   case "${flag}" in
-  p)
-    n_headers=$(week | grep "# " | wc -l)
-    echo $n_headers
-    exit 0
-    ;;
   h)
     echo "$usage"
     exit 0
@@ -156,6 +154,9 @@ while getopts 'phecrtsnoai:' flag; do
     ;;
   s)
     awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | $filter | grep 'Shutdown\|  '
+    echo
+    echo
+    week -u
     exit 0
     ;;
   n)
@@ -179,6 +180,10 @@ while getopts 'phecrtsnoai:' flag; do
     something="${OPTARG}"
     echo "- [ ] $something" >>"$current_week"
     echo "$something added to this week!"
+    exit 0
+    ;;
+  u)
+    week | grep -A10 "# Inbox"
     exit 0
     ;;
   *)
