@@ -43,7 +43,7 @@ Plug 'airblade/vim-rooter'
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-solarized8'
+Plug 'altercation/vim-colors-solarized'
 
 " Statusline
 Plug 'itchyny/lightline.vim'
@@ -114,8 +114,8 @@ imap å å
 
 " Markdown
 au FileType markdown setlocal spell
-let g:vim_markdown_folding_level = 2
-
+au FileType markdown setlocal foldlevel=99
+let g:vim_markdown_folding_level = 99
 
 " Intellisense & linting shortcuts
 noremap <C-]> :ALEGoToDefinition<CR>
@@ -295,5 +295,5 @@ nnoremap <leader>.t :e ~/Dropbox/org/main.org<CR>
 let g:org_agenda_files = ['~/code/*.org']
 let g:org_todo_keywords=['TODO', 'IN-PROGRESS', 'IN-REVIEW',  'BLOCKED', 'LATER',  '|', 'DONE', 'DELEGATED']
 
-colorscheme solarized8
+colorscheme solarized
 

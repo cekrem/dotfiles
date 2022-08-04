@@ -181,7 +181,8 @@ export GOPRIVATE="github.com/vippsas/golib"
 
 # ripgrep / fzf settings
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob "!{node_modules,.git}"'
-
+export FZF_DEFAULT_OPTS="--ansi"
+export NOTE_PATH=/Users/christian.ekrem/Jottacloud/ideas
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -200,3 +201,4 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs --glob 
 
 source ~/.zprofile
 
+week -r

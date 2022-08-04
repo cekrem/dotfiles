@@ -9,7 +9,8 @@ usage=$(
 Usage: week
   -e[dit instead of print]
   -c[onfig week template]
-  -t[oday] -s[hutdown]
+  -t[oday]
+  -s[hutdown]
   -n[otes for this week]
   -o[verview of all notes]
   -a[ll weeks]
@@ -112,7 +113,6 @@ fi
 today="$(date +%A)"
 next_day_or_inbox="$(date --date=tomorrow +%A | sed 's/Saturday/Inbox/g')"
 
-
 # Allow filtering on keyword tags (with '@' prefix)
 filter=tee
 tags="$(echo "$@" | grep -o '@\w\+')"
@@ -122,10 +122,10 @@ fi
 
 cmd=cat
 
-while getopts 'phectsnoai:' flag; do
+while getopts 'phecrtsnoai:' flag; do
   case "${flag}" in
   p)
-    n_headers=$(week | grep "# " | wc -l) 
+    n_headers=$(week | grep "# " | wc -l)
     echo $n_headers
     exit 0
     ;;
@@ -138,6 +138,16 @@ while getopts 'phectsnoai:' flag; do
     ;;
   c)
     $cmd "$week_template"
+    exit 0
+    ;;
+  r)
+    if [ "$(date +%H%M)" -gt 1430 ]; then
+      week -s
+    else
+      week -t
+    fi
+
+    week -n
     exit 0
     ;;
   t)
@@ -174,7 +184,8 @@ while getopts 'phectsnoai:' flag; do
   *)
     echo "$usage"
     exit 1
-    ;; esac
+    ;;
+  esac
 done
 
 $cmd "$current_week"
