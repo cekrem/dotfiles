@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/christian.ekrem/code/vipps-android-app/~'
+let g:netrw_dirhist_6='/Users/christian.ekrem/code/minigrep'
 let g:netrw_dirhist_5='/Users/christian.ekrem'
 let g:netrw_dirhist_4='/Users/christian.ekrem/utils'
 let g:netrw_dirhist_3='/Users/cekrem/code/vipps-android-app/docker-build'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_1='/Users/cekrem/.gradle'
 let g:netrw_dirhist_0='/Users/cekrem/code/git-report'
 let g:netrw_dirhist_9='/Users/cekrem/code/vipps-ecom-api'
 let g:netrw_dirhist_8='/Users/cekrem/.emacs.d'
-let g:netrw_dirhist_7='/Users/cekrem/.emacs.d/personal/preload'
-let g:netrw_dirhist_6='/Users/cekrem/code/golib/concurrency'

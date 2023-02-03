@@ -62,7 +62,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 
 " Bracket pairing
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 
 " JavaScript and jsx
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -110,7 +110,7 @@ call plug#end()
 source ~/.vimrc.basics
 
 " Fix å! 
-imap å å
+"imap å å
 
 " Markdown
 au FileType markdown setlocal spell

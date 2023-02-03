@@ -195,10 +195,33 @@ export NOTE_PATH=/Users/christian.ekrem/Jottacloud/ideas
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias rn="ripnote"
+alias intent="adb shell am start -a android.intent.action.VIEW -d"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.zprofile
 
-week -r
+lgtms=$(cat << EOF
+Let's Go To Mars!
+Let's Get This Merged!
+Lets Get Ten More
+Lonely Giraffe Tickled Me
+Legendary Genius Transformative Methods
+Let's Gamble, Try Merging
+Lines Geared Towards Mischief
+Let's Go To McDonald's
+Large Gray Torqued Monkeys
+Lazy Graphic Transformation Methods
+Leave Garfield To Me
+Lines Golf Tripods Metaphysics
+Looks Good Till Morning
+Let's Golf Together in Mars
+EOF
+)
+
+alias lgtm='echo $lgtms | shuf -n 1 | tee >(pbcopy)'
+
+#week -r
+

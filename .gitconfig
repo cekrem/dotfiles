@@ -22,3 +22,5 @@
 	tool = vimdiff
 [init]
 	defaultBranch = master
+[rerere]
+	enabled = true
