@@ -6,6 +6,9 @@ Plug 'mattn/emmet-vim'
 " Environment handling
 Plug 'tpope/vim-dotenv'
 
+" Todo.txt
+Plug 'dbeniamine/todo.txt-vim'
+
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -62,7 +65,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 
 " Bracket pairing
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " JavaScript and jsx
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -110,7 +113,10 @@ call plug#end()
 source ~/.vimrc.basics
 
 " Fix å! 
-"imap å å
+let g:AutoPairsShortcutFastWrap = "<C-f>"
+
+" Todo.txt stuff
+au FileType todo setlocal foldlevel=99
 
 " Markdown
 au FileType markdown setlocal spell

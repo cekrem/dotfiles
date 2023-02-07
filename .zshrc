@@ -108,6 +108,7 @@ fi
 export VISUAL=$editor
 export EDITOR=$editor
 alias vi=$editor
+alias todo="vim -o ~/Jottacloud/todo.txt <(week -t)"
 
 alias azc="az interactive"
 alias cli="az interactive"
