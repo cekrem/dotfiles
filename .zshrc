@@ -98,8 +98,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias pip=/usr/local/bin/pip3
   alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
   alias sed="gsed"
+  alias vim="$(brew --prefix vim)/bin/vim"
 fi
 
+alias lvim=$HOME/.local/bin/lvim
+#alias vim=lvim
 editor=vim
 if [[ "$GOLAND" == "true" ]]; then
   # editor=nvim
@@ -115,7 +118,7 @@ alias cli="az interactive"
 alias pr="hub pr show"
 alias mpboard="open 'https://vippsas.atlassian.net/secure/RapidBoard.jspa?rapidView=1'"
 alias lint="golangci-lint run --disable-all -p style -p complexity -p bugs -p format"
-alias sbcl="rlwrap ros run"
+alias sbcl-cli="rlwrap ros run"
 alias git-report="~/code/git-report/index.js ~/code"
 alias git-report-short="~/code/git-report/index.js ~/code | tail -1"
 

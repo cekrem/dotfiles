@@ -11,6 +11,7 @@ export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/code/kotlin-language-server/server/build/install/server/bin
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/Applications/Racket\ v8.8/bin
 export PATH="/usr/local/sbin:$PATH"
 
 # gnu coreutils

@@ -36,6 +36,7 @@ set conceallevel=2
 " Space leader
 nnoremap <SPACE> <Nop>
 let mapleader=" "
+let maplocalleader=" "
 
 " auto complete 'hover' help
 if has("patch-8.1.1904")
