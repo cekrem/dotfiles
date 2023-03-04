@@ -14,6 +14,7 @@ lvim.format_on_save = {
   pattern = "*.lua",
   timeout = 1000,
 }
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -31,6 +32,7 @@ vim.keymap.set("i", "jk", "<Esc>")
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
+vim.g.solarized_disable_background = true
 lvim.colorscheme = "solarized"
 
 lvim.builtin.alpha.active = true
@@ -44,6 +46,7 @@ lvim.builtin.treesitter.auto_install = true
 
 lvim.plugins = {
   {
+    "lunarvim/colorschemes",
     "shaunsingh/solarized.nvim"
   },
 }
