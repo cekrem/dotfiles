@@ -79,7 +79,7 @@ plugins=(
   taskwarrior
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -198,7 +198,6 @@ export NOTE_PATH=/Users/christian.ekrem/Jottacloud/ideas
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rn="ripnote"
 alias intent="adb shell am start -a android.intent.action.VIEW -d"
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
