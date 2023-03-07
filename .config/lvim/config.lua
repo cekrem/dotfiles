@@ -10,9 +10,9 @@ vim.opt.relativenumber = false
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = {
-  enabled = true,
-  pattern = "*.lua",
-  timeout = 1000,
+	enabled = true,
+	pattern = "*.lua",
+	timeout = 1000,
 }
 
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -45,10 +45,10 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.auto_install = true
 
 lvim.plugins = {
-  {
-    "lunarvim/colorschemes",
-    "shaunsingh/solarized.nvim"
-  },
+	{
+		"lunarvim/colorschemes",
+		"shaunsingh/solarized.nvim",
+	},
 }
 
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }

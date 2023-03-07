@@ -102,11 +102,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 alias lvim=$HOME/.local/bin/lvim
-#alias vim=lvim
-editor=vim
-if [[ "$GOLAND" == "true" ]]; then
-  # editor=nvim
-fi
+alias vim=nvim
+editor=nvim
 
 export VISUAL=$editor
 export EDITOR=$editor
