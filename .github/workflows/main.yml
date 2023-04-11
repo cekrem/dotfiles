@@ -22,7 +22,7 @@ jobs:
       - name: Upload artifact with full path
         uses: actions/upload-artifact@v3
         with:
-          name: week_with_path
+          name: config_with_path
           path: |
-            utils/week
+            .config/karabiner/karabiner.json
 
