@@ -1,19 +1,22 @@
 return {
-  -- add solarized theme
-  { "shaunsingh/solarized.nvim" },
-
-  -- Configure LazyVim to load solarized
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "solarized",
-    },
+    "shaunsingh/solarized.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme solarized]])
+    end,
   },
-
-  -- add todo.txt
   { "dbeniamine/todo.txt-vim" },
+  {
+    "vlime/vlime",
+    -- config = function()
+    --   vim.o.rtp = "vim/"
+    -- end,
+  },
+  { "wlangstroth/vim-racket" },
+  { "Olical/conjure" },
 
-  -- disable plugins
-  { "folke/noice.nvim", enabled = false },
+  -- disabled plugins
   { "goolord/alpha-nvim", enabled = false },
 }

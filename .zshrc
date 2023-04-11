@@ -94,8 +94,10 @@ touch ~/.private.env
 source ~/.private.env
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias python3="python3.10"
   alias python=python3
-  alias pip=/usr/local/bin/pip3
+  alias pip3="python -m pip"
+  alias pip="pip3"
   alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
   alias sed="gsed"
   alias vim="$(brew --prefix vim)/bin/vim"
@@ -222,6 +224,7 @@ EOF
 )
 
 alias lgtm='echo $lgtms | shuf -n 1 | tee >(pbcopy)'
+alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
 
 #week -r
 
