@@ -1,0 +1,28 @@
+name: "Test artifact upload"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  upload_artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Upload artifact with wildcard
+        uses: actions/upload-artifact@v3
+        with:
+          name: week_with_wildcard
+          path: |
+            **/week
+            
+      - uses: actions/checkout@v3
+      - name: Upload artifact with full path
+        uses: actions/upload-artifact@v3
+        with:
+          name: week_with_path
+          path: |
+            utils/week
+
