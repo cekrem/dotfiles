@@ -3,6 +3,7 @@
 -- Add any additional options here
 vim.cmd("colorscheme delek") -- solarized is not ready, but this theme is similar; avoids flashing
 vim.opt.relativenumber = false
+vim.opt.swapfile = false
 
 -- vlime settings
 vim.g.vlime_enable_autodoc = true

@@ -56,9 +56,9 @@ nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " navigation
 noremap <silent> <C-a> :action ActivateProjectToolWindow<CR>
-noremap <silent> <C-p> :action GotoFile<CR>
+nnoremap <silent> <space><space> :action GotoFile<CR>
 noremap <silent> <C-r> :action RecentChangedFiles<CR>
-noremap <silent> <leader>a :action FindInPath<CR>
+nnoremap <silent> <leader>/ :action FindInPath<CR>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
