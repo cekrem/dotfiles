@@ -8,15 +8,16 @@ return {
     end,
   },
   { "dbeniamine/todo.txt-vim" },
-  {
-    "vlime/vlime",
-    -- config = function()
-    --   vim.o.rtp = "vim/"
-    -- end,
-  },
-  { "wlangstroth/vim-racket" },
-  { "Olical/conjure" },
+  --  {
+  --   "vlime/vlime",
+  -- config = function()
+  --   vim.o.rtp = "vim/"
+  -- end,
+  -- },
+  -- { "wlangstroth/vim-racket" },
+  -- { "Olical/conjure" },
 
   -- disabled plugins
-  { "goolord/alpha-nvim", enabled = false },
+  -- { "goolord/alpha-nvim", enabled = false },
+  -- { "nvimdev/dashboard-nvim", enabled = false },
 }

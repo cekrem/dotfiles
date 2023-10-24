@@ -87,11 +87,10 @@ nnoremap <leader>.s :source ~/.ideavimrc<CR>
 nnoremap <leader>gb :action Annotate<CR>
 
 " refactor/intellisense stuff
-nnoremap <buffer> <leader>rr :action RenameElement<CR>
-nnoremap <buffer> <leader>gr :action RenameElement<CR>
-"nnoremap <leader>fr :action FindUsages<CR>
+nnoremap <buffer> <leader>cr :action RenameElement<CR>
+nnoremap gr :action FindUsages<CR>
 nnoremap <leader>fr <C-}>
-nnoremap <leader>p :action ReformatCode <CR> :action OptimizeImports<CR>
+nnoremap <leader>cf :action ReformatCode <CR> :action OptimizeImports<CR>
 nnoremap <silent> ]w :action GotoNextError<CR>
 nnoremap <silent> ]e :action GotoNextError<CR>
 nnoremap <silent> [w :action GotoPreviousError<CR>
