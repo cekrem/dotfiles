@@ -1,6 +1,5 @@
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH=$PATH:~/go/bin
@@ -30,12 +29,12 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
 # Haskell (ghcup)
 export PATH=$PATH:~/.ghcup/bin
 
-echo "$PATH" > ~/path
+echo "$PATH" >~/path
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
