@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Install Apple Command Line Tools
 xcode-select --install
@@ -23,6 +24,6 @@ brew bundle install
 #ln -s ~/.emacs.doom.d ~/.emacs.d
 
 # Install vim plugins
-vim -c PlugInstall -c UpdateRemotePlugins
+# vim -c PlugInstall -c UpdateRemotePlugins
 
 ./setup-sub-packages.sh
