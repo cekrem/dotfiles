@@ -2,14 +2,14 @@
 set -e
 
 # Install Apple Command Line Tools
-xcode-select --install
+xcode-select --install || echo "command line tools already present"
 
 # Move Everything™ to home
 rsync -a ./ ~./
 
 # Install brew and brew packages
 if [ ! -f /opt/homebrew/bin/brew ]; then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew tap homebrew/bundle
@@ -24,6 +24,12 @@ brew bundle install
 #ln -s ~/.emacs.doom.d ~/.emacs.d
 
 # Install vim plugins
-# vim -c PlugInstall -c UpdateRemotePlugins
+vim -c PlugInstall -c UpdateRemotePlugins
 
-./setup-sub-packages.sh
+#./setup-sub-packages.sh BROKEN
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

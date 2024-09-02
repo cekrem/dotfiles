@@ -232,7 +232,7 @@ EOF
 alias lgtm='echo $lgtms | shuf -n 1 | tee >(pbcopy)'
 alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
 
-source ~/.private.env
+source ~/.private.env || echo
 
 #week -r
 
