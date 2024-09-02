@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+source ~/.zprofile
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -209,7 +211,6 @@ alias intent="adb shell am start -a android.intent.action.VIEW -d"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/.zprofile
 
 lgtms=$(cat << EOF
 Let's Go To Mars!
@@ -231,8 +232,6 @@ EOF
 
 alias lgtm='echo $lgtms | shuf -n 1 | tee >(pbcopy)'
 alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
-
-source ~/.private.env || echo
 
 #week -r
 

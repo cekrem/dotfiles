@@ -12,6 +12,7 @@ export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/Applications/Racket\ v8.8/bin
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # gnu coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
