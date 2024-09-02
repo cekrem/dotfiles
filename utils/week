@@ -5,7 +5,7 @@ year_path="$root_path/$(date +%Y)"
 mkdir -p "$year_path"
 
 usage=$(
-  cat <<EOF
+	cat <<EOF
 Usage: week
   -e[dit instead of print]
   -c[onfig week template]
@@ -55,30 +55,30 @@ EOF
 
 # Hack to utilize coreutils on mac
 if command -v ghead &>/dev/null; then
-  function head() {
-    ghead $*
-  }
+	function head() {
+		ghead $*
+	}
 
-  function date() {
-    gdate $*
-  }
+	function date() {
+		gdate $*
+	}
 
-  function sed() {
-    gsed $*
-  }
+	function sed() {
+		gsed $*
+	}
 fi
 
 # Require GNU versions of head, date, sed
 array=(head date sed)
 for i in "${array[@]}"; do
-  if ! grep -q "GNU" <<<"$($i --version)"; then
-    echo "Missing GNU $i, aborting"
-    exit 1
-  fi
+	if ! grep -q "GNU" <<<"$($i --version)"; then
+		echo "Missing GNU $i, aborting"
+		exit 1
+	fi
 done
 
 default_week=$(
-  cat <<EOF
+	cat <<EOF
 # Monday
 - Shutdown day
 # Tuesday
@@ -96,21 +96,21 @@ EOF
 # Generate week template if none is present
 week_template="$HOME/Jottacloud/week/template.md"
 if [[ ! -e "$week_template" ]]; then
-  echo "$default_week" >"$week_template"
+	echo "$default_week" >"$week_template"
 fi
 
 # Generate current week if none is present
 current_week="$year_path/$(date +%U).md"
 previous_week="$year_path/$(($(date +%U) - 1)).md"
 if [[ ! -e "$current_week" ]]; then
-  echo "current week does not exist, creating"
-  cat "$week_template" >"$current_week"
+	echo "current week does not exist, creating"
+	cat "$week_template" >"$current_week"
 
-  # rollover unfinished tasks (- [ ])
-  if [[ -e "$previous_week" ]]; then
-    echo "rolling over unfinished tasks from previous week..."
-    cat "$previous_week" | grep "\[ " >>"$current_week"
-  fi
+	# rollover unfinished tasks (- [ ])
+	if [[ -e "$previous_week" ]]; then
+		echo "rolling over unfinished tasks from previous week..."
+		cat "$previous_week" | grep "\[ " >>"$current_week"
+	fi
 fi
 
 today="$(date +%A)"
@@ -120,77 +120,77 @@ next_day_or_inbox="$(date --date=tomorrow +%A | sed 's/Saturday/Inbox/g')"
 filter=tee
 tags="$(echo "$@" | grep -o '@\w\+')"
 if [[ ! -z $tags ]]; then
-  filter="grep $tags"
+	filter="grep $tags"
 fi
 
 cmd=cat
 
 while getopts 'uhecrtsnoai:' flag; do
-  case "${flag}" in
-  h)
-    echo "$usage"
-    exit 0
-    ;;
-  e)
-    cmd=vim
-    ;;
-  c)
-    $cmd "$week_template"
-    exit 0
-    ;;
-  r)
-    if [ "$(date +%H%M)" -gt 1430 ]; then
-      week -s
-    else
-      week -t
-    fi
+	case "${flag}" in
+	h)
+		echo "$usage"
+		exit 0
+		;;
+	e)
+		cmd=nvim || vim
+		;;
+	c)
+		$cmd "$week_template"
+		exit 0
+		;;
+	r)
+		if [ "$(date +%H%M)" -gt 1430 ]; then
+			week -s
+		else
+			week -t
+		fi
 
-    week -n
-    exit 0
-    ;;
-  t)
-    awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | $filter | grep -v 'Shutdown\|  '
-    exit 0
-    ;;
-  s)
-    awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | $filter | grep 'Shutdown\|  '
-    echo
-    echo
-    week -u
-    exit 0
-    ;;
-  n)
-    notes_file="${current_week/.md/.notes.md}"
-    if [[ ! -e "$notes_file" ]]; then
-      echo "# Notes" >>$notes_file
-      echo "# Ideas" >>$notes_file
-    fi
-    $cmd "$notes_file"
-    exit 0
-    ;;
-  o)
-    tail -n +1 $root_path/**/*.notes.md | sed 's/^#/##/g' | sed 's/==>/#/g' | sed 's/<==//g' | $filter | view -c 'set filetype=markdown' -
-    exit 0
-    ;;
-  a)
-    tail -n +1 $root_path/**/*.md | sed 's/#/##/g' | sed 's/==>/#/g' | sed 's/<==//g' | $filter | view -c 'set filetype=markdown' -
-    exit 0
-    ;;
-  i)
-    something="${OPTARG}"
-    echo "- [ ] $something" >>"$current_week"
-    echo "$something added to this week!"
-    exit 0
-    ;;
-  u)
-    week | grep -A10 "# Inbox"
-    exit 0
-    ;;
-  *)
-    echo "$usage"
-    exit 1
-    ;;
-  esac
+		week -n
+		exit 0
+		;;
+	t)
+		awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | $filter | grep -v 'Shutdown\|  '
+		exit 0
+		;;
+	s)
+		awk "/$today/, /$next_day_or_inbox/" "$current_week" | head -n -1 | $filter | grep 'Shutdown\|  '
+		echo
+		echo
+		week -u
+		exit 0
+		;;
+	n)
+		notes_file="${current_week/.md/.notes.md}"
+		if [[ ! -e "$notes_file" ]]; then
+			echo "# Notes" >>$notes_file
+			echo "# Ideas" >>$notes_file
+		fi
+		$cmd "$notes_file"
+		exit 0
+		;;
+	o)
+		tail -n +1 $root_path/**/*.notes.md | sed 's/^#/##/g' | sed 's/==>/#/g' | sed 's/<==//g' | $filter | view -c 'set filetype=markdown' -
+		exit 0
+		;;
+	a)
+		tail -n +1 $root_path/**/*.md | sed 's/#/##/g' | sed 's/==>/#/g' | sed 's/<==//g' | $filter | view -c 'set filetype=markdown' -
+		exit 0
+		;;
+	i)
+		something="${OPTARG}"
+		echo "- [ ] $something" >>"$current_week"
+		echo "$something added to this week!"
+		exit 0
+		;;
+	u)
+		week | grep -A10 "# Inbox"
+		exit 0
+		;;
+	*)
+		echo "$usage"
+		exit 1
+		;;
+	esac
 done
 
 $cmd "$current_week"
