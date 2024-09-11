@@ -1,0 +1,133 @@
+{
+    "window.commandCenter": true,
+    "workbench.colorTheme": "Solarized Light",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["J", "K"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "*"],
+            "commands": ["editor.action.changeAll"]
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "/"],
+            "commands": ["workbench.action.findInFiles"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<C-w>", "j"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["<C-w>", "k"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before": ["]", "f"],
+            "commands": ["editor.action.goToNextFunction"]
+        },
+        {
+            "before": ["[", "f"],
+            "commands": ["editor.action.goToPreviousFunction"]
+        },
+        {
+            "before": ["<C-}>"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": ["workbench.action.toggleZenMode"]
+        },
+        {
+            "before": ["<leader>", "g", "b"],
+            "commands": ["git.toggleLineBlame"]
+        },
+        {
+            "before": ["<leader>", "c", "r"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["g", "r"],
+            "commands": ["editor.action.goToReferences"]
+        },
+        {
+            "before": ["<leader>", "f", "r"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["<leader>", "c", "f"],
+            "commands": ["editor.action.formatDocument", "editor.action.organizeImports"]
+        },
+        {
+            "before": ["]", "w"],
+            "commands": ["editor.action.marker.next"]
+        },
+        {
+            "before": ["]", "e"],
+            "commands": ["editor.action.marker.next"]
+        },
+        {
+            "before": ["[", "w"],
+            "commands": ["editor.action.marker.prev"]
+        },
+        {
+            "before": ["[", "e"],
+            "commands": ["editor.action.marker.prev"]
+        },
+        {
+            "before": ["[", "b"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        {
+            "before": ["]", "b"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["<leader>", "c", "a"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.showHover"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "*"],
+            "commands": ["editor.action.changeAll"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        }
+    ]
+}

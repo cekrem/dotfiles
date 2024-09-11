@@ -208,6 +208,7 @@ export NOTE_PATH=/Users/cekrem/Jottacloud/ideas
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rn="ripnote"
 alias intent="adb shell am start -a android.intent.action.VIEW -d"
+alias tt="vi ~/Jottacloud/ideas/2024-09-09_Tentmaker-Tuesday.md"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -6,6 +6,9 @@
 !.zprofile
 !Brewfile
 
+# Cursor stuff
+!Library/Application Support/Cursor/User/
+
 !utils/
 !fonts/
 
