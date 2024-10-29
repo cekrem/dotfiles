@@ -3,6 +3,7 @@ export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/envVars
 export PATH=$PATH:~/utils
 export PATH=$PATH:~/.roswell/bin/
@@ -12,7 +13,8 @@ export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/Applications/Racket\ v8.8/bin
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # gnu coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -30,7 +32,7 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.12/libexec/openjdk.jdk/Contents/Home/"
 
 # Haskell (ghcup)
 export PATH=$PATH:~/.ghcup/bin

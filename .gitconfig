@@ -25,3 +25,5 @@
 	defaultBranch = master
 [rerere]
 	enabled = true
+[http]
+	cookiefile = /Users/cekrem/.gitcookies

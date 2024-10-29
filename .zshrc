@@ -233,6 +233,7 @@ EOF
 
 alias lgtm='echo $lgtms | shuf -n 1 | tee >(pbcopy)'
 alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias docker-postgres="docker run --name basic-postgres -e POSTGRES_PASSWORD=pw -p 5432:5432 -d postgres"
 
 #week -r
 
