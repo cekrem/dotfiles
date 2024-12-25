@@ -133,6 +133,9 @@
       "commands": ["editor.action.indentLines"]
     }
   ],
+  "files.associations": {
+    "*.mustache": "html"
+  },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
@@ -147,11 +150,29 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[mustache]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "git.autofetch": true,
   "[kotlin]": {
     "editor.defaultFormatter": "fwcd.kotlin",
     "continuation_indent_size": 4,
     "max_line_length": 100
+  },
+  "[elm]": {
+    "tailwindCSS.experimental.classRegex": [
+      "\\bclass[\\s(<|]+\"([^\"]*)\"",
+      "\\bclass[\\s(]+\"[^\"]*\"[\\s+]+\"([^\"]*)\"",
+      "\\bclass[\\s<|]+\"[^\"]*\"\\s*\\+{2}\\s*\" ([^\"]*)\"",
+      "\\bclass[\\s<|]+\"[^\"]*\"\\s*\\+{2}\\s*\" [^\"]*\"\\s*\\+{2}\\s*\" ([^\"]*)\"",
+      "\\bclass[\\s<|]+\"[^\"]*\"\\s*\\+{2}\\s*\" [^\"]*\"\\s*\\+{2}\\s*\" [^\"]*\"\\s*\\+{2}\\s*\" ([^\"]*)\"",
+      "\\bclassList[\\s\\[\\(]+\"([^\"]*)\"",
+      "\\bclassList[\\s\\[\\(]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"([^\"]*)\"",
+      "\\bclassList[\\s\\[\\(]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"([^\"]*)\""
+    ]
   },
   "kotlin.formatting.ktlintRules": {
     "indent_size": 4,
@@ -166,8 +187,19 @@
   "kotlin.formatter.kotlinStyleGuide": "official",
   "files.autoSave": "onFocusChange",
   "editor.tabCompletion": "on",
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "kotlin.compiler.jvm.target": "17",
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.jdt.ls.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.12",
-  "kotlin.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.12"
+  "kotlin.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.12",
+  "tailwindCSS.includeLanguages": {
+    "mustache": "html",
+    "elm": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [],
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  }
 }
