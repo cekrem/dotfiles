@@ -1,5 +1,5 @@
 {
-  "window.commandCenter": true,
+  "window.commandCenter": 1,
   "workbench.colorTheme": "Solarized Light",
   "vim.insertModeKeyBindings": [
     {

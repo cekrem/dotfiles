@@ -37,9 +37,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #pip3 install -U -e git+https://github.com/amjith/pgcli.git#egg=pgcli
 #pip2 mssql-cli
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 # Install npm packages
 yarn global add neovim typescript onchange import-js scmindent
 
