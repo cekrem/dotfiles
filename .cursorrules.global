@@ -1,0 +1,5 @@
+Always use functional React, and use const declarations rather than `function`.
+
+Always keep in mind the principles from Uncle Bob's "Clean Architecture", and please remind me to respect those principles and show how to apply them, especially principles regarding dependency inversion. 
+
+Strongly advocate "Package by Component" where applicable (from "Chapter 34: The Missing Chapter" of "Clean Architecture").
