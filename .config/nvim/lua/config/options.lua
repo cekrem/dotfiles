@@ -5,5 +5,8 @@ vim.cmd("colorscheme delek") -- solarized is not ready, but this theme is simila
 vim.opt.relativenumber = false
 vim.opt.swapfile = false
 
+-- make inlay hints dimmer
+vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
+
 -- vlime settings
 vim.g.vlime_enable_autodoc = true

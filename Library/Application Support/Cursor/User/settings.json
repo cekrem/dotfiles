@@ -158,7 +158,7 @@
   },
   "git.autofetch": true,
   "[kotlin]": {
-    "editor.defaultFormatter": "fwcd.kotlin",
+    "editor.defaultFormatter": "trunk.io",
     "continuation_indent_size": 4,
     "max_line_length": 100
   },
@@ -172,7 +172,8 @@
       "\\bclassList[\\s\\[\\(]+\"([^\"]*)\"",
       "\\bclassList[\\s\\[\\(]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"([^\"]*)\"",
       "\\bclassList[\\s\\[\\(]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"[^\"]*\",\\s[^\\)]+\\)[\\s\\[\\(,]+\"([^\"]*)\""
-    ]
+    ],
+    "editor.defaultFormatter": "elmTooling.elm-ls-vscode"
   },
   "kotlin.formatting.ktlintRules": {
     "indent_size": 4,
@@ -193,7 +194,7 @@
   "kotlin.compiler.jvm.target": "17",
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.jdt.ls.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.12",
-  "kotlin.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.12",
+  "kotlin.java.home": "/opt/homebrew/Cellar/openjdk@17/17.0.14",
   "tailwindCSS.includeLanguages": {
     "mustache": "html",
     "elm": "html"
@@ -201,5 +202,20 @@
   "tailwindCSS.experimental.classRegex": [],
   "[go]": {
     "editor.defaultFormatter": "golang.go"
-  }
+  },
+  "files.exclude": {
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*notifications/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true
+  },
+  "files.watcherExclude": {
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*notifications/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true
+  },
+  "update.releaseTrack": "prerelease"
 }

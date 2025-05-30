@@ -1,8 +1,5 @@
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
-[user]
-	name = Christian Ekrem
-	email = cekrem@pm.me
 [core]
 	excludesfile = /Users/cekrem/.gitignore_global
 [url "git@github.com:vippsas/"]
@@ -27,3 +24,12 @@
 	enabled = true
 [http]
 	cookiefile = /Users/cekrem/.gitcookies
+
+# Default settings
+[user]
+	name = Christian Ekrem
+	email = christianekrem@gmail.com
+
+# Customer specific settings
+[includeIf "gitdir:~/code/lovdata/workspace/"]
+  path = ~/.gitconfig-lovdata

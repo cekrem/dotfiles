@@ -1,5 +1,20 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = {
+        enabled = true,
+        exclude = { "go" }, -- filetypes for which you don't want to enable inlay hints
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = { preset = "super-tab" },
+    },
+  },
+  {
     "shaunsingh/solarized.nvim",
     lazy = false,
     priority = 1000,
@@ -25,7 +40,7 @@ return {
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
