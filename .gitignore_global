@@ -1,3 +1,4 @@
+.private.*
 .ctrlp
 .ctrlf
 .air.conf
@@ -34,3 +35,5 @@ Vipps.xcodeproj
 lovdata-config.xml
 Cekrem.elm
 cekrem*.md
+CLAUDE.md
+work-summary.md

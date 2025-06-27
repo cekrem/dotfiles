@@ -35,7 +35,7 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.5/libexec/openjdk.jdk/Contents/Home/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home/"
 
 # Android emulator
 alias emulator="/opt/homebrew/share/android-commandlinetools/emulator/emulator"
@@ -57,6 +57,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Lovdata stuff
+# Node version 20
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+# Aliases
 alias lov-sync="~/code/lovdata/update.sh" # update: not syncing proto, just everything else
 alias lov-config="~/code/lovdata/sync-config.sh"
 alias lov-mount="~/code/lovdata/mount.sh mount"
@@ -66,3 +70,4 @@ alias lov-backend="lsof -i :8089 >/dev/null && echo 'Port 8089 is already in use
 alias lov-kill="pkill -9 -f maven || echo 'lovdata backend is not running'"
 alias lov-reboot="lov-kill && lov-remount && lov-backend"
 alias lov-fix="yarn format && yarn review:fix && git status"
+alias lov-build="mvn clean install -Dmaven.test.skip=true"
