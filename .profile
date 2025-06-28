@@ -1,3 +1,4 @@
+touch ~/.private.env
 source ~/.private.env
 alias chatgpt="/opt/homebrew/bin/chatgpt"
 
