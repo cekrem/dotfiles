@@ -10,3 +10,6 @@ vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 
 -- vlime settings
 vim.g.vlime_enable_autodoc = true
+
+-- prettier settings
+vim.g.lazyvim_prettier_needs_config = false
