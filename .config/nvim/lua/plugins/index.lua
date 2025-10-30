@@ -1,37 +1,38 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = {
-        enabled = true,
-        exclude = { "go" },
-      },
-      servers = {
-        tailwindcss = {
-          filetypes_exclude = {},
-          filetypes_include = { "elm" },
-          settings = {
-            tailwindCSS = {
-              includeLanguages = {
-                elm = "html",
-              },
-              experimental = {
-                classRegex = {
-                  { [[\bclass[\s(<|]+"([^"]*)"]] },
-                  { [[\bclass[\s(]+"[^"]*"\s+"([^"]*)"]] },
-                  { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" ([^"]*)"]] },
-                  { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
-                  { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
-                  { [[\bclassList[\s\[\(]+"([^"]*)"]] },
-                  { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
-                  { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
-                },
+    opts = function(_, opts)
+      opts.inlay_hints = opts.inlay_hints or {}
+      opts.inlay_hints.enabled = true
+      opts.inlay_hints.exclude = { "go" }
+
+      opts.servers = opts.servers or {}
+      opts.servers.tailwindcss = {
+        filetypes_exclude = {},
+        filetypes_include = { "elm" },
+        settings = {
+          tailwindCSS = {
+            includeLanguages = {
+              elm = "html",
+            },
+            experimental = {
+              classRegex = {
+                { [[\bclass[\s(<|]+"([^"]*)"]] },
+                { [[\bclass[\s(]+"[^"]*"\s+"([^"]*)"]] },
+                { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                { [[\bclassList[\s\[\(]+"([^"]*)"]] },
+                { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
+                { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
               },
             },
           },
         },
-      },
-    },
+      }
+
+      return opts
+    end,
   },
   {
     "shaunsingh/solarized.nvim",

@@ -36,7 +36,7 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.8/libexec/openjdk.jdk/Contents/Home/"
 
 # Android emulator
 alias emulator="/opt/homebrew/share/android-commandlinetools/emulator/emulator"
@@ -72,3 +72,5 @@ alias lov-kill="pkill -9 -f maven || echo 'lovdata backend is not running'"
 alias lov-reboot="lov-kill && lov-remount && lov-backend"
 alias lov-fix="yarn format && yarn review:fix && git status"
 alias lov-build="mvn clean install -Dmaven.test.skip=true"
+alias elm-land-fork="~/code/elm-land/projects/cli/src/index.js"
+alias lov-sql="ssh -L 33306:dbaas-staging.lovdata.c.bitbit.net:3306  christianekrem@stage02.lovdata.c.bitbit.net -N"
