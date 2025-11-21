@@ -80,6 +80,7 @@ plugins=(
   brew
   rsync
   web-search
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
