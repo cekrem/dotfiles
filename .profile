@@ -20,6 +20,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# Haskell
+export PATH="$HOME/.ghcup/bin:$PATH"
+
 # gnu coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
