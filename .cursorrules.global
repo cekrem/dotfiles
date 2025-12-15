@@ -267,9 +267,7 @@ When writing functional code (especially in Elm, but applicable to other FP lang
    import Post exposing (Post, estimatedReadTime)
    -- Use sparingly! Makes it hard to track where things come from
    ```
-   - Prefer qualified imports (`Post.map`) over `exposing`
-   - Use `exposing` rarely - ideally zero or one import
-   - Exception: `import Html exposing (..)` is common and acceptable
+   - Prefer qualified imports over `exposing`, especially for Html elements (div, h1, p etc)
 
 ### Application Structure (Elm Guide)
 
