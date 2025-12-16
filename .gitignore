@@ -10,6 +10,7 @@
 
 # Cursor stuff
 !Library/Application Support/Cursor/User/
+!noredink-styleguide.md
 
 !utils/
 !fonts/
