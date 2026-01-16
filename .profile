@@ -39,7 +39,7 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.8/libexec/openjdk.jdk/Contents/Home/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/"
 
 # Android emulator
 alias emulator="/opt/homebrew/share/android-commandlinetools/emulator/emulator"
