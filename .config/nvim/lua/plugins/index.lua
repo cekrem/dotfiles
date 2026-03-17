@@ -80,4 +80,15 @@ return {
       },
     },
   },
+  {
+    "WillEhrendreich/sagefs.nvim",
+    ft = { "fsharp" },
+    opts = {
+      port = 37749, -- MCP server port
+      dashboard_port = 37750, -- Dashboard/hot-reload port
+      auto_connect = true, -- Connect SSE on startup
+      check_on_save = false, -- Type-check .fsx files on save (diagnostics via SSE)
+      density = "normal", -- "minimal" | "normal" | "full"
+    },
+  },
 }

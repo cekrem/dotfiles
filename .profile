@@ -53,6 +53,10 @@ export PATH="$HOME/.dotnet:$PATH"
 # Haskell (ghcup)
 export PATH=$PATH:~/.ghcup/bin
 
+# F#
+export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
+export PATH="$PATH:/Users/cekrem/.dotnet/tools"
+
 echo "$PATH" >~/path
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -73,7 +77,7 @@ alias lov-remount="lov-umount && lov-mount"
 alias lov-backend="lsof -i :8089 >/dev/null && echo 'Port 8089 is already in use. Aborting.' || (cd /Users/cekrem/code/lovdata/workspace/lovdata-proto/backend && mvn exec:java -Dexec.mainClass='no.lovdata.proto.ProKt' -Dio.ktor.development=true)"
 alias lov-kill="pkill -9 -f maven || echo 'lovdata backend is not running'"
 alias lov-reboot="lov-kill && lov-remount && lov-backend"
-alias lov-fix="yarn format && yarn review:fix && git status"
+alias lov-fix="mise format && mise review:fix && git status"
 alias lov-build="mvn clean install -Dmaven.test.skip=true"
 alias elm-land-fork="~/code/elm-land/projects/cli/src/index.js"
 alias lov-sql="ssh -L 33306:dbaas-staging.lovdata.c.bitbit.net:3306  christianekrem@stage02.lovdata.c.bitbit.net -N"
