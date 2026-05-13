@@ -7,6 +7,8 @@ return {
       opts.inlay_hints.exclude = { "go" }
 
       opts.servers = opts.servers or {}
+      opts.servers.kotlin_language_server = { enabled = false }
+      opts.servers.kotlin_lsp = {}
       opts.servers.tailwindcss = {
         filetypes_exclude = {},
         filetypes_include = { "elm" },
@@ -28,6 +30,18 @@ return {
               },
             },
           },
+        },
+      }
+      opts.servers.elmls = {
+        init_options = {
+          elmPath = "lamdera",
+          elmFormatPath = "elm-format",
+          elmTestPath = "elm-test",
+          elmReviewPath = "elm-review",
+          elmReviewDiagnostics = "warning",
+          disableElmLSDiagnostics = false,
+          skipInstallPackageConfirmation = false,
+          onlyUpdateDiagnosticsOnSave = false,
         },
       }
 
@@ -78,17 +92,6 @@ return {
           "fallback",
         },
       },
-    },
-  },
-  {
-    "WillEhrendreich/sagefs.nvim",
-    ft = { "fsharp" },
-    opts = {
-      port = 37749, -- MCP server port
-      dashboard_port = 37750, -- Dashboard/hot-reload port
-      auto_connect = true, -- Connect SSE on startup
-      check_on_save = false, -- Type-check .fsx files on save (diagnostics via SSE)
-      density = "normal", -- "minimal" | "normal" | "full"
     },
   },
 }

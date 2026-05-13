@@ -1,6 +1,7 @@
 touch ~/.private.env
 source ~/.private.env
 alias chatgpt="/opt/homebrew/bin/chatgpt"
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=true
 
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -39,7 +40,7 @@ export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
 
 # Java
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.10/libexec/openjdk.jdk/Contents/Home/"
 
 # Android emulator
 alias emulator="/opt/homebrew/share/android-commandlinetools/emulator/emulator"
