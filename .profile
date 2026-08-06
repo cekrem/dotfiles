@@ -67,7 +67,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Lovdata stuff
 # Node version 20
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+export PATH="/opt/homebrew/opt/node/bin:$PATH"
 
 # Aliases
 alias lov-sync="~/code/lovdata/update.sh" # update: not syncing proto, just everything else
@@ -85,3 +85,4 @@ alias lov-sql="ssh -L 33306:dbaas-staging.lovdata.c.bitbit.net:3306  christianek
 alias local-claude="ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localhost:11434 claude --model qwen3-coder"
 alias local-llm-start="ollama serve&; ollama run qwen3-coder"
 alias local-llm-stop="killall ollama -9"
+. "$HOME/.cargo/env"

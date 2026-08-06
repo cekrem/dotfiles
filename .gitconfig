@@ -10,6 +10,8 @@
 	ktlint = ! git diff --name-only origin/master | grep ".kt"| sort -u | xargs -I % ktlint --experimental % 
 	ktlint-dryrun = ! git diff --name-only origin/master | grep ".kt" | sort -u | xargs -I % echo % 
 	ls = ! git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  skip = update-index --skip-worktree
+  unskip = update-index --no-skip-worktree
 [push]
 	default = current
 	autoSetupRemote = true

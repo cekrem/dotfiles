@@ -37,3 +37,6 @@ Cekrem.elm
 cekrem*.md
 CLAUDE.md
 work-summary.md
+ignore/
+.claude/skills
+**/.claude/skills
