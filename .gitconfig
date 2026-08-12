@@ -30,7 +30,7 @@
 # Default settings
 [user]
 	name = Christian Ekrem
-	email = christianekrem@gmail.com
+	email = christianekrem@protonmail.com
 
 # Customer specific settings
 [includeIf "gitdir:~/code/lovdata/workspace/"]
