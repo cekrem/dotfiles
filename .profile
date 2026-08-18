@@ -86,3 +86,6 @@ alias local-claude="ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localh
 alias local-llm-start="ollama serve&; ollama run qwen3-coder"
 alias local-llm-stop="killall ollama -9"
 . "$HOME/.cargo/env"
+
+# Acadia shorthands
+alias acadia-dev="acadia make --gen-elm=gen && elm make src/Main.elm && acadia serve --html=index.html"
