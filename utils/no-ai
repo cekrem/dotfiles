@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir -p .github
+cp ~/utils/AI_DISCLOSURE.md ./
+cp ~/utils/no-ai.png ./.github
+echo "" >>./README.md
+echo "[![no ai, I like coding](.github/no-ai.png)](/AI_DISCLOSURE.md)" >>./README.md

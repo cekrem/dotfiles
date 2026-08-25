@@ -2,7 +2,6 @@
 .ctrlp
 .ctrlf
 .air.conf
-*.env
 *.enc
 *foo*
 uat.env

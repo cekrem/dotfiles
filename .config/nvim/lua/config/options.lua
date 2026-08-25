@@ -13,3 +13,8 @@ vim.g.vlime_enable_autodoc = true
 
 -- prettier settings
 vim.g.lazyvim_prettier_needs_config = false
+
+-- unbreak HMR in weird bun cases
+vim.o.backup = true
+vim.opt.backupcopy = "yes"
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup//"
