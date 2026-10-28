@@ -85,6 +85,13 @@ alias lov-sql="ssh -L 33306:dbaas-staging.lovdata.c.bitbit.net:3306  christianek
 alias local-claude="ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localhost:11434 claude --model qwen3-coder"
 alias local-llm-start="ollama serve&; ollama run qwen3-coder"
 alias local-llm-stop="killall ollama -9"
+alias elm-derive='elm-review --fix --template gampleman/elm-review-derive/preview'
+
+# versioned elm stuff
+alias elm-1=lamdera
+alias elm-2=elm
+alias elm-3=elm-beta
+
 . "$HOME/.cargo/env"
 
 # Acadia shorthands

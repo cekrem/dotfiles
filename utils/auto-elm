@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ ! -f elm.json ]]; then
+  echo "auto-elm: no elm.json in $(pwd)" >&2
+  exit 1
+fi
+
+if grep -q '"lamdera/' elm.json; then
+  exec lamdera "$@"
+fi
+
+version=$(sed -n 's/.*"elm-version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' elm.json | head -n 1)
+
+if [[ "$version" =~ ^0\.19\.([0-9]+)$ ]]; then
+  bin="elm-${BASH_REMATCH[1]}"
+else
+  bin="elm"
+fi
+
+if ! command -v "$bin" >/dev/null 2>&1; then
+  echo "auto-elm: elm-version \"$version\" wants '$bin', which isn't on PATH" >&2
+  exit 1
+fi
+
+exec "$bin" "$@"

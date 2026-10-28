@@ -35,7 +35,7 @@ return {
       opts.servers.elmls = {
         init_options = {
           elmPath = "lamdera",
-          elmFormatPath = "elm-format",
+          elmFormatPath = "elm-format --elm-version=elm-0.19.3",
           elmTestPath = "elm-test",
           elmReviewPath = "elm-review",
           elmReviewDiagnostics = "warning",
@@ -48,31 +48,11 @@ return {
       return opts
     end,
   },
-  {
-    "shaunsingh/solarized.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme solarized]])
-    end,
-  },
-  {
-    "maxmx03/solarized.nvim",
-    lazy = false,
-    priority = 1000,
-    ---@type solarized.config
-    opts = {},
-    config = function(_, opts)
-      vim.o.termguicolors = true
-      vim.o.background = "light"
-      require("solarized").setup(opts)
-      vim.cmd.colorscheme("solarized")
-    end,
-  },
+  { "calind/selenized.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized",
+      colorscheme = "selenized",
     },
   },
   {

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Copies ~/.claude/skills into ./.claude/skills for the current project.
+# Intended for use before launching a sandboxed Claude Code session that
+# can't see your home directory.
+
+set -euo pipefail
+
+SRC="${HOME}/.claude/skills"
+DEST="$(pwd)/.claude/skills"
+
+if [[ ! -d "$SRC" ]]; then
+  echo "error: $SRC does not exist" >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$DEST")"
+
+# Prefer rsync (incremental, handles deletions, preserves perms).
+# Fall back to cp -a if rsync isn't installed.
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a --delete "$SRC/" "$DEST/"
+else
+  rm -rf "$DEST"
+  cp -a "$SRC" "$DEST"
+fi
+
+echo "synced $SRC -> $DEST"
