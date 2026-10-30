@@ -1,5 +1,8 @@
 /opt/homebrew/bin/brew shellenv | source
 
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
 if status is-interactive
     abbr vi nvim
     abbr vim nvim

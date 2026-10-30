@@ -37,6 +37,7 @@
 !.config/fish/config.fish
 !.config/fish/functions/
 !Library/Application\ Support/JetBrains/GoLand2020.*/
+!.config/ghostty/config.ghostty
 
 !.tmux/
 !.tmux.conf
