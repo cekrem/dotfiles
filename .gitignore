@@ -34,7 +34,7 @@
 
 !.config/
 .config/nvim/plugged/
-.config/fish/
+!.config/fish/config.fish
 !.config/fish/functions/
 !Library/Application\ Support/JetBrains/GoLand2020.*/
 
