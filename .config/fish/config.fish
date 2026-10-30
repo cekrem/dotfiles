@@ -14,4 +14,5 @@ if status is-interactive
     abbr -a !! --position anywhere --function last_history_item
 
     starship init fish | source
+    zoxide init fish | source
 end

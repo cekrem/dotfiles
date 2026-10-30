@@ -1,5 +1,4 @@
-tap "ankitpokhrel/jira-cli"
-tap "docker/tap"
+tap "docker/tap"G
 tap "dsimunic/elm-wrap", trusted: true
 tap "heroku/brew"
 tap "holgerbrandl/tap"
@@ -120,8 +119,6 @@ brew "libtool"
 brew "graphviz"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Post-modern modal text editor
-brew "helix"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
@@ -272,8 +269,6 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 # Open-source keystroke visualiser
 cask "keycastr"
-# GPU-based terminal emulator
-cask "kitty"
 # Markdown editor
 cask "markedit"
 # Provides updates to various Microsoft products
